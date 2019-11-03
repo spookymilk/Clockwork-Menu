@@ -1,0 +1,40 @@
+<Entity name="unknown" >
+	<InheritTransformComponent
+        _tags="enabled_in_world"
+        use_root_parent="1">
+      <Transform 
+        position.x="0" 
+        position.y="-1000" >
+      </Transform>
+    </InheritTransformComponent>
+	<ParticleEmitterComponent
+	    _tags="enabled_in_world"
+		emitted_material_name="water"
+		gravity.y="100.0"
+		lifetime_min="3200.5"
+		lifetime_max="3200.5"
+		count_min="200"
+		count_max="300"
+		render_on_grid="1"
+		fade_based_on_lifetime="0"
+		area_circle_radius.max="3200"
+		cosmetic_force_create="0"
+		airflow_force="0.5"
+		airflow_time="0.01"
+		is_trail=1
+		airflow_scale="0.05"
+		attractor_force="0"
+		emitter_lifetime_frames="3200"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		emit_cosmetic_particles="0"
+		is_emitting="1" >
+	</ParticleEmitterComponent>
+	
+	<VelocityComponent 
+		gravity_y="100.0"
+		mass="1"
+		>
+	</VelocityComponent>
+</Entity>
+
