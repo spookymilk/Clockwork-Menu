@@ -33,6 +33,7 @@ local removecape=false;
 local rainbowcape=false;
 local light=false;
 local theTime;
+local cock=false;
 local prot_all=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
 local super_shield=EntityLoad("data/edited/supershield.xml",9999999,9999999);
 local drunkguy=EntityLoad("data/edited/drunk.xml",9999999,9999999);
@@ -53,6 +54,7 @@ local merks={"<-- Go Back"};
 local defaultActions={};
 local XGUY=GuiText(gui,0,50,"");
 local YGUY=GuiText(gui,0,50,"");
+local CLOCKGUY=GuiText(gui,0,50,"");
 
 
 async_loop(function()
@@ -79,6 +81,22 @@ YGUY=GuiText(gui,1,10,"Y: "..tostring(y));
 elseif xyz==false then
 XGUY=GuiText(gui,0,250,"");
 YGUY=GuiText(gui,0,250,"");
+end;
+if cock==true then
+CURRENT_TIME=getTime();
+HOUR=string.sub(tostring(CURRENT_TIME),3,3);
+MINUTES=string.sub(tostring(CURRENT_TIME),4,5);
+local AMORPM="";
+for i,v in pairs(TABLE_TIME) do
+if HOUR==TABLE_TIME[1] or HOUR==TABLE_TIME[2] or HOUR==TABLE_TIME[3] or HOUR==TABLE_TIME[4] or HOUR==TABLE_TIME[5] then
+AMORPM="PM";
+else
+AMORPM="AM";
+end;
+end;
+CLOCKGUY=GuiText(gui,145,0,HOUR..":"..MINUTES.." "..AMORPM);
+elseif cock==false then
+CLOCKGUY=GuiText(gui,0,250,"");
 end;
 if spellRefresh==true then
 GameRegenItemActionsInPlayer(localplayer());
@@ -335,6 +353,15 @@ if button(gui,0,0,"Show X/Y [OFF]",1) then
 xyz=true;
 end;
 end;
+if cock==true then
+if button(gui,0,0,"Show Clock [ON]",1) then
+cock=false;
+end;
+else
+if button(gui,0,0,"Show Clock [OFF]",1) then
+cock=true;
+end;
+end;
 if freecam==true then
 if button(gui,0,0,"Freecam [ON]",1) then
 freecam=false;
@@ -552,7 +579,7 @@ if button(gui,0,0,"Morning",1) then
 setTime(0.9);
 end;
 if button(gui,0,0,"MidDay",1) then
-setTime(11);
+setTime(0.1);
 end;
 if button(gui,0,0,"Golden Hour",1) then
 setTime(0.3);
@@ -575,7 +602,7 @@ if perksStay==true then
 if button(gui,0,0,"Perks Stay [ON]",1) then
 perksStay=false;
 local gottem=100;
-GlobalsSetValue( "TEMPLE_PERK_DESTROY_CHANCE", tostring(gottem));
+GlobalsSetValue("TEMPLE_PERK_DESTROY_CHANCE", tostring(gottem));
 end;
 else
 if button(gui,0,0,"Perks Stay [OFF]",1) then

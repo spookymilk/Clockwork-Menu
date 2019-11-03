@@ -29,3 +29,4 @@ TABLE_TELEPORT={"<-- Go Back","Spawn","Pyramid","The Boss","Tree","Statue","Lake
 "Holy Mountain #1","Holy Mountain #2","Holy Mountain #3","Holy Mountain #4","Holy Mountain #5","The End","The Moon/Air Essence","The Underworld","Bottom of the Lake","Dragon Cave","East Parrallel","West Parrallel","Random Location","Earth Essence","Water Essence","Fire Essence","Spirit Essence","Gold Stash #1","Gold Stash #2"};
 TABLE_PHRASE={"Got Milk?"};
 TABLE_ALC={"<-- Go Back","Bone","Brass","Copper","Creeping Fungi","Diamond","Fungi Soil","Gold","Lava","Magic Liquid","Midas","Midas Precursor","Purifying Powder","Salt","Silver","Sodium","Soil","Sulphur","Void Liquid","Water","Worm Blood"};
+TABLE_TIME={"1","2","3","4","5","6","7","8","9","0"};
