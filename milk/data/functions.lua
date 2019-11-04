@@ -33,7 +33,7 @@ end;
 end;
 function setHealth(entity,health,maxhealth)
 local damagemodels=EntityGetComponent( entity,"DamageModelComponent");
-if(damagemodels~=nil ) then
+if damagemodels~=nil then
 for i,damagemodel in ipairs(damagemodels) do		
 ComponentSetValue(damagemodel,"hp",health);
 ComponentSetValue(damagemodel,"max_hp",maxhealth);
@@ -46,7 +46,7 @@ end;
 function setTime(timer)
 local world_entity_id=GameGetWorldStateEntity();
 local test=EntityGetComponent(world_entity_id,"WorldStateComponent");
-if(test~=nil ) then
+if test~=nil then
 for i,yuh in ipairs(test) do		
 ComponentSetValue(yuh,"time",timer);
 end;
@@ -93,7 +93,7 @@ end;
 function getTime()
 local world_entity_id=GameGetWorldStateEntity();
 local test=EntityGetComponent(world_entity_id,"WorldStateComponent");
-if(test~=nil ) then
+if test~=nil then
 for i,yuh in ipairs(test) do		
 local dah=ComponentGetValue(yuh,"time");
 return dah;
@@ -112,7 +112,7 @@ rain(entity_id);
 end;
 function changeCapeColor(color)
 local damagemodels=EntityGetComponent(localplayer(),"VerletPhysicsComponent");
-if(damagemodels~=nil ) then
+if damagemodels~=nil then
 for i,damagemodel in ipairs(damagemodels) do		
 ComponentSetValue(damagemodel,"cloth_color",color);
 ComponentSetValue(damagemodel,"cloth_color_edge",color);
@@ -141,7 +141,7 @@ end;
 end;
 function editComponentInsidePlayer(component,componentChild,value)
 local comp=EntityGetComponent(localplayer(),component);
-if(comp~=nil ) then
+if comp~=nil then
 for i,x in ipairs(comp) do		
 ComponentSetValue(x,componentChild,value);
 end;
@@ -150,7 +150,7 @@ end;
 function editComponentInsideWorld(component,componentChild,value)
 local world_entity_id=GameGetWorldStateEntity();
 local comp=EntityGetComponent(world_entity_id,component);
-if(comp~=nil ) then
+if comp~=nil then
 for i,x in ipairs(comp) do		
 ComponentSetValue(x,componentChild,value);
 end;
