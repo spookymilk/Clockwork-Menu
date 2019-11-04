@@ -34,6 +34,7 @@ local rainbowcape=false;
 local light=false;
 local theTime;
 local cock=false;
+-- this is probably really gross way of doing this, oh well
 local prot_all=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
 local super_shield=EntityLoad("data/edited/supershield.xml",9999999,9999999);
 local drunkguy=EntityLoad("data/edited/drunk.xml",9999999,9999999);
@@ -57,8 +58,9 @@ local YGUY=GuiText(gui,0,50,"");
 local CLOCKGUY=GuiText(gui,0,50,"");
 
 
+-- is this hacky? probably. no performance issues on my end though.
 async_loop(function()
-wait(0);
+wait(0); -- i wish wait''; worked.
 if prot_all==1 then
 prot_all=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
 elseif super_shield==1 then
@@ -172,7 +174,7 @@ milk=open;
 end;
 endit(gui);
 end;
-
+-- they need to add colorable GUI
 open=function()
 begin(gui,1,12)
 if button(gui,0,0,"Player",1) then
