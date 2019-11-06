@@ -52,7 +52,6 @@ local cardsPageOne={"<-- Go Back"};
 local cardsPageTwo={"<-- Last Page"};
 local cardsPageThree={"<-- Last Page"};
 local merks={"<-- Go Back"};
-local defaultActions={};
 local XGUY=GuiText(gui,0,50,"");
 local YGUY=GuiText(gui,0,50,"");
 local CLOCKGUY=GuiText(gui,0,50,"");
