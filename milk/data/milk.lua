@@ -272,7 +272,7 @@ end;
 end;
 end;
 if jetpack==true then
-if button(gui,0,0,"Jetpack [ON]",1) then
+if button(gui,0,0,"Unlimited Jetpack [ON]",1) then
 jetpack=false;
 local damagemodels=EntityGetComponent(localplayer(),"CharacterDataComponent");
 if(damagemodels~=nil ) then
@@ -282,7 +282,7 @@ end;
 end;
 end;
 else
-if button(gui,0,0,"Jetpack [OFF]",1) then
+if button(gui,0,0,"Unlimited Jetpack [OFF]",1) then
 jetpack=true;
 local damagemodels=EntityGetComponent(localplayer(),"CharacterDataComponent");
 if(damagemodels~=nil ) then
@@ -898,6 +898,9 @@ tableButton(teleporter,28,function()teleport(-14062,370);end); -- fire
 tableButton(teleporter,29,function()teleport(-14075,13535);end); -- spirit
 tableButton(teleporter,30,function()teleport(-14075,16640);end);
 tableButton(teleporter,31,function()teleport(15087,-3208);end);
+tableButton(teleporter,32,function()teleport(-19748,-3420);end);
+tableButton(teleporter,33,function()teleport(0,1000000);end);
+tableButton(teleporter,34,function()teleport(0,-1000000);end);
 tableButton(TABLE_ALC,1,function()milk=open;end);
 tableButton(TABLE_ALC,2,function()spawnitem("data/milk_alc/bone.xml",1);end);
 tableButton(TABLE_ALC,3,function()spawnitem("data/milk_alc/brass.xml",1);end);
