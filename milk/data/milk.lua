@@ -547,9 +547,10 @@ editComponentInsideWorld("WorldStateComponent","fog",1);
 end;
 if button(gui,0,0,"Clear",1) then
 editComponentInsideWorld("WorldStateComponent","fog",0);
-end;
-if button(gui,0,0,"Clear Skies",1) then
-editComponentInsideWorld("WorldStateComponent","rain",0);
+editComponentInsideWorld("WorldStateComponent","fog_target",0);
+editComponentInsideWorld("WorldStateComponent","intro_weather",1);
+--wait(1);
+--editComponentInsideWorld("WorldStateComponent","intro_weather",0);
 end;
 if button(gui,0,0,"Rain",1) then
 test("water");
@@ -755,6 +756,9 @@ end;
 if button(gui,0,0,"TMP5000",1) then
 spawnitem("data/edited/TMP5000.xml",1);
 GamePrint("Enjoy your new Tunnel Master Pro 5000.");
+end;
+if button(gui,0,0,"Shoop",1) then
+spawnitem("data/edited/shoop.xml",1);
 end;
 endit(gui);
 end;
