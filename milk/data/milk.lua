@@ -916,6 +916,8 @@ tableButton(teleporter,31,function()teleport(15087,-3208);end);
 tableButton(teleporter,32,function()teleport(-19748,-3420);end);
 tableButton(teleporter,33,function()teleport(0,1000000);end);
 tableButton(teleporter,34,function()teleport(0,-1000000);end);
+tableButton(teleporter,35,function()teleport(-4354,10800);end);
+tableButton(teleporter,36,function()teleport(-15446,-4700);end);
 tableButton(TABLE_ALC,1,function()milk=open;end);
 tableButton(TABLE_ALC,2,function()spawnitem("data/milk_alc/bone.xml",1);end);
 tableButton(TABLE_ALC,3,function()spawnitem("data/milk_alc/brass.xml",1);end);
