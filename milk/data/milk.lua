@@ -34,6 +34,7 @@ local rainbowcape=false;
 local light=false;
 local theTime;
 local cock=false;
+local magnet=false;
 -- this is probably really gross way of doing this, oh well
 local prot_all=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
 local super_shield=EntityLoad("data/edited/supershield.xml",9999999,9999999);
@@ -42,6 +43,7 @@ local electroG=EntityLoad("data/edited/electro.xml",9999999,9999999);
 local johnnyG=EntityLoad("data/edited/johnnyflame.xml",9999999,9999999);
 local wem=EntityLoad("data/edited/wem.xml",9999999,9999999);
 local lightguy=EntityLoad("data/edited/light.xml",9999999,9999999);
+local magnetguy=EntityLoad("data/edited/magnet.xml",99999999,99999999);
 local books=TABLE_ONE;
 local items=TABLE_TWO;
 local friendly=TABLE_MONSTERS_FRIENDLY;
@@ -74,6 +76,8 @@ elseif wem==1 then
 wem=EntityLoad("data/edited/wem.xml",9999999,9999999);
 elseif lightguy==1 then
 lightguy=EntityLoad("data/edited/light.xml",9999999,9999999);
+elseif magnetguy==1 then
+magnetguy=EntityLoad("data/edited/magnet.xml",99999999,99999999);
 end;
 if xyz==true then
 local x,y=localplayerPos();
@@ -493,6 +497,18 @@ else
 if button(gui,0,0,"Light [OFF]",1) then
 light=true;
 EntityAddChild(localplayer(),lightguy);
+end;
+end;
+if magnet==true then
+if button(gui,0,0,"Magnet [ON]",1) then
+magnet=false;
+huntNKill(magnetguy);
+magnetguy=1;
+end;
+else
+if button(gui,0,0,"Magnet [OFF]",1) then
+magnet=true;
+EntityAddChild(localplayer(),magnetguy);
 end;
 end;
 endit(gui);
