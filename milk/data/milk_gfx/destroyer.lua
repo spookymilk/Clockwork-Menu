@@ -36,7 +36,7 @@ local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local gun = { }
 gun.name = {"Destroyer"}
-gun.deck_capacity = {1,1}
+gun.deck_capacity = {30,30}
 gun.actions_per_round = 2
 gun.reload_time = {-20,-20}
 gun.shuffle_deck_when_empty = 0
@@ -46,7 +46,7 @@ gun.speed_multiplier = 10
 gun.mana_charge_speed = {10000,10000}
 gun.mana_max = {10000,10000}
 -- Note(Petri): Removed DYNAMITE
-gun.actions = {"FIREBALL","ARC_FIRE","BURN_TRAIL","FIREBALL","FIREBALL_RAY","FLAMETHROWER","ROCKET","ROCKET_TIER_2","ROCKET_TIER_3","LASER"}
+gun.actions = {"FIREBALL","ARC_FIRE","BURN_TRAIL","FIREBALL","FIREBALL_RAY","FLAMETHROWER","ROCKET","ROCKET_TIER_2","ROCKET_TIER_3","LASER","RECOIL_DAMPER"}
 
 local mana_max = get_random_between_range( gun.mana_max )
 local deck_capacity = get_random_between_range( gun.deck_capacity )
@@ -76,3 +76,6 @@ AddGunActionPermanent( entity_id, gun.actions[7])
 AddGunActionPermanent( entity_id, gun.actions[8])
 AddGunActionPermanent( entity_id, gun.actions[9])
 AddGunActionPermanent( entity_id, gun.actions[10])
+for i=1,30 do
+AddGunAction(entity_id,gun.actions[11]); -- no recoil!
+end;
