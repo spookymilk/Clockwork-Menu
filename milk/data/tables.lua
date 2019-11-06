@@ -26,7 +26,8 @@ TABLE_MONSTERS_ENEMY={"<-- Go Back","acidshooter","alchemist","ant","assassin","
 "turret_right","wand_ghost","wizard_dark","wizard_poly","wizard_tele","wolf","worm","worm_big","worm_end",
 "worm_skull","worm_tiny","zombie","zombie_weak"};
 TABLE_TELEPORT={"<-- Go Back","Spawn","Pyramid","The Boss","Tree","Statue","Lake","Shrine","Pond","Skull","E.S.A","Lava",
-"Holy Mountain #1","Holy Mountain #2","Holy Mountain #3","Holy Mountain #4","Holy Mountain #5","The End","The Moon/Air Essence","The Underworld","Bottom of the Lake","Dragon Cave","East Parrallel","West Parrallel","Random Location","Earth Essence","Water Essence","Fire Essence","Spirit Essence","Gold Stash #1","Gold Stash #2"};
+"Holy Mountain #1","Holy Mountain #2","Holy Mountain #3","Holy Mountain #4","Holy Mountain #5","The End","The Moon/Air Essence","The Underworld","Bottom of the Lake","Dragon Cave","East Parrallel","West Parrallel","Random Location","Earth Essence","Water Essence","Fire Essence","Spirit Essence","Gold Stash #1","Gold Stash #2",
+"Gold Stash #3","1,000,000 Below","1,000,000 Above"};
 TABLE_PHRASE={"Got Milk?"};
 TABLE_ALC={"<-- Go Back","Bone","Brass","Copper","Creeping Fungi","Diamond","Fungi Soil","Gold","Lava","Magic Liquid","Midas","Midas Precursor","Purifying Powder","Salt","Silver","Sodium","Soil","Sulphur","Void Liquid","Water","Worm Blood"};
 TABLE_TIME={"1","2","3","4","5","6","7","8","9","0"};
