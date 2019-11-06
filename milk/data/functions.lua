@@ -100,16 +100,6 @@ return dah;
 end;
 end;
 end;
-function test(material)
-local rain=function(entity)
-edit_component(entity,"ParticleEmitterComponent",function(comp,vars)
-vars.emitted_material_name=material;
-end);
-end;
-local entity_id=EntityLoad("data/toybox/edited/test.xml",0,-1000);
-EntityAddChild(localplayer(),entity_id);
-rain(entity_id);
-end;
 function changeCapeColor(color)
 local damagemodels=EntityGetComponent(localplayer(),"VerletPhysicsComponent");
 if damagemodels~=nil then
@@ -153,6 +143,15 @@ local comp=EntityGetComponent(world_entity_id,component);
 if comp~=nil then
 for i,x in ipairs(comp) do		
 ComponentSetValue(x,componentChild,value);
+end;
+end;
+end;
+function compareComponentInsideWorld(component,componentChild,value)
+local world_entity_id=GameGetWorldStateEntity();
+local comp=EntityGetComponent(world_entity_id,component);
+if comp~=nil then
+for i,x in ipairs(comp) do		
+return ComponentGetValue(x,componentChild);
 end;
 end;
 end;

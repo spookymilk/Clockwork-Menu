@@ -539,38 +539,20 @@ begin(gui,1,12);
 if button(gui,0,0,"<-- Go Back",1) then
 milk=world;
 end;
-if button(gui,0,0,"Cloudy",1) then
-editComponentInsideWorld("WorldStateComponent","rain",100000);
-end;
 if button(gui,0,0,"Foggy",1) then
+if compareComponentInsideWorld("WorldStateComponent","intro_weather") == 1 then
+editComponentInsideWorld("WorldStateComponent","intro_weather",0);
 editComponentInsideWorld("WorldStateComponent","fog",1);
+else
+editComponentInsideWorld("WorldStateComponent","fog",1);
+end;
 end;
 if button(gui,0,0,"Clear",1) then
 editComponentInsideWorld("WorldStateComponent","fog",0);
-editComponentInsideWorld("WorldStateComponent","fog_target",0);
 editComponentInsideWorld("WorldStateComponent","intro_weather",1);
---wait(1);
---editComponentInsideWorld("WorldStateComponent","intro_weather",0);
-end;
-if button(gui,0,0,"Rain",1) then
-test("water");
-GamePrintImportant("You have angered the Gods!","The Gods have cursed you with rain.")
-end;
-if button(gui,0,0,"Blood Rain",1) then
-test("blood_fading");
-GamePrintImportant("You have angered the Gods!","The Gods have cursed you with blood.")
-end;
-if button(gui,0,0,"Acid Rain",1) then
-test("acid");
-GamePrintImportant("You have angered the Gods!","The Gods have cursed you with acid.")
-end;
-if button(gui,0,0,"Slime Rain",1) then
-test("slime");
-GamePrintImportant("You have angered the Gods!","The Gods have cursed you with slime.")
-end;
-if button(gui,0,0,"Gold Rain",1) then
-test("gold");
-GamePrintImportant("You have pleased the Gods!","Wait what?")
+editComponentInsideWorld("WorldStateComponent","rain",0);
+wait(1);
+editComponentInsideWorld("WorldStateComponent","intro_weather",0);
 end;
 endit(gui);
 end;
