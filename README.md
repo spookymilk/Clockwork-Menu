@@ -10,7 +10,7 @@ You can purchase the game here:
 ### Installing and Using the Mod
 
 It's fairly easy to install the menu, you can do so by:
-* 1. Download from here* [Download](https://github.com/spookymilk/Milk-Menu/archive/master.zip)
+* 1. Download from [Here](https://github.com/spookymilk/Milk-Menu/archive/master.zip)
 * 2. Navigate to the Noita mods folder, for example mine is located here: C:/Program Files (x86)/Steam/steamapps/common/Noita/mods*
 * 3. Place the "milk" folder inside of mods*
 * 4. Start Noita and enable the mod through the Mods tab in the pause menu.*
