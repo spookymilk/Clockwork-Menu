@@ -34,7 +34,7 @@ end;
 function setHealth(entity,health,maxhealth)
 local damagemodels=EntityGetComponent( entity,"DamageModelComponent");
 if damagemodels~=nil then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"hp",health);
 ComponentSetValue(damagemodel,"max_hp",maxhealth);
 end;
@@ -47,7 +47,7 @@ function setTime(timer)
 local world_entity_id=GameGetWorldStateEntity();
 local test=EntityGetComponent(world_entity_id,"WorldStateComponent");
 if test~=nil then
-for i,yuh in ipairs(test) do		
+for i,yuh in pairs(test) do		
 ComponentSetValue(yuh,"time",timer);
 end;
 end;
@@ -94,7 +94,7 @@ function getTime()
 local world_entity_id=GameGetWorldStateEntity();
 local test=EntityGetComponent(world_entity_id,"WorldStateComponent");
 if test~=nil then
-for i,yuh in ipairs(test) do		
+for i,yuh in pairs(test) do		
 local dah=ComponentGetValue(yuh,"time");
 return dah;
 end;
@@ -103,7 +103,7 @@ end;
 function changeCapeColor(color)
 local damagemodels=EntityGetComponent(localplayer(),"VerletPhysicsComponent");
 if damagemodels~=nil then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"cloth_color",color);
 ComponentSetValue(damagemodel,"cloth_color_edge",color);
 end;
@@ -132,8 +132,16 @@ end;
 function editComponentInsidePlayer(component,componentChild,value)
 local comp=EntityGetComponent(localplayer(),component);
 if comp~=nil then
-for i,x in ipairs(comp) do		
+for i,x in pairs(comp) do		
 ComponentSetValue(x,componentChild,value);
+end;
+end;
+end;
+function editMetaComponentInsidePlayer(component,componentChild,value)
+local comp=EntityGetComponent(localplayer(),component);
+if comp~=nil then
+for i,x in pairs(comp) do		
+ComponentSetMetaCustom(x,componentChild,value);
 end;
 end;
 end;
@@ -141,7 +149,7 @@ function editComponentInsideWorld(component,componentChild,value)
 local world_entity_id=GameGetWorldStateEntity();
 local comp=EntityGetComponent(world_entity_id,component);
 if comp~=nil then
-for i,x in ipairs(comp) do		
+for i,x in pairs(comp) do		
 ComponentSetValue(x,componentChild,value);
 end;
 end;
@@ -150,7 +158,7 @@ function compareComponentInsideWorld(component,componentChild,value)
 local world_entity_id=GameGetWorldStateEntity();
 local comp=EntityGetComponent(world_entity_id,component);
 if comp~=nil then
-for i,x in ipairs(comp) do		
+for i,x in pairs(comp) do		
 return ComponentGetValue(x,componentChild);
 end;
 end;

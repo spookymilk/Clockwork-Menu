@@ -1,4 +1,4 @@
-<Entity>
+<Entity name="ALL_OF_THE_LIGHTS">
 	<InheritTransformComponent>
 			<Transform 
 				only_position="1"

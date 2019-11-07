@@ -1,4 +1,4 @@
-<Entity>
+<Entity name="PROTECTION_ALL_HAHA">
 	
 	<InheritTransformComponent>
     </InheritTransformComponent>	

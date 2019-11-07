@@ -1,4 +1,4 @@
-<Entity>
+<Entity name="THIS_IS_JUST_A_PERK_LAME">
 	<InheritTransformComponent>
     </InheritTransformComponent>	
     

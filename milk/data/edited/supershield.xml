@@ -1,4 +1,4 @@
-<Entity _tags="energy_shield">
+<Entity name="SUPER_SHIELD_HAHA">
 	<InheritTransformComponent>
 			<Transform 
 				only_position="1"

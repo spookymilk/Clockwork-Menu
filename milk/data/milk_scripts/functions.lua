@@ -44,3 +44,10 @@ shoot_projectile(entity,projectiles,ex,ey,ix-ex,iy-ey);
 end;
 end;
 end;
+function addFeet(entity,numberOfFeet)
+local x,y=EntityGetTransform(entity);
+for i=1,numberOfFeet do
+local feet=EntityLoad("data/entities/misc/perks/attack_foot/limb_walker.xml",x,y);
+EntityAddChild(entity,feet);
+end;
+end;

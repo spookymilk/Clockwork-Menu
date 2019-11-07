@@ -4,7 +4,8 @@ end;
 dofile("data/scripts/lib/utilities.lua");
 dofile("data/scripts/perks/perk.lua");
 dofile("data/scripts/gun/gun_actions.lua" );
-dofile("data/functions.lua");
+dofile("data/functions.lua"); -- not the same
+dofile("data/milk_scripts/functions.lua"); -- not the same
 dofile("data/tables.lua");
 
 local gui=GuiCreate();
@@ -35,15 +36,18 @@ local light=false;
 local theTime;
 local cock=false;
 local magnet=false;
--- this is probably really gross way of doing this, oh well
-local prot_all=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
-local super_shield=EntityLoad("data/edited/supershield.xml",9999999,9999999);
-local drunkguy=EntityLoad("data/edited/drunk.xml",9999999,9999999);
-local electroG=EntityLoad("data/edited/electro.xml",9999999,9999999);
-local johnnyG=EntityLoad("data/edited/johnnyflame.xml",9999999,9999999);
-local wem=EntityLoad("data/edited/wem.xml",9999999,9999999);
-local lightguy=EntityLoad("data/edited/light.xml",9999999,9999999);
-local magnetguy=EntityLoad("data/edited/magnet.xml",99999999,99999999);
+local superkick=false;
+local spider=false;
+local prot_all=false;
+local super_shield=false;
+local drunkguy=false;
+local electroG=false;
+local johnnyG=false;
+local wem=false;
+local lightguy=false;
+local magnetguy=false;
+local spiderguy=false;
+local faster=false;
 local books=TABLE_ONE;
 local items=TABLE_TWO;
 local friendly=TABLE_MONSTERS_FRIENDLY;
@@ -62,23 +66,6 @@ local CLOCKGUY=GuiText(gui,0,50,"");
 -- is this hacky? probably. no performance issues on my end though.
 async_loop(function()
 wait(0); -- i wish wait''; worked.
-if prot_all==1 then
-prot_all=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
-elseif super_shield==1 then
-super_shield=EntityLoad("data/edited/supershield.xml",9999999,9999999);
-elseif drunkguy==1 then
-drunkguy=EntityLoad("data/edited/drunk.xml",9999999,9999999);
-elseif electroG==1 then
-electroG=EntityLoad("data/edited/electro.xml",9999991,9999919);
-elseif johnnyG==1 then
-johnnyG=EntityLoad("data/edited/johnnyflame.xml",9919999,9999199);
-elseif wem==1 then
-wem=EntityLoad("data/edited/wem.xml",9999999,9999999);
-elseif lightguy==1 then
-lightguy=EntityLoad("data/edited/light.xml",9999999,9999999);
-elseif magnetguy==1 then
-magnetguy=EntityLoad("data/edited/magnet.xml",99999999,99999999);
-end;
 if xyz==true then
 local x,y=localplayerPos();
 XGUY=GuiText(gui,1,0,"X: "..tostring(x));
@@ -211,23 +198,30 @@ endit(gui);
 end;
 
 player=function()
-local ee=prot_all;
 begin(gui,1,12);
 if button(gui,0,0,"<-- Go Back",1) then
 milk=open;
 end;
 if god==true then
+local placeholder;
 if button(gui,0,0,"Godmode [ON]",1) then
 god=false;
+if prot_all==true then
 setHealth(localplayer(),4,4);
-huntNKill(ee);
-prot_all=1;
+local findProt=EntityGetWithName("PROTECTION_ALL_HAHA");
+huntNKill(findProt);
+prot_all=false;
+end;
 end;
 else
 if button(gui,0,0,"Godmode [OFF]",1) then
 god=true;
+if prot_all==false then
 setHealth(localplayer(),25,25);
-EntityAddChild(localplayer(),ee);
+placeholder=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
+EntityAddChild(localplayer(),placeholder);
+prot_all=true;
+end;
 end;
 end;
 if breathless==true then
@@ -235,7 +229,7 @@ if button(gui,0,0,"Breathless [ON]",1) then
 breathless=false;
 local damagemodels=EntityGetComponent(localplayer(),"DamageModelComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"air_needed",1);
 end;
 end;
@@ -245,7 +239,7 @@ if button(gui,0,0,"Breathless [OFF]",1) then
 breathless=true;
 local damagemodels=EntityGetComponent(localplayer(),"DamageModelComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"air_needed",0);
 end;
 end;
@@ -256,7 +250,7 @@ if button(gui,0,0,"Greedy [ON]",1) then
 greedy=false;
 local damagemodels=EntityGetComponent(localplayer(),"WalletComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"money",10);
 ComponentSetValue(damagemodel,"mHasReachInf",0);
 end;
@@ -267,7 +261,7 @@ if button(gui,0,0,"Greedy [OFF]",1) then
 greedy=true;
 local damagemodels=EntityGetComponent(localplayer(),"WalletComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"money",10000);
 ComponentSetValue(damagemodel,"mHasReachInf",1);
 end;
@@ -279,7 +273,7 @@ if button(gui,0,0,"Unlimited Jetpack [ON]",1) then
 jetpack=false;
 local damagemodels=EntityGetComponent(localplayer(),"CharacterDataComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"flying_needs_recharge",1);
 end;
 end;
@@ -289,7 +283,7 @@ if button(gui,0,0,"Unlimited Jetpack [OFF]",1) then
 jetpack=true;
 local damagemodels=EntityGetComponent(localplayer(),"CharacterDataComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"flying_needs_recharge",0);
 end;
 end;
@@ -300,7 +294,7 @@ if button(gui,0,0,"Mega Inventory [ON]",1) then
 megainv=false;
 local damagemodels=EntityGetComponent(localplayer(),"Inventory2Component");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"full_inventory_slots_y",1);
 end;
 end;
@@ -310,7 +304,7 @@ if button(gui,0,0,"Mega Inventory [OFF]",1) then
 megainv=true;
 local damagemodels=EntityGetComponent(localplayer(),"Inventory2Component");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"full_inventory_slots_y",5);
 end;
 end;
@@ -321,7 +315,7 @@ if button(gui,0,0,"High [ON]",1) then
 high=false;
 local damagemodels=EntityGetComponent(localplayer(),"DrugEffectComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"hallucinogen_amount",0);
 end;
 end;
@@ -331,22 +325,30 @@ if button(gui,0,0,"High [OFF]",1) then
 high=true;
 local damagemodels=EntityGetComponent(localplayer(),"DrugEffectComponent");
 if(damagemodels~=nil ) then
-for i,damagemodel in ipairs(damagemodels) do		
+for i,damagemodel in pairs(damagemodels) do		
 ComponentSetValue(damagemodel,"hallucinogen_amount",1);
 end;
 end;
 end;
 end;
 if drunk==true then
+local placeholder;
 if button(gui,0,0,"Drunk [ON]",1) then
 drunk=false;
-huntNKill(drunkguy);
-drunkguy=1;
+if drunkguy==true then
+local findDrunk=EntityGetWithName("GO_TO_AA");
+huntNKill(findDrunk);
+drunkguy=false;
+end;
 end;
 else
 if button(gui,0,0,"Drunk [OFF]",1) then
 drunk=true;
-EntityAddChild(localplayer(),drunkguy);
+if drunkguy==false then
+placeholder=EntityLoad("data/edited/drunk.xml",9999999,9999999);
+EntityAddChild(localplayer(),placeholder);
+drunkguy=true;
+end;
 end;
 end;
 if xyz==true then
@@ -388,51 +390,83 @@ spellRefresh=true;
 end;
 end;
 if wandsE==true then
+local placeholder;
 if button(gui,0,0,"Edit Wands Everywhere [ON]",1) then
 wandsE=false;
-huntNKill(wem);
-wem=1;
+if wem==true then
+local findWem=EntityGetWithName("THIS_IS_JUST_A_PERK_LAME");
+huntNKill(findWem);
+wem=false;
+end;
 end;
 else
 if button(gui,0,0,"Edit Wands Everywhere [OFF]",1) then
 wandsE=true;
-EntityAddChild(localplayer(),wem);
+if wem==false then
+placeholder=EntityLoad("data/edited/wem.xml",9999999,9999999);
+EntityAddChild(localplayer(),placeholder);
+wem=true;
+end;
 end;
 end;
 if supershield==true then
+local placeholder;
 if button(gui,0,0,"Angry God Shield [ON]",1) then
 supershield=false;
-huntNKill(super_shield);
-super_shield=1;
+if super_shield==true then
+local findShield=EntityGetWithName("SUPER_SHIELD_HAHA");
+huntNKill(findShield);
+super_shield=false;
+end;
 end;
 else
 if button(gui,0,0,"Angry God Shield [OFF]",1) then
 supershield=true;
-EntityAddChild(localplayer(),super_shield);
+if super_shield==false then
+placeholder=EntityLoad("data/edited/supershield.xml",9999999,9999999);
+EntityAddChild(localplayer(),placeholder);
+super_shield=true;
+end;
 end;
 end;
 if electro==true then
+local placeholder;
 if button(gui,0,0,"Electro [ON]",1) then
 electro=false;
-huntNKill(electroG);
-electroG=1;
+if electroG==true then
+local findElectro=EntityGetWithName("ELECTRO_GOT_WRECKED_ASM2");
+huntNKill(findElectro);
+electroG=false;
+end;
 end;
 else
 if button(gui,0,0,"Electro [OFF]",1) then
 electro=true;
-EntityAddChild(localplayer(),electroG);
+if electroG==false then
+placeholder=EntityLoad("data/edited/electro.xml",9999999,9999999);
+EntityAddChild(localplayer(),placeholder);
+electroG=true;
+end;
 end;
 end;
 if johnnyflame==true then
+local placeholder;
 if button(gui,0,0,"Johnny Flame [ON]",1) then
 johnnyflame=false;
-huntNKill(johnnyG);
-johnnyG=1;
+if johnnyG==true then
+local findJohnny=EntityGetWithName("SWEET_JOHNNY_EARL");
+huntNKill(findJohnny);
+johnnyG=false;
+end;
 end;
 else
 if button(gui,0,0,"Johnny Flame [OFF]",1) then
 johnnyflame=true;
-EntityAddChild(localplayer(),johnnyG);
+if johnnyG==false then
+placeholder=EntityLoad("data/edited/johnnyflame.xml",9999999,9999999);
+EntityAddChild(localplayer(),placeholder);
+johnnyG=true;
+end;
 end;
 end;
 if immortal==true then
@@ -475,6 +509,23 @@ fastjetpack=true;
 editComponentInsidePlayer("CharacterPlatformingComponent","fly_speed_max_up",1000);
 end;
 end;
+if faster==true then
+if button(gui,0,0,"Faster [ON]",1) then
+faster=false;
+local velmin=0-math.abs(65);
+editMetaComponentInsidePlayer("CharacterPlatformingComponent","run_velocity","192.5");
+editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_max_x","65");
+editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_min_x",tostring(velmin));
+end;
+else
+if button(gui,0,0,"Faster [OFF]",1) then
+faster=true;
+local velmin=0-math.abs(219.48);
+editMetaComponentInsidePlayer("CharacterPlatformingComponent","run_velocity","650");
+editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_max_x","219.48");
+editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_min_x",tostring(velmin));
+end;
+end;
 if rainbowcape==true then
 if button(gui,0,0,"Rainbow Cape [ON]",1) then
 rainbowcape=false;
@@ -488,27 +539,80 @@ end;
 end;
 end;
 if light==true then
+local placeholder;
 if button(gui,0,0,"Light [ON]",1) then
 light=false;
-huntNKill(lightguy);
-lightguy=1;
+if lightguy==true then
+local findLight=EntityGetWithName("ALL_OF_THE_LIGHTS");
+huntNKill(findLight);
+lightguy=false;
+end;
 end;
 else
 if button(gui,0,0,"Light [OFF]",1) then
 light=true;
-EntityAddChild(localplayer(),lightguy);
+if lightguy==false then
+placeholder=EntityLoad("data/edited/light.xml",9999999,9999999);
+EntityAddChild(localplayer(),placeholder);
+lightguy=true;
+end;
 end;
 end;
 if magnet==true then
+local placeholder;
 if button(gui,0,0,"Magnet [ON]",1) then
 magnet=false;
-huntNKill(magnetguy);
-magnetguy=1;
+if magnetguy==true then
+local findMagneto=EntityGetWithName("XMAN_MOVIES_SUCK_LOWKEY");
+huntNKill(findMagneto);
+magnetguy=false;
+end;
 end;
 else
 if button(gui,0,0,"Magnet [OFF]",1) then
 magnet=true;
-EntityAddChild(localplayer(),magnetguy);
+if magnetguy==false then
+placeholder=EntityLoad("data/edited/magnet.xml",99999999,99999999);
+EntityAddChild(localplayer(),placeholder);
+magnetguy=true;
+end;
+end;
+end;
+if superkick==true then
+if button(gui,0,0,"Super Kick [ON]",1) then
+superkick=false;
+editMetaComponentInsidePlayer("KickComponent","max_force","18");
+editMetaComponentInsidePlayer("KickComponent","player_kickforce","14.8");
+editMetaComponentInsidePlayer("KickComponent","kick_damage","0.04");
+editMetaComponentInsidePlayer("KickComponent","kick_knockback","10");
+end;
+else
+if button(gui,0,0,"Super Kick [OFF]",1) then
+superkick=true;
+editMetaComponentInsidePlayer("KickComponent","max_force","1000");
+editMetaComponentInsidePlayer("KickComponent","player_kickforce","1000");
+editMetaComponentInsidePlayer("KickComponent","kick_damage","500");
+editMetaComponentInsidePlayer("KickComponent","kick_knockback","950");
+end;
+end;
+if spider==true then
+local placeholder;
+if button(gui,0,0,"Spider [ON]",1) then
+spider=false;
+if spiderguy==true then
+local findSpider=EntityGetWithName("SPIDER_LEGS_HAHA");
+huntNKill(findSpider);
+spiderguy=false;
+end;
+end;
+else
+if button(gui,0,0,"Spider [OFF]",1) then
+spider=true;
+if spiderguy==false then
+spiderguy=true;
+placeholder=EntityLoad("data/edited/spider.xml",99999999,99999999);
+EntityAddChild(localplayer(),placeholder);
+end;
 end;
 end;
 endit(gui);
@@ -681,6 +785,12 @@ end;
 if button(gui,0,0,"Curse of the Octopus",1) then
 GamePrint("Is this really an ability?");
 loadabilityraw(localplayer(),"data/edited/octopussy.xml");
+end;
+if button(gui,0,0,"Fart",1) then
+loadabilityraw(localplayer(),"data/entities/misc/effect_farts.xml");
+end;
+if button(gui,0,0,"Add Leg",1) then
+addFeet(localplayer(),1);
 end;
 endit(gui);
 end;

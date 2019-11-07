@@ -1,7 +1,5 @@
 <Sprite 
 	filename="data/milk_gfx/wands/mjolnir.png" 
-	offset_x="6" 
-	offset_y="3" 
 	>
 	
   <!-- handgun -->

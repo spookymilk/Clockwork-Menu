@@ -1,4 +1,4 @@
-<Entity _tags="energy_shield">
+<Entity name="ELECTRO_GOT_WRECKED_ASM2">
 	<InheritTransformComponent>
 			<Transform 
 				only_position="1"

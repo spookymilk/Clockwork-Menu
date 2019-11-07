@@ -1,4 +1,4 @@
-<Entity>
+<Entity name="XMAN_MOVIES_SUCK_LOWKEY">
 	<InheritTransformComponent />
 	
 	<LuaComponent 
