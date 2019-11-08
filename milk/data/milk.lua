@@ -762,7 +762,8 @@ if button(gui,0,0,"<-- Go Back",1) then
 milk=open;
 end;
 if button(gui,0,0,"Giga Blackhole",1) then
-loadabilityraw(localplayer(),"data/entities/projectiles/deck/black_hole_big.xml");
+--loadabilityraw(localplayer(),"data/entities/projectiles/deck/black_hole_big.xml"); a thing of the past..
+attackRaw(localplayer(),0,0,math.random(-50,50),math.random(-75,75),"data/entities/projectiles/deck/black_hole_big.xml");
 end;
 if button(gui,0,0,"Earthquake",1) then
 loadabilityraw(localplayer(),"data/milk_edited/earthquake.xml");
