@@ -51,3 +51,13 @@ local feet=EntityLoad("data/entities/misc/perks/attack_foot/limb_walker.xml",x,y
 EntityAddChild(entity,feet);
 end;
 end;
+function removeFeet(entity,numberOfFeet)
+for i=1,numberOfFeet do
+local spiderleg=EntityGetWithName("WE_ALL_FLOAT_DOWN_HERE");
+if spiderleg~= nil then
+EntityKill(spiderleg);
+else
+GamePrint("Spider leg not found!");
+end;
+end;
+end;

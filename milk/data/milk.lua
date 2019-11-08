@@ -792,6 +792,9 @@ end;
 if button(gui,0,0,"Add Leg",1) then
 addFeet(localplayer(),1);
 end;
+if button(gui,0,0,"Remove Leg",1) then
+removeFeet(localplayer(),1);
+end;
 endit(gui);
 end;
 
