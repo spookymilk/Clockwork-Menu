@@ -19,4 +19,4 @@ It's fairly easy to install the menu, you can do so by:
 ## Acknowledgments
 
 * Nolla Games for supply such a wonderful game, and the documentation for said game.
-* probable-basilisk who can be found here, [probable-basilisk](https://github.com/probable-basilisk), help with getting the function from a table-list of buttons.
+* probable-basilisk who can be found,[probable-basilisk](https://github.com/probable-basilisk),which helped getting the function from a table-list of buttons.
