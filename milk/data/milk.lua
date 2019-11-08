@@ -799,6 +799,12 @@ end;
 if button(gui,0,0,"Remove Leg",1) then
 removeFeet(localplayer(),1);
 end;
+if button(gui,0,0,"Call of Cthulhu",1) then
+GamePrint("Is this really an ability?");
+local x,y=localplayerPos();
+EntityLoad("data/milk_edited/call_of_cthulhu_portal.xml",x,y-20);
+GameScreenshake(75,x,y-20);
+end;
 endit(gui);
 end;
 
@@ -1091,8 +1097,6 @@ end;
 end;
 
 milk=closed;
---newAction("CALL_OF_CTHULHU","Call of Cthulhu","Call the great one.","data/milk_gfx/call_of_cthulhu.png",ACTION_TYPE_PROJECTILE,"0,1,2,3,4,5,6,7,8,9,10,11","1,1,1,1,1,1,1,1,1,1,1,1",999999,650,666,"data/milk_cards/call_of_cthulhu_tentacle.xml",function()add_projectile("data/milk_cards/call_of_cthulhu.xml");end)
---soon
 
 
 async_loop(function()

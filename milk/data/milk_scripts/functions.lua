@@ -67,6 +67,10 @@ shoot_projectile(entity,projectiles,ex+offsetX,ey+offsetY,ix-ex,iy-ey);
 end;
 end;
 end;
+function attackRaw(entity,offsetX,offsetY,specialX,specialY,projectiles)
+local ex,ey=EntityGetTransform(entity);
+shoot_projectile(entity,projectiles,ex+offsetX,ey+offsetY,specialX*ex,specialY*ey);
+end;
 function addFeet(entity,numberOfFeet)
 local x,y=EntityGetTransform(entity);
 for i=1,numberOfFeet do
