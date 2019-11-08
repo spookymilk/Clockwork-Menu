@@ -1,0 +1,11 @@
+<Entity name="THIS_IS_JUST_A_PERK_LAME">
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+        effect="EDIT_WANDS_EVERYWHERE"
+        frames="-1"
+    >
+	</GameEffectComponent >
+
+</Entity>

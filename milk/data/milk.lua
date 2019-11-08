@@ -218,7 +218,7 @@ if button(gui,0,0,"Godmode [OFF]",1) then
 god=true;
 if prot_all==false then
 setHealth(localplayer(),25,25);
-placeholder=EntityLoad("data/edited/protection_all.xml",9999999,9999999);
+placeholder=EntityLoad("data/milk_edited/protection_all.xml",9999999,9999999);
 EntityAddChild(localplayer(),placeholder);
 prot_all=true;
 end;
@@ -345,7 +345,7 @@ else
 if button(gui,0,0,"Drunk [OFF]",1) then
 drunk=true;
 if drunkguy==false then
-placeholder=EntityLoad("data/edited/drunk.xml",9999999,9999999);
+placeholder=EntityLoad("data/milk_edited/drunk.xml",9999999,9999999);
 EntityAddChild(localplayer(),placeholder);
 drunkguy=true;
 end;
@@ -403,7 +403,7 @@ else
 if button(gui,0,0,"Edit Wands Everywhere [OFF]",1) then
 wandsE=true;
 if wem==false then
-placeholder=EntityLoad("data/edited/wem.xml",9999999,9999999);
+placeholder=EntityLoad("data/milk_edited/wem.xml",9999999,9999999);
 EntityAddChild(localplayer(),placeholder);
 wem=true;
 end;
@@ -423,7 +423,7 @@ else
 if button(gui,0,0,"Angry God Shield [OFF]",1) then
 supershield=true;
 if super_shield==false then
-placeholder=EntityLoad("data/edited/supershield.xml",9999999,9999999);
+placeholder=EntityLoad("data/milk_edited/supershield.xml",9999999,9999999);
 EntityAddChild(localplayer(),placeholder);
 super_shield=true;
 end;
@@ -443,7 +443,7 @@ else
 if button(gui,0,0,"Electro [OFF]",1) then
 electro=true;
 if electroG==false then
-placeholder=EntityLoad("data/edited/electro.xml",9999999,9999999);
+placeholder=EntityLoad("data/milk_edited/electro.xml",9999999,9999999);
 EntityAddChild(localplayer(),placeholder);
 electroG=true;
 end;
@@ -463,7 +463,7 @@ else
 if button(gui,0,0,"Johnny Flame [OFF]",1) then
 johnnyflame=true;
 if johnnyG==false then
-placeholder=EntityLoad("data/edited/johnnyflame.xml",9999999,9999999);
+placeholder=EntityLoad("data/milk_edited/johnnyflame.xml",9999999,9999999);
 EntityAddChild(localplayer(),placeholder);
 johnnyG=true;
 end;
@@ -552,7 +552,7 @@ else
 if button(gui,0,0,"Light [OFF]",1) then
 light=true;
 if lightguy==false then
-placeholder=EntityLoad("data/edited/light.xml",9999999,9999999);
+placeholder=EntityLoad("data/milk_edited/light.xml",9999999,9999999);
 EntityAddChild(localplayer(),placeholder);
 lightguy=true;
 end;
@@ -572,7 +572,7 @@ else
 if button(gui,0,0,"Magnet [OFF]",1) then
 magnet=true;
 if magnetguy==false then
-placeholder=EntityLoad("data/edited/magnet.xml",99999999,99999999);
+placeholder=EntityLoad("data/milk_edited/magnet.xml",99999999,99999999);
 EntityAddChild(localplayer(),placeholder);
 magnetguy=true;
 end;
@@ -610,7 +610,7 @@ if button(gui,0,0,"Spider [OFF]",1) then
 spider=true;
 if spiderguy==false then
 spiderguy=true;
-placeholder=EntityLoad("data/edited/spider.xml",99999999,99999999);
+placeholder=EntityLoad("data/milk_edited/spider.xml",99999999,99999999);
 EntityAddChild(localplayer(),placeholder);
 end;
 end;
@@ -765,26 +765,30 @@ if button(gui,0,0,"Giga Blackhole",1) then
 loadabilityraw(localplayer(),"data/entities/projectiles/deck/black_hole_big.xml");
 end;
 if button(gui,0,0,"Earthquake",1) then
-loadabilityraw(localplayer(),"data/edited/earthquake.xml");
+loadabilityraw(localplayer(),"data/milk_edited/earthquake.xml");
 end;
 if button(gui,0,0,"Super Freeze Circle",1) then
-loadabilityraw(localplayer(),"data/edited/superfreezeguy.xml");
+loadabilityraw(localplayer(),"data/milk_edited/superfreezeguy.xml");
 end;
 if button(gui,0,0,"Air Essence",1) then
-loadabilityraw(localplayer(),"data/edited/air.xml");
+loadabilityraw(localplayer(),"data/milk_edited/air.xml");
 end;
 if button(gui,0,0,"Fire Essence",1) then
-loadabilityraw(localplayer(),"data/edited/fire.xml");
+loadabilityraw(localplayer(),"data/milk_edited/fire.xml"); -- i'm missing one of these, can't find the file ??
 end;
 if button(gui,0,0,"Earth Essence",1) then
-loadabilityraw(localplayer(),"data/edited/laser.xml");
+loadabilityraw(localplayer(),"data/milk_edited/laser.xml");
 end;
 if button(gui,0,0,"Water Essence",1) then
-loadabilityraw(localplayer(),"data/edited/water.xml");
+loadabilityraw(localplayer(),"data/milk_edited/water.xml");
 end;
 if button(gui,0,0,"Curse of the Octopus",1) then
 GamePrint("Is this really an ability?");
-loadabilityraw(localplayer(),"data/edited/octopussy.xml");
+loadabilityraw(localplayer(),"data/milk_edited/octopussy.xml");
+end;
+if button(gui,0,0,"Curse of the Missiles",1) then
+GamePrint("Is this really an ability?");
+loadabilityraw(localplayer(),"data/milk_edited/missiles.xml");
 end;
 if button(gui,0,0,"Fart",1) then
 loadabilityraw(localplayer(),"data/entities/misc/effect_farts.xml");
@@ -833,27 +837,27 @@ if button(gui,0,0,"<-- Go Back",1) then
 milk=open;
 end;
 if button(gui,0,0,"Super Wand",1) then
---loadability(localplayer(),localplayerPos(),"data/edited/superwand.xml");
-spawnitem("data/edited/superwand.xml",1);
+--loadability(localplayer(),localplayerPos(),"data/milk_edited/superwand.xml");
+spawnitem("data/milk_edited/superwand.xml",1);
 end;
 if button(gui,0,0,"Mjolnir",1) then
-spawnitem("data/edited/mjolnir.xml",1);
+spawnitem("data/milk_edited/mjolnir.xml",1);
 end;
 if button(gui,0,0,"Shotgun",1) then
-spawnitem("data/edited/shotgun.xml",1);
+spawnitem("data/milk_edited/shotgun.xml",1);
 end;
 if button(gui,0,0,"AK-47",1) then
-spawnitem("data/edited/ak47.xml",1);
+spawnitem("data/milk_edited/ak47.xml",1);
 end;
 if button(gui,0,0,"Destroyer",1) then
-spawnitem("data/edited/destroyer.xml",1);
+spawnitem("data/milk_edited/destroyer.xml",1);
 end;
 if button(gui,0,0,"TMP5000",1) then
-spawnitem("data/edited/TMP5000.xml",1);
+spawnitem("data/milk_edited/TMP5000.xml",1);
 GamePrint("Enjoy your new Tunnel Master Pro 5000.");
 end;
 if button(gui,0,0,"Shoop",1) then
-spawnitem("data/edited/shoop.xml",1);
+spawnitem("data/milk_edited/shoop.xml",1);
 end;
 endit(gui);
 end;
@@ -959,10 +963,10 @@ tableButton(items,38,function()spawnitem("data/entities/projectiles/deck/sea_wat
 tableButton(items,39,function()spawnitem("data/entities/projectiles/deck/sea_lava.xml",spawnRate);end);
 tableButton(items,40,function()spawnitem("data/entities/projectiles/deck/sea_oil.xml",spawnRate);end);
 tableButton(items,41,function()spawnitem("data/entities/projectiles/deck/sea_acid.xml",spawnRate);end);
-tableButton(items,42,function()spawnitem("data/edited/sea_toxic.xml",spawnRate);end);
-tableButton(items,43,function()spawnitem("data/edited/sea_slime.xml",spawnRate);end);
+tableButton(items,42,function()spawnitem("data/milk_edited/sea_toxic.xml",spawnRate);end);
+tableButton(items,43,function()spawnitem("data/milk_edited/sea_slime.xml",spawnRate);end);
 tableButton(items,44,function()spawnitem("data/entities/projectiles/deck/sea_alcohol.xml",spawnRate);end);
-tableButton(items,45,function()spawnitem("data/edited/sea_gold.xml",spawnRate);end);
+tableButton(items,45,function()spawnitem("data/milk_edited/sea_gold.xml",spawnRate);end);
 tableButton(items,46,function()spawnitem("data/entities/projectiles/bomb.xml",spawnRate);end);
 tableButton(items,47,function()spawnitem("data/entities/projectiles/bomb_holy.xml",spawnRate);end);
 tableButton(items,48,function()spawnitem("data/entities/projectiles/tnt.xml",spawnRate);end);
@@ -973,7 +977,7 @@ tableButton(items,52,function()spawnitem("data/entities/projectiles/deck/firewor
 tableButton(items,53,function()spawnitem("data/entities/projectiles/deck/fireworks/firework_green.xml",spawnRate);end);
 tableButton(items,54,function()spawnitem("data/entities/projectiles/deck/fireworks/firework_orange.xml",spawnRate);end);
 tableButton(items,55,function()spawnitem("data/entities/projectiles/deck/fireworks/firework_pink.xml",spawnRate);end);
-tableButton(items,56,function()spawnitem("data/edited/gunpowder.xml",spawnRate);end);
+tableButton(items,56,function()spawnitem("data/milk_edited/gunpowder.xml",spawnRate);end);
 tableButton(items,57,function()spawnitem("data/entities/props/physics_trap_circle_acid.xml",spawnRate);end);
 tableButton(items,58,function()spawnitem("data/entities/props/physics_trap_electricity.xml",spawnRate);end);
 tableButton(items,59,function()spawnitem("data/entities/props/physics_trap_ignite_a.xml",spawnRate);end);

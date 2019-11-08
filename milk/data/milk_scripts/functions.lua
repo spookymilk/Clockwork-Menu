@@ -21,7 +21,7 @@ end;
 end;
 end;
 end;
-function attackNear(entity,attackTag,distanceTo,maxAttack,projectiles)
+function attackCore(entity,attackTag,distanceTo,maxAttack,projectiles)
 local ex,ey=EntityGetTransform(entity);
 local enemies=EntityGetWithTag(attackTag);
 local tempTable={};
@@ -41,6 +41,29 @@ for _,v in pairs(tempTable) do
 local ix=v.X;
 local iy=v.Y;
 shoot_projectile(entity,projectiles,ex,ey,ix-ex,iy-ey);
+end;
+end;
+end;
+function attackOffset(entity,attackTag,distanceTo,offsetX,offsetY,maxAttack,projectiles)
+local ex,ey=EntityGetTransform(entity);
+local enemies=EntityGetWithTag(attackTag);
+local tempTable={};
+local range=0;
+if enemies~=nil then
+for _,v in pairs(enemies) do
+local ix,iy=EntityGetTransform(v);
+local distance=math.sqrt(((ex-ix)*(ex-ix))+((ey-iy)*(ey-iy)));
+if distance<distanceTo and range<maxAttack then
+tempTable[range]={X=ix,Y=iy};
+range=range+1;
+end;
+end;
+end;
+if range>0 then
+for _,v in pairs(tempTable) do
+local ix=v.X;
+local iy=v.Y;
+shoot_projectile(entity,projectiles,ex+offsetX,ey+offsetY,ix-ex,iy-ey);
 end;
 end;
 end;
