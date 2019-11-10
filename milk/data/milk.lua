@@ -46,8 +46,8 @@ local lightguy=false;
 local magnetguy=false;
 local spiderguy=false;
 local faster=false;
-local defaultPlayer=true;
-local milkyPlayer=false;
+local midasfield=false;
+local midasguy=false;
 local books=TABLE_ONE;
 local items=TABLE_TWO;
 local friendly=TABLE_MONSTERS_FRIENDLY;
@@ -581,6 +581,26 @@ spider=true;
 if spiderguy==false then
 spiderguy=true;
 placeholder=EntityLoad("data/milk_edited/spider.xml",99999999,99999999);
+EntityAddChild(localplayer(),placeholder);
+end;
+end;
+end;
+if midasfield==true then
+local placeholder;
+if button(gui,0,0,"Midas Field [ON]",1) then
+midasfield=false;
+if midasguy==true then
+local findGold=EntityGetWithName("DIE_GOLD_DIE");
+huntNKill(findGold);
+midasguy=false;
+end;
+end;
+else
+if button(gui,0,0,"Midas Field [OFF]",1) then
+midasfield=true;
+if midasguy==false then
+midasguy=true;
+placeholder=EntityLoad("data/milk_edited/midasfield.xml",99999999,99999999);
 EntityAddChild(localplayer(),placeholder);
 end;
 end;

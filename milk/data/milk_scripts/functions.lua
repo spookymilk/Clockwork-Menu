@@ -21,6 +21,21 @@ end;
 end;
 end;
 end;
+function convertField(entity,attractionTag,theDistance,material)
+local ex,ey=EntityGetTransform(entity);
+local allWithTag=EntityGetWithTag(attractionTag);
+if allWithTag~=nil then
+for _,v in pairs(allWithTag) do
+local ix,iy=EntityGetTransform(v);
+local distance=math.abs(ex-ix)+math.abs(ey-iy);
+local maxDistance=theDistance;
+if distance<maxDistance*1.25 then
+EntityConvertToMaterial(v,material);
+EntityKill(v);
+end;
+end;
+end;
+end;
 function attackCore(entity,attackTag,distanceTo,maxAttack,projectiles)
 local ex,ey=EntityGetTransform(entity);
 local enemies=EntityGetWithTag(attackTag);
