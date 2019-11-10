@@ -27,7 +27,7 @@ local allWithTag=EntityGetWithTag(attractionTag);
 if allWithTag~=nil then
 for _,v in pairs(allWithTag) do
 local ix,iy=EntityGetTransform(v);
-local distance=math.abs(ex-ix)+math.abs(ey-iy);
+local distance=math.abs(ex+-ix)+math.abs(ey-iy);
 local maxDistance=theDistance;
 if distance<maxDistance*1.25 then
 EntityConvertToMaterial(v,material);

@@ -503,7 +503,7 @@ else
 if button(gui,0,0,"Faster [OFF]",1) then
 faster=true;
 local velmin=0-math.abs(219.48);
-editMetaComponentInsidePlayer("CharacterPlatformingComponent","run_velocity","650");
+editMetaComponentInsidePlayer("CharacterPlatformingComponent","run_velocity","550");
 editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_max_x","219.48");
 editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_min_x",tostring(velmin));
 end;
