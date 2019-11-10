@@ -100,15 +100,6 @@ return dah;
 end;
 end;
 end;
-function changeCapeColor(color)
-local damagemodels=EntityGetComponent(localplayer(),"VerletPhysicsComponent");
-if damagemodels~=nil then
-for i,damagemodel in pairs(damagemodels) do		
-ComponentSetValue(damagemodel,"cloth_color",color);
-ComponentSetValue(damagemodel,"cloth_color_edge",color);
-end;
-end;
-end;
 function addCards(tableGuy,startIndex,endIndex,currentPage,isMorePages)
 for i,v in pairs(tableGuy) do
 if i>=startIndex and i<=endIndex then
@@ -162,4 +153,29 @@ for i,x in pairs(comp) do
 return ComponentGetValue(x,componentChild);
 end;
 end;
+end;
+function setPlayer(character,arm,ragdoll,cape)
+local player=localplayer();
+local arm_r=nil;
+local children=EntityGetAllChildren(player);
+if children~=nil then
+for _,v in pairs(children) do
+local spec=EntityGetName(v);
+if spec=="arm_r" then
+arm_r=v;
+end;
+end;
+end;
+local playerSprite=EntityGetFirstComponent(player,"SpriteComponent");
+local playerArmSprite=EntityGetFirstComponent(arm_r,"SpriteComponent");
+local playerRagdoll=EntityGetFirstComponent(player,"DamageModelComponent");
+ComponentSetValue(playerSprite,"image_file",character);
+ComponentSetValue(playerArmSprite,"image_file",arm);
+ComponentSetValue(playerRagdoll,"ragdoll_filenames_file",ragdoll);
+local findOld=EntityGetWithName("cape");
+if findOld~=nil then
+EntityKill(findOld);
+end;
+local CAP=EntityLoad(cape,0,0);
+EntityAddChild(player,CAP);
 end;

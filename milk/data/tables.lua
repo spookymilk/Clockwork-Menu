@@ -31,3 +31,4 @@ TABLE_TELEPORT={"<-- Go Back","Spawn","Pyramid","The Boss","Tree","Statue","Lake
 TABLE_PHRASE={"Got Milk?"};
 TABLE_ALC={"<-- Go Back","Bone","Brass","Copper","Creeping Fungi","Diamond","Fungi Soil","Gold","Lava","Magic Liquid","Midas","Midas Precursor","Purifying Powder","Salt","Silver","Sodium","Soil","Sulphur","Void Liquid","Water","Worm Blood"};
 TABLE_TIME={"1","2","3","4","5","6","7","8","9","0"};
+TABLE_PLAYERSPRITES={"<-- Go Back","Default","Milky","Unknown"}

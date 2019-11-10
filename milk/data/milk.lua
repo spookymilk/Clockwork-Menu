@@ -10,7 +10,7 @@ dofile("data/tables.lua");
 
 local gui=GuiCreate();
 local milk=nil;
-local closed,open,player,abilities,world,spawnables,animals,timeguy,weatherguy,itemsguy,booksguy,miscguy,friendlyguys,meanguys,teleportLoc,settings,alchemy,spells,spellstwo,spellsthree,perks,weapons;
+local closed,open,player,abilities,world,spawnables,animals,timeguy,weatherguy,itemsguy,booksguy,miscguy,friendlyguys,meanguys,teleportLoc,settings,alchemy,spells,spellstwo,spellsthree,perks,weapons,playersprites;
 local spawnRate=1;
 local god=false
 local breathless=false
@@ -30,8 +30,6 @@ local freecam=false;
 local immortal=false;
 local heavyguy=false;
 local fastjetpack=false;
-local removecape=false;
-local rainbowcape=false;
 local light=false;
 local theTime;
 local cock=false;
@@ -48,6 +46,8 @@ local lightguy=false;
 local magnetguy=false;
 local spiderguy=false;
 local faster=false;
+local defaultPlayer=true;
+local milkyPlayer=false;
 local books=TABLE_ONE;
 local items=TABLE_TWO;
 local friendly=TABLE_MONSTERS_FRIENDLY;
@@ -96,24 +96,6 @@ elseif spellRefresh==false then
 end;
 if frozentime==true then
 setTime(theTime);
-end;
-if rainbowcape==true then
-local cape=EntityGetWithName("cape");
-local rainbow=randomHexRainbow();
-if cape~=nil then
-edit_component(cape,"VerletPhysicsComponent",function(comp,vars) 
-vars.cloth_color=rainbow;
-vars.cloth_color_edge=rainbow;
-end);
-end;
-elseif rainbowcape==false then
-local cape=EntityGetWithName("cape");
-if cape~=nil then
-edit_component(cape,"VerletPhysicsComponent",function(comp,vars) 
-vars.cloth_color=0xFFFFA07A;
-vars.cloth_color_edge=vars.cloth_color;
-end);
-end;
 end;
 end);
 
@@ -526,18 +508,6 @@ editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_max_x","
 editMetaComponentInsidePlayer("CharacterPlatformingComponent","velocity_min_x",tostring(velmin));
 end;
 end;
-if rainbowcape==true then
-if button(gui,0,0,"Rainbow Cape [ON]",1) then
-rainbowcape=false;
-end;
-else
-if button(gui,0,0,"Rainbow Cape [OFF]",1) then
-local cape=EntityGetWithName("cape");
-if cape~=nil then
-rainbowcape=true;
-end;
-end;
-end;
 if light==true then
 local placeholder;
 if button(gui,0,0,"Light [ON]",1) then
@@ -835,6 +805,9 @@ UnlockItem(v.id)
 GamePrint("Unlocked: "..v.id);
 end;
 end;
+if button(gui,0,0,"Player Appearance",1) then
+milk=playersprites;
+end;
 endit(gui);
 end;
 
@@ -906,6 +879,10 @@ end;
 
 perks=function()
 listFree(merks);
+end;
+
+playersprites=function()
+list(TABLE_PLAYERSPRITES);
 end;
 
 addCards(actions,1,82,cardsPageOne,true);
@@ -1094,6 +1071,15 @@ if denzel=="<-- Go Back" then
 tableButton(merks,1,function()milk=spawnables;end);
 else
 tableButton(merks,curry,function()local x,y=localplayerPos();perk_spawn(x,y-5,denzel);end);
+end;
+end;
+for player,sprites in pairs(TABLE_PLAYERSPRITES) do
+if sprites=="<-- Go Back" then
+tableButton(TABLE_PLAYERSPRITES,1,function()milk=settings;end);
+elseif sprites=="Default" then
+tableButton(TABLE_PLAYERSPRITES,2,function()setPlayer("data/enemies_gfx/player.xml","data/enemies_gfx/player_arm.xml","data/ragdolls/player/filenames.txt","data/milk_gfx/player_sprites/cape.xml");end);
+else
+tableButton(TABLE_PLAYERSPRITES,player,function()setPlayer("data/milk_gfx/player_sprites/"..sprites.."/player.xml","data/milk_gfx/player_sprites/"..sprites.."/player_arm.xml","data/milk_gfx/player_sprites/"..sprites.."/player/filenames.txt","data/milk_gfx/player_sprites/"..sprites.."/cape.xml");end);
 end;
 end;
 

@@ -1,0 +1,8 @@
+data/milk_gfx/player_sprites/Unknown/player/torso.png
+data/milk_gfx/player_sprites/Unknown/player/right_thigh.png
+data/milk_gfx/player_sprites/Unknown/player/right_arm.png
+data/milk_gfx/player_sprites/Unknown/player/right_hand.png
+data/milk_gfx/player_sprites/Unknown/player/left_thigh.png
+data/milk_gfx/player_sprites/Unknown/player/left_arm.png
+data/milk_gfx/player_sprites/Unknown/player/left_hand.png
+data/milk_gfx/player_sprites/Unknown/player/head.png
