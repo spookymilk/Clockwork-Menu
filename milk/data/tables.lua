@@ -1,3 +1,4 @@
+dofile("data/functions.lua");
 TABLE_ONE={"<-- Go Back","Base Tablet","Tablet 00","Tablet 01","Tablet 02","Tablet 03","Tablet 04","Tablet 05","Tablet 06","Tablet 07","Tablet 08","Tablet 09","Tablet 10","Tablet 11","Tablet 12","Tablet Corpse","Tablet Tree"};
 TABLE_TWO={"<-- Go Back","Chest","Chest Rare","Egg: Fire","Egg: Monster","Egg: Red", "Egg: Slime","Egg: Worm","Gold Nugget","Thunderstone","Beer Bottle","Big Rock","Ladder","Burning Barrel","Oil Barrel",
 "Radioactive Barrel","Long Vase","Explosives","Box","Small Box","Bucket","Small Lantern","Cart","Chair","Crate","Gem","Lantern","Minecart","Propane Tank","Pressure Tank","Sandbag","Skateboard","Skull","Bone",
@@ -34,3 +35,11 @@ TABLE_TIME={"1","2","3","4","5","6","7","8","9","0"};
 TABLE_PLAYERSPRITES={"<-- Go Back","Default","Eldritch","Fire","Milky","Santa","Unknown","Urine"}
 TABLE_GUYS={"water","water_ice","water_swamp","oil","alcohol","swamp","mud","blood","blood_fungi","blood_worm","radioactive_liquid","cement","acid","lava","urine","poison","magic_liquid_teleportation","magic_liquid_polymorph","magic_liquid_random_polymorph","magic_liquid_berserk","magic_liquid_charm","magic_liquid_invisibility"};
 TABLE_GUYSTWO={"sand","bone","soil","honey","slime","snow","rotten_meat","wax","gold","silver","copper","brass","diamond","coal","gunpowder","gunpowder_explosive","grass","fungi"};
+TABLE_ALLMATERIALS={};
+
+getAllMaterial(CellFactory_GetAllLiquids(),TABLE_ALLMATERIALS);
+getAllMaterial(CellFactory_GetAllSands(),TABLE_ALLMATERIALS);
+getAllMaterial(CellFactory_GetAllGases(),TABLE_ALLMATERIALS);
+getAllMaterial(CellFactory_GetAllSolids(),TABLE_ALLMATERIALS);
+getAllMaterial(CellFactory_GetAllFires(),TABLE_ALLMATERIALS);
+

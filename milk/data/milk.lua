@@ -10,7 +10,7 @@ dofile("data/tables.lua");
 
 local gui=GuiCreate();
 local milk=nil;
-local closed,open,player,abilities,world,spawnables,animals,timeguy,weatherguy,itemsguy,booksguy,miscguy,friendlyguys,meanguys,teleportLoc,settings,alchemy,spells,spellstwo,spellsthree,perks,weapons,playersprites;
+local closed,open,player,abilities,world,spawnables,animals,timeguy,weatherguy,itemsguy,booksguy,miscguy,friendlyguys,meanguys,teleportLoc,settings,alchemy,spells,spellstwo,spellsthree,perks,weapons,playersprites,potions,potionstwo,potionsthree,potionsfour,potionsfive;
 local spawnRate=1;
 local god=false
 local breathless=false
@@ -59,6 +59,11 @@ local teleporter=TABLE_TELEPORT;
 local cardsPageOne={"<-- Go Back"};
 local cardsPageTwo={"<-- Last Page"};
 local cardsPageThree={"<-- Last Page"};
+local potionsPageOne={"<-- Go Back"};
+local potionsPageTwo={"<-- Last Page"};
+local potionsPageThree={"<-- Last Page"};
+local potionsPageFour={"<-- Last Page"};
+local potionsPageFive={"<-- Last Page"};
 local merks={"<-- Go Back"};
 local XGUY=GuiText(gui,0,50,"");
 local YGUY=GuiText(gui,0,50,"");
@@ -731,6 +736,9 @@ end;
 if button(gui,0,0,"Perks",1) then
 milk=perks;
 end;
+if button(gui,0,0,"Potions",1) then
+milk=potions;
+end;
 endit(gui);
 end;
 
@@ -891,6 +899,26 @@ spells=function()
 listFree(cardsPageOne);
 end;
 
+potions=function()
+listFree(potionsPageOne);
+end;
+
+potionstwo=function()
+listFree(potionsPageTwo);
+end;
+
+potionsthree=function()
+listFree(potionsPageThree);
+end;
+
+potionsfour=function()
+listFree(potionsPageFour);
+end;
+
+potionsfive=function()
+listFree(potionsPageFive);
+end;
+
 spellstwo=function()
 listFree(cardsPageTwo);
 end;
@@ -911,6 +939,11 @@ addCards(actions,1,82,cardsPageOne,true);
 addCards(actions,83,164,cardsPageTwo,true);
 addCards(actions,165,196,cardsPageThree,false);
 addCards(perk_list,1,90,merks,false);
+addRaw(TABLE_ALLMATERIALS,1,82,potionsPageOne,true);
+addRaw(TABLE_ALLMATERIALS,83,164,potionsPageTwo,true);
+addRaw(TABLE_ALLMATERIALS,165,246,potionsPageThree,true);
+addRaw(TABLE_ALLMATERIALS,245,326,potionsPageFour,true);
+addRaw(TABLE_ALLMATERIALS,327,408,potionsPageFive,false);
 tableButton(books,1,function()milk=spawnables;end);
 tableButton(books,2,function()spawnitem("data/entities/items/books/base_book.xml",spawnRate);end);
 tableButton(books,3,function()spawnitem("data/entities/items/books/book_00.xml",spawnRate);end);
@@ -1091,6 +1124,49 @@ tableButton(TABLE_ALC,better,function()
 local x,y=localplayerPos();
 GameCreateParticle(alc:lower(),x,y-70,100,0,0,false);
 end);
+end;
+end;
+for o,e in pairs(potionsPageOne) do
+if e=="<-- Go Back" then
+tableButton(potionsPageOne,1,function()milk=spawnables;end);
+elseif e=="Next Page -->" then
+tableButton(potionsPageOne,o,function()milk=potionstwo;end);
+else
+tableButton(potionsPageOne,o,function()local x,y=localplayerPos();spawnPotion(e,100,x,y);end);
+end;
+end;
+for r,u in pairs(potionsPageTwo) do
+if u=="<-- Last Page" then
+tableButton(potionsPageTwo,1,function()milk=potions;end);
+elseif u=="Next Page -->" then
+tableButton(potionsPageTwo,r,function()milk=potionsthree;end);
+else
+tableButton(potionsPageTwo,r,function()local x,y=localplayerPos();spawnPotion(u,100,x,y);end);
+end;
+end;
+for b,q in pairs(potionsPageThree) do
+if q=="<-- Last Page" then
+tableButton(potionsPageThree,1,function()milk=potionstwo;end);
+elseif q=="Next Page -->" then
+tableButton(potionsPageThree,b,function()milk=potionsfour;end);
+else
+tableButton(potionsPageThree,b,function()local x,y=localplayerPos();spawnPotion(q,100,x,y);end);
+end;
+end;
+for a,ss in pairs(potionsPageFour) do
+if ss=="<-- Last Page" then
+tableButton(potionsPageFour,1,function()milk=potionsthree;end);
+elseif ss=="Next Page -->" then
+tableButton(potionsPageFour,b,function()milk=potionsfive;end);
+else
+tableButton(potionsPageFour,a,function()local x,y=localplayerPos();spawnPotion(ss,100,x,y);end);
+end;
+end;
+for v,rup in pairs(potionsPageFive) do
+if rup=="<-- Last Page" then
+tableButton(potionsPageFive,1,function()milk=potionsfour;end);
+else
+tableButton(potionsPageFive,v,function()local x,y=localplayerPos();spawnPotion(rup,100,x,y);end);
 end;
 end;
 

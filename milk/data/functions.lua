@@ -118,6 +118,20 @@ if isMorePages==true then
 table.insert(currentPage,"Next Page -->");
 end;
 end;
+function addRaw(tableGuy,startIndex,endIndex,currentPage,isMorePages)
+for i,v in pairs(tableGuy) do
+if i>=startIndex and i<=endIndex then
+local nelly={};
+table.insert(nelly,v);
+for p,t in pairs(nelly) do
+table.insert(currentPage,t);
+end;
+end;
+end;
+if isMorePages==true then
+table.insert(currentPage,"Next Page -->");
+end;
+end;
 function getChildren(ofwhat)
 local guys=EntityGetAllChildren(ofwhat);
 for i=1,#guys do
@@ -188,4 +202,14 @@ local x,y=localplayerPos();
 local CAP=EntityLoad(cape,x,y);
 EntityAddChild(player,CAP);
 loadabilityraw(player,script);
+end;
+function spawnPotion(material,amount,x,y)
+jesus=amount*10; -- 100% would really be 1000 but i'll make it easier for people.
+local stockPotion=EntityLoad("data/milk_edited/potion_stock.xml",x,y);
+AddMaterialInventoryMaterial(stockPotion,material,jesus);
+end;
+function getAllMaterial(typeOf,theTable)
+for _,v in pairs(typeOf) do
+table.insert(theTable,v);
+end;
 end;
