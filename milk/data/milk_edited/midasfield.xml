@@ -25,6 +25,33 @@
 	
 	<MagicConvertMaterialComponent
       kill_when_finished="0"
+      from_material="magic_liquid_polymorph"
+      steps_per_frame="5"
+      to_material="coal"
+      is_circle="1"
+      radius="55" >
+    </MagicConvertMaterialComponent>
+	
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_material="magic_liquid_berserk"
+      steps_per_frame="5"
+      to_material="soil"
+      is_circle="1"
+      radius="55" >
+    </MagicConvertMaterialComponent>
+	
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_material="magic_liquid_random_polymorph"
+      steps_per_frame="5"
+      to_material="sodium"
+      is_circle="1"
+      radius="55" >
+    </MagicConvertMaterialComponent>
+	
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
       from_material="oil"
       steps_per_frame="5"
       to_material="gold"

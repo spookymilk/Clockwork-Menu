@@ -1,0 +1,8 @@
+data/milk_gfx/player_sprites/Eldritch/ragdoll/torso.png
+data/milk_gfx/player_sprites/Eldritch/ragdoll/right_thigh.png
+data/milk_gfx/player_sprites/Eldritch/ragdoll/right_arm.png
+data/milk_gfx/player_sprites/Eldritch/ragdoll/right_hand.png
+data/milk_gfx/player_sprites/Eldritch/ragdoll/left_thigh.png
+data/milk_gfx/player_sprites/Eldritch/ragdoll/left_arm.png
+data/milk_gfx/player_sprites/Eldritch/ragdoll/left_hand.png
+data/milk_gfx/player_sprites/Eldritch/ragdoll/head.png

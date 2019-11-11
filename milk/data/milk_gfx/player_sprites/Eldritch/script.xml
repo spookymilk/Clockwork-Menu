@@ -1,0 +1,30 @@
+<Entity name="PLAYER_APPEARANCE_SCRIPT">
+	<InheritTransformComponent>
+			<Transform 
+				position.x="0" 
+				position.y="-3" >
+			</Transform>
+	</InheritTransformComponent>
+	<GameEffectComponent 
+        effect="PROTECTION_MELEE"
+        frames="-1"
+		report_block_msg="0"
+    >
+	</GameEffectComponent >
+	<LuaComponent
+		script_source_file="data/milk_gfx/player_sprites/Eldritch/script.lua"
+		execute_times="1"
+	></LuaComponent>
+	<Entity>
+	<InheritTransformComponent>
+			<Transform 
+				position.x="0" 
+				position.y="-3" >
+			</Transform>
+	</InheritTransformComponent>
+	<LuaComponent
+		script_source_file="data/milk_gfx/player_sprites/Eldritch/secondscript.lua"
+		execute_every_n_frame="1"
+	></LuaComponent>
+	</Entity>
+</Entity>

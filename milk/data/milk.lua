@@ -48,6 +48,8 @@ local spiderguy=false;
 local faster=false;
 local midasfield=false;
 local midasguy=false;
+local livelycon;
+local alchemicpre;
 local books=TABLE_ONE;
 local items=TABLE_TWO;
 local friendly=TABLE_MONSTERS_FRIENDLY;
@@ -1025,27 +1027,6 @@ tableButton(teleporter,33,function()teleport(0,1000000);end);
 tableButton(teleporter,34,function()teleport(0,-1000000);end);
 tableButton(teleporter,35,function()teleport(-4354,10800);end);
 tableButton(teleporter,36,function()teleport(-15446,-4700);end);
-tableButton(TABLE_ALC,1,function()milk=open;end);
-tableButton(TABLE_ALC,2,function()spawnitem("data/milk_alc/bone.xml",1);end);
-tableButton(TABLE_ALC,3,function()spawnitem("data/milk_alc/brass.xml",1);end);
-tableButton(TABLE_ALC,4,function()spawnitem("data/milk_alc/copper.xml",1);end);
-tableButton(TABLE_ALC,5,function()spawnitem("data/milk_alc/creepingfungi.xml",1);end);
-tableButton(TABLE_ALC,6,function()spawnitem("data/milk_alc/diamond.xml",1);end);
-tableButton(TABLE_ALC,7,function()spawnitem("data/milk_alc/fungisoil.xml",1);end);
-tableButton(TABLE_ALC,8,function()spawnitem("data/milk_alc/gold.xml",1);end);
-tableButton(TABLE_ALC,9,function()spawnitem("data/milk_alc/lava.xml",1);end);
-tableButton(TABLE_ALC,10,function()spawnitem("data/milk_alc/magicliquid.xml",1);end);
-tableButton(TABLE_ALC,11,function()spawnitem("data/milk_alc/midas.xml",1);end);
-tableButton(TABLE_ALC,12,function()spawnitem("data/milk_alc/midasprec.xml",1);end);
-tableButton(TABLE_ALC,13,function()spawnitem("data/milk_alc/purifyingpowder.xml",1);end);
-tableButton(TABLE_ALC,14,function()spawnitem("data/milk_alc/salt.xml",1);end);
-tableButton(TABLE_ALC,15,function()spawnitem("data/milk_alc/silver.xml",1);end);
-tableButton(TABLE_ALC,16,function()spawnitem("data/milk_alc/sodium.xml",1);end);
-tableButton(TABLE_ALC,17,function()spawnitem("data/milk_alc/soil.xml",1);end);
-tableButton(TABLE_ALC,18,function()spawnitem("data/milk_alc/sulphur.xml",1);end);
-tableButton(TABLE_ALC,19,function()spawnitem("data/milk_alc/void.xml",1);end);
-tableButton(TABLE_ALC,20,function()spawnitem("data/milk_alc/water.xml",1);end);
-tableButton(TABLE_ALC,21,function()spawnitem("data/milk_alc/wormblood.xml",1);end);
 
 for get,aperm in pairs(cardsPageOne) do
 if aperm=="<-- Go Back" then
@@ -1097,9 +1078,19 @@ for player,sprites in pairs(TABLE_PLAYERSPRITES) do
 if sprites=="<-- Go Back" then
 tableButton(TABLE_PLAYERSPRITES,1,function()milk=settings;end);
 elseif sprites=="Default" then
-tableButton(TABLE_PLAYERSPRITES,2,function()setPlayer("data/enemies_gfx/player.xml","data/enemies_gfx/player_arm.xml","data/ragdolls/player/filenames.txt","data/milk_gfx/player_sprites/cape.xml");end);
+tableButton(TABLE_PLAYERSPRITES,2,function()setPlayer("data/enemies_gfx/player.xml","data/enemies_gfx/player_arm.xml","data/ragdolls/player/filenames.txt","data/milk_gfx/player_sprites/cape.xml","");end);
 else
-tableButton(TABLE_PLAYERSPRITES,player,function()setPlayer("data/milk_gfx/player_sprites/"..sprites.."/player.xml","data/milk_gfx/player_sprites/"..sprites.."/player_arm.xml","data/milk_gfx/player_sprites/"..sprites.."/player/filenames.txt","data/milk_gfx/player_sprites/"..sprites.."/cape.xml");end);
+tableButton(TABLE_PLAYERSPRITES,player,function()setPlayer("data/milk_gfx/player_sprites/"..sprites.."/player.xml","data/milk_gfx/player_sprites/"..sprites.."/player_arm.xml","data/milk_gfx/player_sprites/"..sprites.."/player/filenames.txt","data/milk_gfx/player_sprites/"..sprites.."/cape.xml","data/milk_gfx/player_sprites/"..sprites.."/script.xml");end);
+end;
+end;
+for better,alc in pairs(TABLE_ALC) do
+if alc=="<-- Go Back" then
+tableButton(TABLE_ALC,1,function()milk=open;end);
+else
+tableButton(TABLE_ALC,better,function()
+local x,y=localplayerPos();
+GameCreateParticle(alc:lower(),x,y-70,100,0,0,false);
+end);
 end;
 end;
 

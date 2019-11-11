@@ -60,6 +60,10 @@ EntityKill(v);
 end;
 end;
 end;
+function getSeed()
+local seed=tonumber(StatsGetValue("world_seed"));
+return seed;
+end;
 function loadability(player,playerPos,ability)
 local x,y=playerPos;
 local entity=EntityLoad(ability,x,y);
@@ -154,7 +158,7 @@ return ComponentGetValue(x,componentChild);
 end;
 end;
 end;
-function setPlayer(character,arm,ragdoll,cape)
+function setPlayer(character,arm,ragdoll,cape,script)
 local player=localplayer();
 local arm_r=nil;
 local children=EntityGetAllChildren(player);
@@ -173,9 +177,14 @@ ComponentSetValue(playerSprite,"image_file",character);
 ComponentSetValue(playerArmSprite,"image_file",arm);
 ComponentSetValue(playerRagdoll,"ragdoll_filenames_file",ragdoll);
 local findOld=EntityGetWithName("cape");
+local findScript=EntityGetWithName("PLAYER_APPEARANCE_SCRIPT");
 if findOld~=nil then
 EntityKill(findOld);
 end;
+if findScript~=nil then
+EntityKill(findScript);
+end;
 local CAP=EntityLoad(cape,0,0);
 EntityAddChild(player,CAP);
+loadabilityraw(player,script);
 end;

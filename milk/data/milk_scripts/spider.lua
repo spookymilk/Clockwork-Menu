@@ -3,4 +3,4 @@ dofile("data/milk_scripts/functions.lua");
 
 local entity_id = GetUpdatedEntityID()
 
-addFeet(entity_id,6);
+addFeet(entity_id,8);

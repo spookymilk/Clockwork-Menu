@@ -29,6 +29,8 @@ TABLE_TELEPORT={"<-- Go Back","Spawn","Pyramid","The Boss","Tree","Statue","Lake
 "Holy Mountain #1","Holy Mountain #2","Holy Mountain #3","Holy Mountain #4","Holy Mountain #5","The End","The Moon","The Underworld","Bottom of the Lake","Dragon Cave","East Parrallel","West Parrallel","Random Location","Earth Essence","Water Essence","Fire Essence","Spirit Essence","Gold Stash #1","Gold Stash #2",
 "Gold Stash #3","1,000,000 Below","1,000,000 Above","The Tower","Cloudscape/Air Essence"};
 TABLE_PHRASE={"Got Milk?"};
-TABLE_ALC={"<-- Go Back","Bone","Brass","Copper","Creeping Fungi","Diamond","Fungi Soil","Gold","Lava","Magic Liquid","Midas","Midas Precursor","Purifying Powder","Salt","Silver","Sodium","Soil","Sulphur","Void Liquid","Water","Worm Blood"};
+TABLE_ALC={"<-- Go Back","Acid","Alcohol","Blood","Blood_fungi","Blood_worm","Bone","Brass","Cement","Coal","Copper","Creepy_liquid","Diamond","Fungi","Fungi_creeping","Gold","Grass","Gunpowder","Gunpowder_explosive","Honey","Lava","Magic_liquid","Magic_liquid_berserk","Magic_liquid_charm","Magic_liquid_invisibility","Magic_liquid_polymorph","Magic_liquid_random_polymorph","Magic_liquid_teleportation","Midas","Midas_precursor","Mud","Oil","Poison","Purifying_powder","Radioactive_liquid","Rotten_meat","Salt","Sand","Silver","Slime","Snow","Sodium","Soil","Swamp","Urine","Void_liquid","Water","Water_ice","Water_swamp","Wax"};
 TABLE_TIME={"1","2","3","4","5","6","7","8","9","0"};
-TABLE_PLAYERSPRITES={"<-- Go Back","Default","Milky","Unknown","Santa"}
+TABLE_PLAYERSPRITES={"<-- Go Back","Default","Milky","Unknown","Santa","Eldritch","Fire"}
+TABLE_GUYS={"water","water_ice","water_swamp","oil","alcohol","swamp","mud","blood","blood_fungi","blood_worm","radioactive_liquid","cement","acid","lava","urine","poison","magic_liquid_teleportation","magic_liquid_polymorph","magic_liquid_random_polymorph","magic_liquid_berserk","magic_liquid_charm","magic_liquid_invisibility"};
+TABLE_GUYSTWO={"sand","bone","soil","honey","slime","snow","rotten_meat","wax","gold","silver","copper","brass","diamond","coal","gunpowder","gunpowder_explosive","grass","fungi"};

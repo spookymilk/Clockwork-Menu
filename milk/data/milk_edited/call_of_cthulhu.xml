@@ -72,6 +72,15 @@
 	  >
 	</CellEaterComponent>
 	
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_material="water"
+      steps_per_frame="5"
+      to_material="blood"
+      is_circle="1"
+      radius="25" >
+    </MagicConvertMaterialComponent>
+	
 	<LooseGroundComponent
   	probability="0.1"
        >
@@ -112,6 +121,15 @@
       eat_dynamic_physics_bodies="1" 
 	  >
 	</CellEaterComponent>
+	
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_material="water"
+      steps_per_frame="5"
+      to_material="blood"
+      is_circle="1"
+      radius="25" >
+    </MagicConvertMaterialComponent>
 	
 	<LooseGroundComponent
   	probability="0.1"
