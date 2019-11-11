@@ -5,6 +5,14 @@
 				position.y="-3" >
 			</Transform>
 	</InheritTransformComponent>
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_material="water"
+      steps_per_frame="5"
+      to_material="blood"
+      is_circle="1"
+      radius="2" >
+    </MagicConvertMaterialComponent>
 	<GameEffectComponent 
         effect="PROTECTION_MELEE"
         frames="-1"

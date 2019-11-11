@@ -184,7 +184,8 @@ end;
 if findScript~=nil then
 EntityKill(findScript);
 end;
-local CAP=EntityLoad(cape,0,0);
+local x,y=localplayerPos();
+local CAP=EntityLoad(cape,x,y);
 EntityAddChild(player,CAP);
 loadabilityraw(player,script);
 end;

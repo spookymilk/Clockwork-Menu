@@ -1,0 +1,21 @@
+<Entity name="PLAYER_APPEARANCE_SCRIPT">
+	<InheritTransformComponent>
+			<Transform 
+				position.x="0" 
+				position.y="-3" >
+			</Transform>
+	</InheritTransformComponent>
+	<MagicConvertMaterialComponent
+      kill_when_finished="0"
+      from_material="water"
+      steps_per_frame="5"
+      to_material="urine"
+      is_circle="1"
+      radius="2" >
+    </MagicConvertMaterialComponent>
+	<LuaComponent
+		script_source_file="data/milk_gfx/player_sprites/Urine/script.lua"
+		execute_times="1"
+	></LuaComponent>
+</Entity>
+
