@@ -1,0 +1,40 @@
+<Entity name="WE_ALL_FLOAT_DOWN_HERE">
+
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+
+	<IKLimbWalkerComponent>
+	</IKLimbWalkerComponent>
+
+	<IKLimbComponent
+		length="160" >
+	</IKLimbComponent>
+
+	<SpriteComponent 
+		image_file="data/entities/animals/boss_centipede/limbs/limb_long_A.xml" 
+		z_index="1.1"
+		offset_x="0"
+		offset_y="8"
+		update_transform="0"
+		update_transform_rotation="0">
+	</SpriteComponent>
+
+	<SpriteComponent 
+		image_file="data/entities/animals/boss_centipede/limbs/limb_long_B.xml" 
+		z_index="1.1"
+		offset_x="0"
+		offset_y="8"
+		update_transform="0"
+		update_transform_rotation="0">
+	</SpriteComponent>
+
+	<SpriteComponent 
+		image_file="data/entities/animals/boss_centipede/limbs/limb_long_knee.xml" 
+		z_index="1.1"
+		offset_x="8"
+		offset_y="8"
+		update_transform="0"
+		update_transform_rotation="0" >
+	</SpriteComponent>
+
+</Entity>

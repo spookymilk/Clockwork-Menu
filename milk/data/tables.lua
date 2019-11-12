@@ -3,7 +3,7 @@ TABLE_ONE={"<-- Go Back","Base Tablet","Tablet 00","Tablet 01","Tablet 02","Tabl
 TABLE_TWO={"<-- Go Back","Chest","Chest Rare","Egg: Fire","Egg: Monster","Egg: Red", "Egg: Slime","Egg: Worm","Gold Nugget","Thunderstone","Beer Bottle","Big Rock","Ladder","Burning Barrel","Oil Barrel",
 "Radioactive Barrel","Long Vase","Explosives","Box","Small Box","Bucket","Small Lantern","Cart","Chair","Crate","Gem","Lantern","Minecart","Propane Tank","Pressure Tank","Sandbag","Skateboard","Skull","Bone",
 "Table","Vase","Wheel","Sea of Water","Sea of Lava","Sea of Oil","Sea of Acid","Sea of Toxic Sludge","Sea of Slime","Sea of Alcohol","Sea of Gold","Bomb","Holy Bomb","TNT","Cluster Bomb","Small Bomb","Nuke (DANGEROUS)","Blue Firework","Green Firework","Orange Firework","Pink Firework","Pile of Gunpowder",
-"Acid Trap","Electricity Trap","Ignition Trap #1","Ignition Trap #2","Seamine","Chandelier","Brewing Stand"};
+"Acid Trap","Electricity Trap","Ignition Trap #1","Ignition Trap #2","Seamine","Chandelier","Brewing Stand","Giant Dollar","Golden Statue","Golden Hourglass","Crown","Dollar","Golden Teapot","Nolla","Peace","Giant Teapot"};
 TABLE_MONSTERS_FRIENDLY={"<-- Go Back","Acidshooter","Alchemist","Ant","Assassin","Barfer","Bat","Bigbat","Bigfirebug",
 "Bigzombie","Blob","Bloodcrystal_physics","Bloom","Boss_dragon","Chest_mimic","Crystal_physics","Darkghost","Deer","Drone","Duck","Eel","Firebug",
 "Firemage","Firemage_weak","Fireskull","Fireskull_weak","Fish","Fish_large","Flamer","Fly","Frog","Fungus",

@@ -98,6 +98,16 @@ for i=1,numberOfFeet do
 local feet=EntityLoad("data/milk_edited/green_legs.xml",x,y);
 EntityAddChild(entity,feet);
 end;
+elseif typeOf==3 then
+for i=1,numberOfFeet do
+local feet=EntityLoad("data/milk_edited/boss_leg.xml",x,y);
+EntityAddChild(entity,feet);
+end;
+elseif typeOf==4 then
+for i=1,numberOfFeet do
+local feet=EntityLoad("data/milk_edited/unknown_leg.xml",x,y);
+EntityAddChild(entity,feet);
+end;
 end;
 end;
 function removeFeet(entity,numberOfFeet)

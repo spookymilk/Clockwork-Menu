@@ -156,9 +156,6 @@ end;
 -- and text boxes
 open=function()
 begin(gui,1,12)
-if button(gui,0,0,"Test",1) then
-addFeet(localplayer(),8,2);
-end;
 if button(gui,0,0,"Player",1) then
 milk=player;
 end;
@@ -577,12 +574,14 @@ end;
 end;
 if spider==3 then
 local placeholder;
+
 if button(gui,0,0,"Spider [LUKKI]",1) then
-spider=1;
+spider=4;
 local spiderleg=EntityGetWithName("WE_ALL_FLOAT_DOWN_HERE");
 if spiderleg~= nil then
 removeFeet(localplayer(),8);
 end;
+addFeet(localplayer(),8,3);
 end;
 elseif spider==2 then
 if button(gui,0,0,"Spider [NORMAL]",1) then
@@ -592,6 +591,23 @@ if spiderleg~= nil then
 removeFeet(localplayer(),8);
 end;
 addFeet(localplayer(),8,2);
+end;
+elseif spider==4 then
+if button(gui,0,0,"Spider [BOSS]",1) then
+spider=5;
+local spiderleg=EntityGetWithName("WE_ALL_FLOAT_DOWN_HERE");
+if spiderleg~= nil then
+removeFeet(localplayer(),8);
+end;
+addFeet(localplayer(),8,4);
+end;
+elseif spider==5 then
+if button(gui,0,0,"Spider [???]",1) then
+spider=1;
+local spiderleg=EntityGetWithName("WE_ALL_FLOAT_DOWN_HERE");
+if spiderleg~= nil then
+removeFeet(localplayer(),8);
+end;
 end;
 elseif spider==1 then
 if button(gui,0,0,"Spider [OFF]",1) then
@@ -1031,6 +1047,15 @@ tableButton(items,60,function()spawnitem("data/entities/props/physics_trap_ignit
 tableButton(items,61,function()spawnitem("data/entities/props/physics_seamine.xml",spawnRate);end);
 tableButton(items,62,function()spawnitem("data/entities/props/physics_chandelier.xml",spawnRate);end);
 tableButton(items,63,function()spawnitem("data/entities/props/physics_brewing_stand.xml",spawnRate);end);
+tableButton(items,64,function()spawnitem("data/entities/animals/boss_centipede/rewards/giant_dollar.xml",spawnRate);end);
+tableButton(items,65,function()spawnitem("data/entities/animals/boss_centipede/rewards/gold_reward.xml",spawnRate);end);
+tableButton(items,66,function()spawnitem("data/entities/animals/boss_centipede/rewards/reward_clock.xml",spawnRate);end);
+tableButton(items,67,function()spawnitem("data/entities/animals/boss_centipede/rewards/reward_crown.xml",spawnRate);end);
+tableButton(items,68,function()spawnitem("data/entities/animals/boss_centipede/rewards/reward_dollar.xml",spawnRate);end);
+tableButton(items,69,function()spawnitem("data/entities/animals/boss_centipede/rewards/reward_minit.xml",spawnRate);end);
+tableButton(items,70,function()spawnitem("data/entities/animals/boss_centipede/rewards/reward_nolla.xml",spawnRate);end);
+tableButton(items,71,function()spawnitem("data/entities/animals/boss_centipede/rewards/reward_peace.xml",spawnRate);end);
+tableButton(items,72,function()spawnitem("data/milk_gfx/other/giant_teapot.xml",spawnRate);end);
 tableButton(teleporter,1,function()milk=world;end);
 tableButton(teleporter,2,function()teleport(227,-80);end);
 tableButton(teleporter,3,function()teleport(8735,-137);end);
