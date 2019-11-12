@@ -86,11 +86,18 @@ function attackRaw(entity,offsetX,offsetY,specialX,specialY,projectiles)
 local ex,ey=EntityGetTransform(entity);
 shoot_projectile(entity,projectiles,ex+offsetX,ey+offsetY,specialX*ex,specialY*ey);
 end;
-function addFeet(entity,numberOfFeet)
+function addFeet(entity,numberOfFeet,typeOf)
 local x,y=EntityGetTransform(entity);
+if typeOf==1 then
 for i=1,numberOfFeet do
 local feet=EntityLoad("data/entities/misc/perks/attack_foot/limb_walker.xml",x,y);
 EntityAddChild(entity,feet);
+end;
+elseif typeOf==2 then
+for i=1,numberOfFeet do
+local feet=EntityLoad("data/milk_edited/green_legs.xml",x,y);
+EntityAddChild(entity,feet);
+end;
 end;
 end;
 function removeFeet(entity,numberOfFeet)

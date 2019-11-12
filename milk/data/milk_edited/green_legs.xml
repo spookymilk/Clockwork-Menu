@@ -1,0 +1,40 @@
+<Entity name="WE_ALL_FLOAT_DOWN_HERE">
+
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+
+	<IKLimbWalkerComponent>
+	</IKLimbWalkerComponent>
+
+	<IKLimbComponent
+		length="80" >
+	</IKLimbComponent>
+
+	<SpriteComponent 
+		image_file="data/entities/animals/lukki/lukki_feet/lukki_limb_a_long2.png" 
+		z_index="1.1"
+		offset_x="0"
+		offset_y="5"
+		update_transform="0"
+		update_transform_rotation="0" >
+	</SpriteComponent>
+
+	<SpriteComponent 
+		image_file="data/entities/animals/lukki/lukki_feet/lukki_limb_b_long2.png" 
+		z_index="1.1"
+		offset_x="0"
+		offset_y="5"
+		update_transform="0"
+		update_transform_rotation="0" >
+	</SpriteComponent>
+
+	<SpriteComponent 
+		image_file="data/entities/animals/lukki/lukki_feet/lukki_knee2.png" 
+		z_index="1.1"
+		offset_x="4"
+		offset_y="4"
+		update_transform="0"
+		update_transform_rotation="0" >
+	</SpriteComponent>
+
+</Entity>

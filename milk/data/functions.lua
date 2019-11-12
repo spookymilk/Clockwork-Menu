@@ -213,3 +213,17 @@ for _,v in pairs(typeOf) do
 table.insert(theTable,v);
 end;
 end;
+function text(parent,text,x,y)
+return GuiText(parent,x,y,text);
+end;
+function script_log(func)
+function isFail(fail)
+local x,y=localplayerPos();
+if fail=='[string "data/logger.lua"]:4: attempt to call a string value' then
+DEBUG_MARK(x,y-20,"Error with milk.lua syntax, check file.",1,0,0);
+else
+DEBUG_MARK(x,y-20,fail,1,0,0);
+end;
+end;
+check=xpcall(func,isFail);
+end;

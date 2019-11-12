@@ -36,5 +36,5 @@
 		update_transform="0"
 		update_transform_rotation="0" >
 	</SpriteComponent>
-
+	
 </Entity>

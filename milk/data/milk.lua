@@ -35,7 +35,7 @@ local theTime;
 local cock=false;
 local magnet=false;
 local superkick=false;
-local spider=false;
+local spider=1;
 local prot_all=false;
 local super_shield=false;
 local drunkguy=false;
@@ -44,7 +44,6 @@ local johnnyG=false;
 local wem=false;
 local lightguy=false;
 local magnetguy=false;
-local spiderguy=false;
 local faster=false;
 local midasfield=false;
 local midasguy=false;
@@ -154,8 +153,12 @@ end;
 endit(gui);
 end;
 -- they need to add colorable GUI
+-- and text boxes
 open=function()
 begin(gui,1,12)
+if button(gui,0,0,"Test",1) then
+addFeet(localplayer(),8,2);
+end;
 if button(gui,0,0,"Player",1) then
 milk=player;
 end;
@@ -572,24 +575,28 @@ editMetaComponentInsidePlayer("KickComponent","kick_damage","500");
 editMetaComponentInsidePlayer("KickComponent","kick_knockback","950");
 end;
 end;
-if spider==true then
+if spider==3 then
 local placeholder;
-if button(gui,0,0,"Spider [ON]",1) then
-spider=false;
-if spiderguy==true then
-local findSpider=EntityGetWithName("SPIDER_LEGS_HAHA");
-huntNKill(findSpider);
-spiderguy=false;
+if button(gui,0,0,"Spider [LUKKI]",1) then
+spider=1;
+local spiderleg=EntityGetWithName("WE_ALL_FLOAT_DOWN_HERE");
+if spiderleg~= nil then
+removeFeet(localplayer(),8);
 end;
 end;
-else
+elseif spider==2 then
+if button(gui,0,0,"Spider [NORMAL]",1) then
+spider=3;
+local spiderleg=EntityGetWithName("WE_ALL_FLOAT_DOWN_HERE");
+if spiderleg~= nil then
+removeFeet(localplayer(),8);
+end;
+addFeet(localplayer(),8,2);
+end;
+elseif spider==1 then
 if button(gui,0,0,"Spider [OFF]",1) then
-spider=true;
-if spiderguy==false then
-spiderguy=true;
-placeholder=EntityLoad("data/milk_edited/spider.xml",99999999,99999999);
-EntityAddChild(localplayer(),placeholder);
-end;
+spider=2;
+addFeet(localplayer(),8,1);
 end;
 end;
 if midasfield==true then
@@ -795,10 +802,10 @@ if button(gui,0,0,"Fart",1) then
 loadabilityraw(localplayer(),"data/entities/misc/effect_farts.xml");
 end;
 if button(gui,0,0,"Add Leg",1) then
-addFeet(localplayer(),1);
+addFeet(localplayer(),1,1);
 end;
 if button(gui,0,0,"Remove Leg",1) then
-removeFeet(localplayer(),1);
+removeFeet(localplayer(),1,1);
 end;
 if button(gui,0,0,"Call of Cthulhu",1) then
 GamePrint("Is this really an ability?");
