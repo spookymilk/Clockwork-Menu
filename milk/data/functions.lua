@@ -84,13 +84,13 @@ function spawnmonster(monsters,friendly,rate)
 if friendly==true then
 local x,y=localplayerPos();
 for i=1,rate do
-local monster=EntityLoad("data/entities/animals/" .. monsters .. ".xml",x,y+8);
+local monster=EntityLoad("data/entities/animals/"..monsters:lower().. ".xml",x,y+8);
 GetGameEffectLoadTo(monster,"CHARM",true);
 end;
 elseif friendly==false then
 local x,y=localplayerPos();
 for i=1,rate do
-EntityLoad("data/entities/animals/" .. monsters .. ".xml",x,y+8);
+EntityLoad("data/entities/animals/"..monsters:lower()..".xml",x,y+8);
 end;
 end;
 end;
@@ -206,7 +206,7 @@ end;
 function spawnPotion(material,amount,x,y)
 jesus=amount*10; -- 100% would really be 1000 but i'll make it easier for people.
 local stockPotion=EntityLoad("data/milk_edited/potion_stock.xml",x,y);
-AddMaterialInventoryMaterial(stockPotion,material,jesus);
+AddMaterialInventoryMaterial(stockPotion,material:lower(),jesus);
 end;
 function getAllMaterial(typeOf,theTable)
 for _,v in pairs(typeOf) do
@@ -226,4 +226,14 @@ DEBUG_MARK(x,y-20,fail,1,0,0);
 end;
 end;
 check=xpcall(func,isFail);
+end;
+function aToZ(theTable)
+table.sort(theTable,function(a,z) return a:lower()<z:lower();end);
+end;
+function cap(theTable)
+for i,v in pairs(theTable) do
+local first=v:sub(1,1);
+local rest=v:sub(2);
+theTable[i]=first:upper()..rest;
+end;
 end;
