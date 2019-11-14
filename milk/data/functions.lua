@@ -26,10 +26,21 @@ return total;
 end;
 function tableButton(tableGuy,value,func)
 for i,def in pairs(tableGuy) do
-if (tableGuy[i] == tableGuy[value]) then
+if tableGuy[i] == tableGuy[value] then
 tableGuy[i]={tableGuy[i],func};
 end;
 end;
+end;
+function tableClone(theTable)
+local newOne={};
+if type(theTable)=="table" then
+for i,v in pairs(theTable) do
+newOne[i]=v;
+end;
+else
+newOne=theTable;
+end;
+return newOne;
 end;
 function setHealth(entity,health,maxhealth)
 local damagemodels=EntityGetComponent( entity,"DamageModelComponent");

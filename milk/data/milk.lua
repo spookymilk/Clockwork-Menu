@@ -10,7 +10,7 @@ dofile("data/tables.lua");
 
 local gui=GuiCreate();
 local milk=nil;
-local closed,open,player,abilities,world,spawnables,animals,timeguy,weatherguy,itemsguy,booksguy,miscguy,friendlyguys,meanguys,teleportLoc,settings,alchemy,spells,spellstwo,spellsthree,perks,weapons,playersprites,potions,potionstwo,potionsthree,potionsfour,potionsfive;
+local closed,open,player,abilities,world,spawnables,animals,timeguy,weatherguy,itemsguy,booksguy,miscguy,friendlyguys,meanguys,teleportLoc,settings,alchemy,spells,spellstwo,spellsthree,perks,weapons,playersprites,potions,potionstwo,potionsthree,potionsfour,potionsfive,dontspawn,addbutton,subtractbutton;
 local spawnRate=1;
 local god=false
 local breathless=false
@@ -47,11 +47,14 @@ local magnetguy=false;
 local faster=false;
 local midasfield=false;
 local midasguy=false;
+local hasEntity=false;
 local livelycon;
 local alchemicpre;
 local books=TABLE_ONE;
 local items=TABLE_TWO;
 local friendly=TABLE_MONSTERS_FRIENDLY;
+local fuckoff=TABLE_MONSTERS_DONTSPAWN;
+local metoo=TABLE_MONSTERS_DONTSPAWNTWO;
 local mean=TABLE_MONSTERS_ENEMY;
 local phraseOfDay=TABLE_PHRASE[math.random(#TABLE_PHRASE)];
 local teleporter=TABLE_TELEPORT;
@@ -63,6 +66,7 @@ local potionsPageTwo={"<-- Last Page"};
 local potionsPageThree={"<-- Last Page"};
 local potionsPageFour={"<-- Last Page"};
 local potionsPageFive={"<-- Last Page"};
+local dontSpawn={};
 local merks={"<-- Go Back"};
 local XGUY=GuiText(gui,0,50,"");
 local YGUY=GuiText(gui,0,50,"");
@@ -103,6 +107,17 @@ end;
 if frozentime==true then
 setTime(theTime);
 end;
+if #dontSpawn>0 then
+hasEntity=true;
+for _,v in pairs(dontSpawn) do
+local getEnemey=EntityGetWithName("$animal_"..v:lower());
+if getEnemey~=nil then
+EntityKill(getEnemey);
+end;
+end;
+else
+hasEntity=false;
+end;
 end);
 
 function list(theTable)
@@ -121,6 +136,23 @@ end;
 func=func+1;
 end;
 endit(gui)
+x=x+offset;
+end;
+end;
+
+function listText(theTable)
+local x=1;
+local offset=15;
+local func=1;
+for i=1,tableCount(theTable) do
+if not theTable[func] then break end;
+for d=1,28 do
+if not theTable[func] then break end;
+if theTable[i]==theTable[func] and tableCount(theTable)>=1 then
+text(gui,theTable[i].." will not spawn.",0,0);
+func=func+1;
+end;
+end;
 x=x+offset;
 end;
 end;
@@ -776,6 +808,9 @@ end;
 if button(gui,0,0,"Mean",1) then
 milk=meanguys;
 end;
+if button(gui,0,0,"Spawn List",1) then
+milk=dontspawn;
+end;
 endit(gui);
 end;
 
@@ -956,6 +991,28 @@ end;
 
 playersprites=function()
 list(TABLE_PLAYERSPRITES);
+end;
+
+addbutton=function()
+list(fuckoff);
+end;
+subtractbutton=function()
+list(metoo)
+end;
+
+dontspawn=function()
+begin(gui,1,12);
+if button(gui,0,0,"<-- Go Back",1) then
+milk=animals;
+end;
+if button(gui,0,0,"Enable Spawning of..",1) then
+milk=subtractbutton;
+end;
+if button(gui,0,0,"Disable Spawning of..",1) then
+milk=addbutton;
+end;
+listText(dontSpawn);
+endit(gui);
 end;
 
 addCards(actions,1,82,cardsPageOne,true);
@@ -1201,7 +1258,32 @@ else
 tableButton(potionsPageFive,v,function()local x,y=localplayerPos();spawnPotion(rup,100,x,y);end);
 end;
 end;
-
+for join,me in pairs(fuckoff) do
+if me=="<-- Go Back" then
+tableButton(fuckoff,1,function()milk=dontspawn;end);
+else
+tableButton(fuckoff,join,function()
+table.insert(dontSpawn,me:lower());
+GamePrintImportant("Spawning disabled","Animal "..me.." will not spawn anymore.");
+end);
+end;
+end;
+for leave,me in pairs(metoo) do
+if me=="<-- Go Back" then
+tableButton(metoo,1,function()milk=dontspawn;end);
+else
+tableButton(metoo,leave,function()
+for i,v in pairs(dontSpawn) do
+if v==me:lower() and v~=nil then
+table.remove(dontSpawn,i);
+GamePrintImportant("Spawning enabled","Animal "..me.." will spawn once again.");
+else
+GamePrintImportant("Animal not disabled","This animal has not been disabled.");
+end;
+end;
+end);
+end;
+end;
 milk=closed;
 
 async_loop(function()
