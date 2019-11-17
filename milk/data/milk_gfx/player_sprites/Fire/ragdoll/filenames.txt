@@ -1,8 +1,0 @@
-data/milk_gfx/player_sprites/Fire/ragdoll/torso.png
-data/milk_gfx/player_sprites/Fire/ragdoll/right_thigh.png
-data/milk_gfx/player_sprites/Fire/ragdoll/right_arm.png
-data/milk_gfx/player_sprites/Fire/ragdoll/right_hand.png
-data/milk_gfx/player_sprites/Fire/ragdoll/left_thigh.png
-data/milk_gfx/player_sprites/Fire/ragdoll/left_arm.png
-data/milk_gfx/player_sprites/Fire/ragdoll/left_hand.png
-data/milk_gfx/player_sprites/Fire/ragdoll/head.png

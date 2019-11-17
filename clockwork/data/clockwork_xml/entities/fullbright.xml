@@ -1,0 +1,12 @@
+<Entity name="FULLBRIGHT_MAYBE">
+	
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+        effect="REMOVE_FOG_OF_WAR"
+        frames="-1"
+    >
+	</GameEffectComponent >
+
+</Entity>

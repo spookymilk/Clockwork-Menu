@@ -1,8 +1,0 @@
-data/milk_gfx/player_sprites/Urine/ragdoll/torso.png
-data/milk_gfx/player_sprites/Urine/ragdoll/right_thigh.png
-data/milk_gfx/player_sprites/Urine/ragdoll/right_arm.png
-data/milk_gfx/player_sprites/Urine/ragdoll/right_hand.png
-data/milk_gfx/player_sprites/Urine/ragdoll/left_thigh.png
-data/milk_gfx/player_sprites/Urine/ragdoll/left_arm.png
-data/milk_gfx/player_sprites/Urine/ragdoll/left_hand.png
-data/milk_gfx/player_sprites/Urine/ragdoll/head.png
