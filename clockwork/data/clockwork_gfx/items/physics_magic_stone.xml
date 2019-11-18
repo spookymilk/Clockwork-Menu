@@ -1,0 +1,113 @@
+<Entity>
+
+  <Base file="data/entities/base_item_physics.xml" >
+    <PhysicsImageShapeComponent
+      image_file="data/clockwork_gfx/items/magic_stone.png"
+      material="metal" >
+    </PhysicsImageShapeComponent>
+  </Base>
+
+  <MaterialInventoryComponent 
+    _enabled="1" 
+    drop_as_item="0" 
+    on_death_spill="1"
+    leak_on_damage_percent="0.999"
+    b2_force_on_leak="0.1" 
+    kill_when_empty="1"
+    >
+    <count_per_material_type>
+      <Material material="void_liquid" count="5000"  />
+	  <Material material="liquid_fire" count="5000"  />
+	  </count_per_material_type>
+  </MaterialInventoryComponent>
+
+  <DamageModelComponent 
+    air_needed="0" 
+    blood_material="gold" 
+    drop_items_on_death="0" 
+    falling_damage_damage_max="1.2" 
+    falling_damage_damage_min="0.1" 
+    falling_damage_height_max="250" 
+    falling_damage_height_min="70" 
+    falling_damages="0" 
+    fire_damage_amount="0.0" 
+    fire_probability_of_ignition="0" 
+	critical_damage_resistance="1"
+    hp="6" 
+    is_on_fire="0" 
+    materials_create_messages="0" 
+    materials_damage="0" 
+    ragdoll_filenames_file="" 
+    ragdoll_material="" >
+  </DamageModelComponent>
+  
+   <ParticleEmitterComponent 
+		emitted_material_name="spark_green"
+		offset.x="0"
+		offset.y="0"
+		x_pos_offset_min="-1"
+		x_pos_offset_max="1"
+		y_pos_offset_min="-1"
+		y_pos_offset_max="1"
+		gravity.y="0"
+		x_vel_min="-2"
+		x_vel_max="2"
+		y_vel_min="-2"
+		y_vel_max="2"
+		count_min="1"
+		count_max="4"
+		is_trail="1"
+		trail_gap="1"
+		fade_based_on_lifetime="1"
+		lifetime_min="0.8"
+		lifetime_max="2.0"
+		airflow_force="1.5"
+		airflow_time="0.401"
+		airflow_scale="0.05"
+		create_real_particles="0"
+		emit_cosmetic_particles="0"
+		render_on_grid="1"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="2"
+		is_emitting="1" >
+		</ParticleEmitterComponent>
+	
+	<ParticleEmitterComponent 
+		emitted_material_name="spark_red"
+		offset.x="0"
+		offset.y="0"
+		x_pos_offset_min="-1"
+		x_pos_offset_max="1"
+		y_pos_offset_min="-1"
+		y_pos_offset_max="1"
+		gravity.y="0"
+		x_vel_min="-2"
+		x_vel_max="2"
+		y_vel_min="-2"
+		y_vel_max="2"
+		count_min="1"
+		count_max="4"
+		is_trail="1"
+		trail_gap="1"
+		fade_based_on_lifetime="1"
+		lifetime_min="0.8"
+		lifetime_max="2.0"
+		airflow_force="1.5"
+		airflow_time="0.401"
+		airflow_scale="0.05"
+		create_real_particles="0"
+		emit_cosmetic_particles="0"
+		render_on_grid="1"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="2"
+		is_emitting="1" >
+		</ParticleEmitterComponent>
+  
+  <AudioLoopComponent
+    _tags="sound_spray"
+    file="data/audio/Desktop/materials.snd"
+    event_name="materials/spray"
+    volume_autofade_speed="0.25" >
+  </AudioLoopComponent>
+  
+</Entity>

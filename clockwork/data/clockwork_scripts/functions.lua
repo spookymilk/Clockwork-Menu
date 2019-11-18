@@ -76,6 +76,10 @@ local func=setting.execOn;
 func();
 end;
 end;
+function animalfunc(animal)
+local x,y=localplayerPos();
+EntityLoad(animal.path..animal.filename..".xml",x,y-30);
+end;
 function play(play)
 if play.cantoggle==true then
 local status=play.toggled;

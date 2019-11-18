@@ -1,0 +1,91 @@
+<Sprite 
+  filename="data/clockwork_gfx/animals/pbjt/pbjt.png" >
+
+  <RectAnimation 
+    frame_count="8" 
+    frame_height="35" 
+    frame_wait="0.2" 
+    frame_width="32" 
+    frames_per_row="8" 
+    name="stand" 
+    pos_x="0" 
+    pos_y="0" >
+
+  </RectAnimation>
+
+    <RectAnimation 
+    frame_count="8" 
+    frame_height="35" 
+    frame_wait="0.2" 
+    frame_width="32" 
+    frames_per_row="8" 
+    name="walk" 
+    pos_x="0" 
+    pos_y="0" >
+	<Event 
+      check_physics_material="1" 
+      max_distance="500" 
+      name="step" 
+      on_finished="0" 
+      probability="1" >
+
+    </Event>
+
+    <Event 
+      check_physics_material="1"  
+      max_distance="500" 
+      name="step" 
+      on_finished="0" 
+      probability="1" >
+    </Event>
+  </RectAnimation>
+
+    <RectAnimation 
+    frame_count="8" 
+    frame_height="35" 
+    frame_wait="0.2" 
+    frame_width="32" 
+    frames_per_row="8" 
+    name="run" 
+    pos_x="0" 
+    pos_y="0" >
+	<Event 
+      check_physics_material="1" 
+      max_distance="500" 
+      name="step" 
+      on_finished="0" 
+      probability="1" >
+
+    </Event>
+
+    <Event 
+      check_physics_material="1"  
+      max_distance="500" 
+      name="step" 
+      on_finished="0" 
+      probability="1" >
+    </Event>
+  </RectAnimation>
+
+   <RectAnimation 
+    frame_count="8" 
+    frame_height="35" 
+    frame_wait="0.2" 
+    frame_width="32" 
+    frames_per_row="8" 
+    name="burn" 
+    pos_x="0" 
+    pos_y="0" >
+  </RectAnimation>
+
+    <RectAnimation 
+    frame_count="8" 
+    frame_height="35" 
+    frame_wait="0.2" 
+    frame_width="32" 
+    frames_per_row="8" 
+    name="jump_up" 
+    pos_x="0" 
+    pos_y="0" >
+  </RectAnimation>
+</Sprite>

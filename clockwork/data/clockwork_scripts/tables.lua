@@ -1,7 +1,15 @@
 dofile("data/clockwork_scripts/functions.lua");
 dofile("data/clockwork_scripts/constants.lua");
 materials={};
-custom_objects={{}};
+custom_objects={ -- add custom props and such here
+{path="data/clockwork_gfx/items/",filename="physics_bog",name="Barrel of Gold"},
+{path="data/clockwork_gfx/items/",filename="physics_septic",name="Septic Tank"},
+{path="data/clockwork_gfx/items/",filename="physics_magic_stone",name="Magic Stone"},
+{path="data/clockwork_gfx/items/",filename="physics_3up",name="3-Up Moon"},
+};
+customanimal={ -- add custom animals
+{path="data/clockwork_gfx/animals/",filename="pbjt",name="Dancing Bananna"},
+};
 locations={
 {name="Spawn",x=225.8,y=-143.3},
 {name="Pyramid",x=8795.9,y=-171.6},
@@ -75,10 +83,17 @@ weath={
 {name="Gold Rain",execOn=function()rain_mat="gold";rain_den=2.4;rain_grav=200;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
 {name="Midas Rain",execOn=function()rain_mat="midas";rain_den=9.4;rain_grav=366;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
 {name="Snow",execOn=function()rain_mat="snow_sticky";rain_den=3;rain_grav=100;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
-{name="Hail",execOn=function()rain_mat="ice";rain_den=6;rain_grav=300;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
-{name="Monsoon",execOn=function()rain_mat="water";rain_den=25;rain_grav=1000;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
+{name="Hail",execOn=function()rain_mat="ice";rain_den=15;rain_grav=25;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
 {name="Brimstone",execOn=function()rain_mat="liquid_fire";rain_den=10;rain_grav=450;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
-}
+{name="Sky Tsunami",execOn=function()rain_mat="water";rain_den=350;rain_grav=25;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
+{name="Stones",execOn=function()special_rain_path="data/entities/props/physics_stone_04.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
+{name="Skulls",execOn=function()special_rain_path="data/entities/props/physics_skull_01.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
+{name="Boxes",execOn=function()special_rain_path="data/entities/props/physics_box_harmless_small.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
+{name="Gold Nuggets",execOn=function()special_rain_path="data/entities/items/pickup/goldnugget.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
+{name="Burning Barrels",execOn=function()special_rain_path="data/entities/props/physics_barrel_burning.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
+{name="Thunderstones",execOn=function()special_rain_path="data/entities/items/pickup/thunderstone.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
+{name="Random Potions",execOn=function()special_rain_path="data/entities/items/pickup/potion_random_material.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
+};
 setting={
 {name="X/Y Coordinates",execOn=function()coords=true;end,execOff=function()coords=false;end,toggled=false,cantoggle=true;},
 {name="Clock",execOn=function()clocks=true;end,execOff=function()clocks=false;end,toggled=false,cantoggle=true;},

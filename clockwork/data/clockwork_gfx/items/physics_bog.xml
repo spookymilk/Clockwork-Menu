@@ -1,0 +1,62 @@
+<Entity tags="mortal" >
+
+  <!-- mortal is required so it can explode -->
+
+  <Base file="data/entities/base_item_physics.xml" >
+    <PhysicsImageShapeComponent
+      image_file="data/clockwork_gfx/items/barrel_of_gold.png"
+      material="metal" >
+    </PhysicsImageShapeComponent>
+  </Base>
+
+  <MaterialInventoryComponent 
+    drop_as_item="0" 
+    on_death_spill="1"
+    leak_on_damage_percent="0.5"
+    audio_collision_size_modifier_amount="0.8"
+    >
+    <count_per_material_type>
+      <Material material="gold" count="300"  />
+	  </count_per_material_type>
+  </MaterialInventoryComponent>
+
+  <DamageModelComponent 
+    air_needed="0" 
+    blood_material="gold" 
+    drop_items_on_death="0" 
+    falling_damage_damage_max="1.2" 
+    falling_damage_damage_min="0.1" 
+    falling_damage_height_max="250" 
+    falling_damage_height_min="70" 
+    falling_damages="0" 
+    fire_damage_amount="0.0" 
+    fire_probability_of_ignition="0"
+	critical_damage_resistance="1"
+    hp="0.2" 
+    is_on_fire="0" 
+    materials_create_messages="0" 
+    materials_damage="1"
+    materials_that_damage="lava,acid"
+    materials_how_much_damage="0.0001,0.001"
+    ragdoll_filenames_file="" 
+    ragdoll_material="" >
+	<damage_multipliers
+		melee="0.1"
+		>
+	</damage_multipliers>
+  </DamageModelComponent>
+  
+  <AudioLoopComponent
+    _tags="sound_spray"
+    file="data/audio/Desktop/materials.snd"
+    event_name="materials/spray" 
+    volume_autofade_speed="0.25" >
+  </AudioLoopComponent>
+  
+  <AudioComponent
+    file="data/audio/Desktop/materials.snd"
+    event_root="collision/metalhollow"
+    set_latest_event_position="1" >
+  </AudioComponent>
+
+</Entity>

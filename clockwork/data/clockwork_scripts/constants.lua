@@ -6,6 +6,8 @@ dofile("data/clockwork_scripts/functions.lua");
 coords=false;
 clocks=false;
 rain=false;
+special_rain=false;
+special_rain_path="";
 rain_mat="";
 rain_den=0;
 rain_grav=0;
@@ -45,6 +47,13 @@ elseif rain==false then
 rain_mat="";
 rain_den=0;
 rain_grav=0;
+end;
+if special_rain==true then
+local x,y=localplayerPos();
+local rando=math.random(-500,500);
+EntityLoad(special_rain_path,x+rando,y-500);
+elseif special_rain==false then
+special_rain_path="";
 end;
 wait(0);
 end);

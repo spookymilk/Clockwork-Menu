@@ -68,7 +68,7 @@ list({
 {name="Scripts",func=function()clockwork=scripts;end;},
 {name="Items",func=function()clockwork=items;end;},
 {name="World",func=function()clockwork=world;end;},
-{name="Animals",func=function()end;},
+{name="Animals",func=function()clockwork=animals;end;},
 {name="Settings",func=function()clockwork=settings;end;}});
 back=closed;
 end;
@@ -101,6 +101,17 @@ end;
 flasks=function()
 list(materials,flask);
 back=items;
+end;
+animals=function()
+list({
+{name="Animals",func=function()clockwork=main;end;},
+{name="Custom Animals",func=function()clockwork=customanim;end;},
+});
+back=main;
+end;
+customanim=function()
+list(customanimal,animalfunc);
+back=animals;
 end;
 world=function()
 list({
