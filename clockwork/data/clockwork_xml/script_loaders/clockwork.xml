@@ -1,4 +1,10 @@
-<Entity>
+<Entity name="SPELL_LOADER">
+	<LuaComponent
+		script_source_file="data/clockwork_scripts/customactions.lua"
+		execute_on_added="1"
+		execute_times="1"
+	></LuaComponent>
+<Entity name="CLOCKWORK_MAIN_LOADER">
 	<LuaComponent
 		script_source_file="data/clockwork_scripts/clockwork.lua"
 		vm_type="ONE_PER_COMPONENT_INSTANCE"
@@ -7,4 +13,5 @@
 		execute_times="1"
 		execute_every_n_frame="-1"
 	></LuaComponent>
+</Entity>
 </Entity>

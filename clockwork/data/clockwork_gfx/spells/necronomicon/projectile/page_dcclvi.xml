@@ -1,0 +1,21 @@
+<Entity>
+<LuaComponent
+		script_source_file="data/clockwork_scripts/page_dcclvi.lua"
+		enable_coroutines="1"
+		execute_on_added="1"
+		execute_every_n_frame="-1"
+	></LuaComponent>
+	<LifetimeComponent
+		lifetime="1500"
+		>
+	</LifetimeComponent>
+	
+	<MusicEnergyAffectorComponent
+      energy_target="15.0">
+  </MusicEnergyAffectorComponent>
+  <AudioComponent
+      file="data/audio/Desktop/projectiles.snd"
+      event_root="player_projectiles/crumbling_earth">
+  </AudioComponent>
+</Entity>
+

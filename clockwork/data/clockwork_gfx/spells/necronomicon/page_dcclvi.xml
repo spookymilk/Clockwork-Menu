@@ -1,0 +1,20 @@
+<Entity _tags="PAGE_DCCLVI">
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="data/clockwork_gfx/spells/necronomicon/necropage.png" 
+			>
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="PAGE_DCCLVI" >
+		</ItemActionComponent>
+	</Base>
+
+	<InheritTransformComponent
+		_tags="enabled_in_world,enabled_in_hand"
+		parent_hotspot_tag="shoot_pos">	
+	</InheritTransformComponent>
+	
+</Entity>

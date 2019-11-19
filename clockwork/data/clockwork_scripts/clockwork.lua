@@ -8,7 +8,7 @@ dofile("data/clockwork_scripts/functions.lua"); -- yeah yeah.
 dofile("data/clockwork_scripts/tables.lua");
 local gui=GuiCreate();
 local clockwork=nil;
-local closed,main,spawnables,player,scripts,items,cobj,timed,obj,spells,tp,settings;
+local closed,main,spawnables,player,scripts,items,weapon,cobj,timed,obj,cspells,spells,tp,settings;
 local back;
 local page=1;
 local XSET=0;
@@ -67,6 +67,7 @@ list({
 {name="Player",func=function()clockwork=player;end;},
 {name="Scripts",func=function()clockwork=scripts;end;},
 {name="Items",func=function()clockwork=items;end;},
+{name="Weapons",func=function()clockwork=weapon;end;},
 {name="World",func=function()clockwork=world;end;},
 {name="Animals",func=function()clockwork=animals;end;},
 {name="Settings",func=function()clockwork=settings;end;}});
@@ -77,6 +78,7 @@ list({
 {name="Objects",func=function()clockwork=obj;end;},
 {name="Custom Objects",func=function()clockwork=cobj;end;},
 {name="Spells",func=function()clockwork=spells;end;},
+{name="Custom Spells",func=function()clockwork=cspells;end;},
 {name="Perks",func=function()clockwork=perks;end;},
 {name="Flasks",func=function()clockwork=flasks;end;},
 });
@@ -86,12 +88,20 @@ obj=function()
 list(objects,object);
 back=items;
 end;
+weapon=function()
+list(weapons,object);
+back=main;
+end;
 cobj=function()
-list(custom_objects,object);
+list(customobjects,object);
 back=items;
 end;
 spells=function()
 list(actions,spell);
+back=items;
+end;
+cspells=function()
+list(customspells,cspell);
 back=items;
 end;
 perks=function()

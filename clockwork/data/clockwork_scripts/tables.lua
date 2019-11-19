@@ -1,14 +1,23 @@
 dofile("data/clockwork_scripts/functions.lua");
 dofile("data/clockwork_scripts/constants.lua");
 materials={};
-custom_objects={ -- add custom props and such here
+customobjects={ -- add custom props and such here
 {path="data/clockwork_gfx/items/",filename="physics_bog",name="Barrel of Gold"},
 {path="data/clockwork_gfx/items/",filename="physics_septic",name="Septic Tank"},
 {path="data/clockwork_gfx/items/",filename="physics_magic_stone",name="Magic Stone"},
 {path="data/clockwork_gfx/items/",filename="physics_3up",name="3-Up Moon"},
+{path="data/clockwork_gfx/items/",filename="firestone",name="Firestone"},
 };
 customanimal={ -- add custom animals
 {path="data/clockwork_gfx/animals/",filename="pbjt",name="Dancing Bananna"},
+};
+customspells={
+{name="Page XVI",spellname="PAGE_XVI"},
+{name="Page DCCLVI",spellname="PAGE_DCCLVI"},
+{name="Page MXXXII",spellname="PAGE_MXXXII"},
+};
+weapons={ -- add custom props and such here
+{path="data/clockwork_gfx/wands/necronomicon/",filename="necronomicon",name="Necronomicon"},
 };
 locations={
 {name="Spawn",x=225.8,y=-143.3},

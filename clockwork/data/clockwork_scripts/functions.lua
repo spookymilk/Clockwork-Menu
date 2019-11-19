@@ -205,9 +205,25 @@ end;
 end;
 end;
 end;
+function addAction(TABLE,ID,NAME,DESCRIPTION,SPRITE,TYPE,MANA,XML,ACTION)
+table.insert(TABLE,{
+id          = ID,
+name 		= NAME,
+description = DESCRIPTION,
+sprite 		= SPRITE,
+type 		= TYPE,
+mana = MANA,
+custom_xml_file = XML,
+action 		= ACTION,
+});
+end;
 function spell(spell)
 local x,y=localplayerPos();
 CreateItemActionEntity(spell.id:lower(),x,y);
+end;
+function cspell(cspell)
+local x,y=localplayerPos();
+CreateItemActionEntity(cspell.spellname:lower(),x,y);
 end;
 function perk(perk)
 local x,y=localplayerPos();
