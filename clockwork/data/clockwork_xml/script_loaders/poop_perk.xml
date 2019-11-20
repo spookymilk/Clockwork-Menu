@@ -1,0 +1,6 @@
+<Entity name="POOP_PERK">
+	<LuaComponent
+		script_source_file="data/clockwork_scripts/poop_perk.lua"
+		execute_every_n_frame="15"
+	></LuaComponent>
+</Entity>

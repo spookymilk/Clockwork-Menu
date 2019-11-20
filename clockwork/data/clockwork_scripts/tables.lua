@@ -19,6 +19,9 @@ customspells={ -- add custom spells
 weapons={ -- add custom wands, weapons, etc.
 {path="data/clockwork_gfx/wands/necronomicon/",isweapon=true,filename="necronomicon",name="Necronomicon"},
 };
+customperks={ -- add custom perks
+{name="Poop",perkname="POOP_PERK"};
+};
 locations={
 {name="Spawn",x=225.8,y=-143.3},
 {name="Pyramid",x=8795.9,y=-171.6},

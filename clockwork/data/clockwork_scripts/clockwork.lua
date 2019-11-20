@@ -8,7 +8,7 @@ dofile("data/clockwork_scripts/functions.lua"); -- yeah yeah.
 dofile("data/clockwork_scripts/tables.lua");
 local gui=GuiCreate();
 local clockwork=nil;
-local closed,main,spawnables,player,scripts,items,weapon,cobj,timed,obj,cspells,spells,tp,settings;
+local closed,main,spawnables,player,scripts,items,weapon,cobj,timed,obj,cspells,cperks,spells,tp,settings;
 local back;
 local page=1;
 local XSET=0;
@@ -80,6 +80,7 @@ list({
 {name="Spells",func=function()clockwork=spells;end;},
 {name="Custom Spells",func=function()clockwork=cspells;end;},
 {name="Perks",func=function()clockwork=perks;end;},
+{name="Custom Perks",func=function()clockwork=cperks;end;},
 {name="Flasks",func=function()clockwork=flasks;end;},
 });
 back=main;
@@ -102,6 +103,10 @@ back=items;
 end;
 cspells=function()
 list(customspells,cspell);
+back=items;
+end;
+cperks=function()
+list(customperks,cperk);
 back=items;
 end;
 perks=function()

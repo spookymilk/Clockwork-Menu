@@ -225,6 +225,18 @@ custom_xml_file = XML,
 action 		= ACTION,
 });
 end;
+function addPerk(TABLE,ID,UI_NAME,UI_DESC,UI_ICON,PERK_ICON,STACKABLE,GAME_EFFECT,FUNC)
+table.insert(TABLE,{
+id=ID;
+ui_name=UI_NAME;
+ui_description=UI_DESC;
+ui_icon=UI_ICON;
+perk_icon=PERK_ICON;
+stackable=STACKABLE;
+game_effect=GAME_EFFECT;
+func=FUNC;
+});
+end;
 function spell(spell)
 local x,y=localplayerPos();
 CreateItemActionEntity(spell.id:lower(),x,y);
@@ -236,6 +248,10 @@ end;
 function perk(perk)
 local x,y=localplayerPos();
 perk_spawn(x,y-5,perk.id);
+end;
+function cperk(cperk)
+local x,y=localplayerPos();
+perk_spawn(x,y-5,cperk.perkname);
 end;
 function flask(flask)
 local x,y=localplayerPos();
