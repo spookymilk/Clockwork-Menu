@@ -173,6 +173,14 @@ ComponentSetMetaCustom(v,inside,value);
 end;
 end;
 end;
+function editCIR(component,inside,value,other)
+local cip=EntityGetComponent(other,component);
+if cip~=nil then
+for i,v in pairs(cip) do
+ComponentSetValue(v,inside,value);
+end;
+end;
+end;
 function setTime(timer)
 local world_entity_id=GameGetWorldStateEntity();
 local test=EntityGetComponent(world_entity_id,"WorldStateComponent");
@@ -236,7 +244,11 @@ AddMaterialInventoryMaterial(stock,flask.name:lower(),1000);
 end;
 function object(object)
 local x,y=localplayerPos();
+if object.isweapon==true then
+local stock=EntityLoad(object.path..object.filename..".xml",x,y);
+else
 local stock=EntityLoad(object.path..object.filename..".xml",x,y-30);
+end;
 end;
 function btf(btf)
 setTime(btf.timeofday);

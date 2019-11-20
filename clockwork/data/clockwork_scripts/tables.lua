@@ -11,13 +11,13 @@ customobjects={ -- add custom props and such here
 customanimal={ -- add custom animals
 {path="data/clockwork_gfx/animals/",filename="pbjt",name="Dancing Bananna"},
 };
-customspells={
+customspells={ -- add custom spells
 {name="Page XVI",spellname="PAGE_XVI"},
 {name="Page DCCLVI",spellname="PAGE_DCCLVI"},
 {name="Page MXXXII",spellname="PAGE_MXXXII"},
 };
-weapons={ -- add custom props and such here
-{path="data/clockwork_gfx/wands/necronomicon/",filename="necronomicon",name="Necronomicon"},
+weapons={ -- add custom wands, weapons, etc.
+{path="data/clockwork_gfx/wands/necronomicon/",isweapon=true,filename="necronomicon",name="Necronomicon"},
 };
 locations={
 {name="Spawn",x=225.8,y=-143.3},
