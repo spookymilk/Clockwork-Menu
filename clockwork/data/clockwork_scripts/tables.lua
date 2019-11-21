@@ -1,5 +1,6 @@
 dofile("data/clockwork_scripts/functions.lua");
 dofile("data/clockwork_scripts/constants.lua");
+
 materials={};
 customobjects={ -- add custom props and such here
 {path="data/clockwork_gfx/items/",filename="physics_bog",name="Barrel of Gold"},
@@ -7,6 +8,10 @@ customobjects={ -- add custom props and such here
 {path="data/clockwork_gfx/items/",filename="physics_magic_stone",name="Magic Stone"},
 {path="data/clockwork_gfx/items/",filename="physics_3up",name="3-Up Moon"},
 {path="data/clockwork_gfx/items/",filename="firestone",name="Firestone"},
+{path="data/clockwork_gfx/items/",filename="pumpkin_natural",name="Pumpkin"},
+{path="data/clockwork_gfx/items/",filename="pumpkin_noglow",name="Carved Pumpkin"},
+{path="data/clockwork_gfx/items/",filename="pumpkin_glowing",name="Jack O'Lantern"},
+{path="data/clockwork_gfx/items/",filename="pumpkin_cursed",name="Cursed Pumpkin"},
 };
 customanimal={ -- add custom animals
 {path="data/clockwork_gfx/animals/",filename="pbjt",name="Dancing Bananna"},

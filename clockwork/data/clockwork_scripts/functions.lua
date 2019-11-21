@@ -90,6 +90,8 @@ play.name=string.gsub(play.name," <ON>","");
 local findKey=EntityGetWithName(play.key);
 if findKey~=nil then
 EntityKill(findKey);
+else
+GamePrint("KEY ERROR: "..play.key.." not found for "..play.name);
 end;
 play.toggled=false;
 elseif status==false then
@@ -215,14 +217,14 @@ end;
 end;
 function addAction(TABLE,ID,NAME,DESCRIPTION,SPRITE,TYPE,MANA,XML,ACTION)
 table.insert(TABLE,{
-id          = ID,
-name 		= NAME,
-description = DESCRIPTION,
-sprite 		= SPRITE,
-type 		= TYPE,
-mana = MANA,
-custom_xml_file = XML,
-action 		= ACTION,
+id=ID,
+name=NAME,
+description=DESCRIPTION,
+sprite=SPRITE,
+type=TYPE,
+mana=MANA,
+custom_xml_file=XML,
+action=ACTION,
 });
 end;
 function addPerk(TABLE,ID,UI_NAME,UI_DESC,UI_ICON,PERK_ICON,STACKABLE,GAME_EFFECT,FUNC)

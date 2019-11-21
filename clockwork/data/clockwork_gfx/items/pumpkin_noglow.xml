@@ -1,0 +1,50 @@
+<Entity>
+
+  <Base file="data/entities/base_item_physics.xml" >
+    <PhysicsImageShapeComponent
+      image_file="data/clockwork_gfx/items/pumpkin_noglow.png"
+      material="rock_box2d" >
+    </PhysicsImageShapeComponent>
+  </Base>
+
+  <MaterialInventoryComponent 
+    _enabled="1" 
+    drop_as_item="0" 
+    on_death_spill="1"
+    leak_on_damage_percent="0.25"
+    b2_force_on_leak="0.1" 
+    kill_when_empty="1"
+    >
+    <count_per_material_type>
+      <Material material="fungi_creeping" count="60"  />
+	</count_per_material_type>
+  </MaterialInventoryComponent>
+
+  <DamageModelComponent 
+    air_needed="0" 
+    blood_material="fungi_creeping" 
+    drop_items_on_death="0" 
+    falling_damage_damage_max="1.2" 
+    falling_damage_damage_min="0.1" 
+    falling_damage_height_max="250" 
+    falling_damage_height_min="70" 
+    falling_damages="0" 
+    fire_damage_amount="0.0" 
+    fire_probability_of_ignition="0" 
+	critical_damage_resistance="1"
+    hp="3" 
+    is_on_fire="0" 
+    materials_create_messages="0" 
+    materials_damage="0" 
+    ragdoll_filenames_file="" 
+    ragdoll_material="" >
+  </DamageModelComponent>
+  
+  <AudioLoopComponent
+    _tags="sound_spray"
+    file="data/audio/Desktop/materials.snd"
+    event_name="materials/spray"
+    volume_autofade_speed="0.25" >
+  </AudioLoopComponent>
+  
+</Entity>
