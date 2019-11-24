@@ -20,9 +20,15 @@ customspells={ -- add custom spells
 {name="Page XVI",spellname="PAGE_XVI"},
 {name="Page DCCLVI",spellname="PAGE_DCCLVI"},
 {name="Page MXXXII",spellname="PAGE_MXXXII"},
+{name="Time Stone",spellname="TIME_STONE"},
+{name="Power Stone",spellname="POWER_STONE"},
+{name="Soul Stone",spellname="SOUL_STONE"},
+{name="Reality Stone",spellname="REALITY_STONE"},
+{name="Mind Stone",spellname="MIND_STONE"},
 };
 weapons={ -- add custom wands, weapons, etc.
 {path="data/clockwork_gfx/wands/necronomicon/",isweapon=true,filename="necronomicon",name="Necronomicon"},
+{path="data/clockwork_gfx/wands/infinity_gauntlet/",isweapon=true,filename="infinity_gauntlet",name="Infinity Gauntlet"},
 };
 customperks={ -- add custom perks
 {name="Poop",perkname="POOP_PERK"};

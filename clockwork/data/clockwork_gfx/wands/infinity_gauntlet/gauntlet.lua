@@ -8,16 +8,16 @@ SetRandomSeed( x, y )
 local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local gun = { }
-gun.name = {"Necronomicon"}
-gun.deck_capacity = 1
+gun.name = {"Infinity Gauntlet"}
+gun.deck_capacity = 6
 gun.actions_per_round = 1
-gun.reload_time = 3
-gun.shuffle_deck_when_empty = 0
-gun.fire_rate_wait = 3
-gun.spread_degrees = 3
+gun.reload_time = 5
+gun.shuffle_deck_when_empty = 1
+gun.fire_rate_wait = 5
+gun.spread_degrees = 0
 gun.speed_multiplier = 2
-gun.mana_charge_speed = 90000
-gun.mana_max = 49999
+gun.mana_charge_speed = 900000000
+gun.mana_max = 1000000000
 gun.actions = gun.actions
 
 local mana_max = gun.mana_max

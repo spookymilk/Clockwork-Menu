@@ -1,0 +1,20 @@
+<Entity _tags="POWER_STONE">
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="data/clockwork_gfx/spells/infinity_stones/power_stone.png" 
+			>
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="POWER_STONE" >
+		</ItemActionComponent>
+	</Base>
+
+	<InheritTransformComponent
+		_tags="enabled_in_world,enabled_in_hand"
+		parent_hotspot_tag="shoot_pos">	
+	</InheritTransformComponent>
+	
+</Entity>

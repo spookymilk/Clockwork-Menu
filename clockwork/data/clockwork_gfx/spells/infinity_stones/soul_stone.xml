@@ -1,0 +1,20 @@
+<Entity _tags="SOUL_STONE">
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="data/clockwork_gfx/spells/infinity_stones/soul_stone.png" 
+			>
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="SOUL_STONE" >
+		</ItemActionComponent>
+	</Base>
+
+	<InheritTransformComponent
+		_tags="enabled_in_world,enabled_in_hand"
+		parent_hotspot_tag="shoot_pos">	
+	</InheritTransformComponent>
+	
+</Entity>

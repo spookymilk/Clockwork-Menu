@@ -1,0 +1,131 @@
+<Entity 
+  name="$projectile_default" 
+   >
+
+	<Base file="data/entities/base_projectile.xml" >
+		<VelocityComponent
+			air_friction="-100"
+			gravity_y="0"
+			mass="73.04"
+		>
+	</VelocityComponent>
+	  	<CellEaterComponent
+        radius="6"
+        eat_dynamic_physics_bodies="1" 
+	    >
+	</CellEaterComponent>
+	</Base>
+
+  	<CellEaterComponent
+        radius="6"
+        eat_dynamic_physics_bodies="1" 
+	    >
+	</CellEaterComponent>
+  <ProjectileComponent 
+    _enabled="1" 
+    lob_min="0.8"
+    lob_max="1.0"
+    speed_min="65"
+    speed_max="85"
+    friction="-15.0"
+    direction_random_rad="0"
+    on_death_explode="1"
+    on_death_gfx_leave_sprite="0" 
+    on_lifetime_out_explode="1"
+    explosion_dont_damage_shooter="1" 
+    on_collision_die="0"
+	die_on_liquid_collision="0"
+	penetrate_world="1"
+	ground_collision_fx="1"
+	bounce_always="0"
+	bounce_energy="0"
+	bounce_at_any_angle="0"
+    lifetime="55"
+    damage="9.35"
+    velocity_sets_scale="1"
+    lifetime_randomness="7"
+    ragdoll_force_multiplier="0.01"
+    hit_particle_force_multiplier="0.25"
+    camera_shake_when_shot="2.0"
+    shoot_light_flash_radius="180"
+	muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_laser.xml"
+    shoot_light_flash_r="70"
+    shoot_light_flash_g="70"
+    shoot_light_flash_b="155" 
+	knockback_force="1.5"
+	>
+  </ProjectileComponent>
+  
+  	<CellEaterComponent
+        radius="6"
+        eat_dynamic_physics_bodies="1" 
+	    >
+	</CellEaterComponent>
+	<CellEaterComponent
+        radius="6"
+        eat_dynamic_physics_bodies="1" 
+	    >
+	</CellEaterComponent>
+	<CellEaterComponent
+        radius="6"
+        eat_dynamic_physics_bodies="1" 
+	    >
+	</CellEaterComponent>
+	<CellEaterComponent
+        radius="6"
+        eat_dynamic_physics_bodies="1" 
+	    >
+	</CellEaterComponent>
+	<CellEaterComponent
+        radius="6"
+        eat_dynamic_physics_bodies="1" 
+	    >
+	</CellEaterComponent>
+  
+  <SpriteComponent 
+    _enabled="1" 
+    alpha="1" 
+    image_file="data/clockwork_gfx/spells/infinity_stones/projectile/mind_stone_gfx/beam.png" 
+    next_rect_animation="" 
+    offset_x="0" 
+    offset_y="0" 
+    rect_animation="" 
+     >
+  </SpriteComponent>
+
+  <LightComponent 
+    _enabled="1" 
+    radius="650" 
+    r="255"
+    g="255"
+    b="0">
+  </LightComponent>
+
+  <ParticleEmitterComponent 
+    emitted_material_name="spark_yellow"
+    count_min="0"
+    count_max="1"
+    offset.x="0"
+    offset.y="0"
+	gravity.y="0"
+    count_min="1"
+    count_max="1"
+	is_trail="1"
+	trail_gap="0.5"
+    lifetime_min="0.2"
+    lifetime_max="0.4"
+	render_on_grid="1"
+    emit_real_particles="1"
+    emit_cosmetic_particles="0"
+	fade_based_on_lifetime="1"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="1"
+    is_emitting="1" >
+  </ParticleEmitterComponent>
+  
+  <AudioComponent
+      file="data/audio/Desktop/projectiles.snd"
+      event_root="projectiles/laser">
+  </AudioComponent>
+
+</Entity>

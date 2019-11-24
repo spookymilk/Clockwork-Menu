@@ -1,0 +1,14 @@
+<Entity name="$projectile_default">
+	<LoadEntitiesComponent
+        count.min="1"
+        count.max="1"
+        kill_entity="0"
+        entity_file="data/clockwork_gfx/spells/infinity_stones/projectile/time_stone_gfx/time_effect_backward.xml" >
+    </LoadEntitiesComponent>
+	<LifetimeComponent
+		lifetime="360"
+		randomize_lifetime.min="-50"
+		randomize_lifetime.max="50"
+		>
+	</LifetimeComponent>
+</Entity>
