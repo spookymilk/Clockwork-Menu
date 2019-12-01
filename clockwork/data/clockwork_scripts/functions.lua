@@ -34,7 +34,37 @@ er.toggled=true;
 end;
 end;
 end;
+function buttondown(button)
+local test=EntityGetComponent(localplayer(),"ControlsComponent");
+if test~=nil then
+for i,yuh in pairs(test) do		
+local dah=ComponentGetValue(yuh,button);
+if dah=="1" then
+return true;
+else
+return false;
+end;
+end;
+end;
+end;
 function run(run)
+if run.isspecial==true then
+if run.cantoggle==true then
+local status=run.toggled;
+if status==true then
+run.name=string.gsub(run.name," <ON>","");
+local func=run.specialOff;
+func();
+run.toggled=false;
+elseif status==false then
+run.name=run.name.." <ON>";
+local x,y=localplayerPos();
+local func=run.specialOn;
+func();
+run.toggled=true;
+end;
+end;
+elseif run.isspecial==false then
 if run.cantoggle==true then
 local placeholder;
 local status=run.toggled;
@@ -55,6 +85,7 @@ end;
 elseif cantoggle==false then
 local x,y=localplayerPos();
 EntityLoad(run.path..run.filename..".xml",x,y-30);
+end;
 end;
 end;
 function dosetting(setting)
@@ -152,15 +183,16 @@ return dah;
 end;
 end;
 end;
-function cap(theTable)
-for i,v in ipairs(theTable) do
-local first=v:sub(1,1);
-local rest=v:sub(2);
-theTable[i]=first:upper()..rest;
-end;
-end;
 function editCIP(component,inside,value)
 local cip=EntityGetComponent(localplayer(),component);
+if cip~=nil then
+for i,v in pairs(cip) do
+ComponentSetValue(v,inside,value);
+end;
+end;
+end;
+function editCIE(entity,component,inside,value)
+local cip=EntityGetComponent(entity,component);
 if cip~=nil then
 for i,v in pairs(cip) do
 ComponentSetValue(v,inside,value);
@@ -285,6 +317,82 @@ EntityKill(v);
 end;
 end;
 end;
+end;
+function kill(entity,attractionTag,theDistance)
+local ex,ey=EntityGetTransform(entity);
+local allWithTag=EntityGetWithTag(attractionTag);
+if allWithTag~=nil then
+for _,v in ipairs(allWithTag) do
+local ix,iy=EntityGetTransform(v);
+local distance=math.abs(ex+-ix)+math.abs(ey-iy);
+local maxDistance=theDistance;
+if distance<maxDistance*1.25 then
+for i=1,8 do
+shoot_projectile(entity,"data/entities/projectiles/buckshot.xml",ix,iy,1,1);
+end;
+end;
+end;
+end;
+end;
+function killMouse(attractionTag,theDistance)
+local ex,ey=DEBUG_GetMouseWorld();
+local allWithTag=EntityGetWithTag(attractionTag);
+if allWithTag~=nil then
+for _,v in ipairs(allWithTag) do
+local ix,iy=EntityGetTransform(v);
+local distance=math.abs(ex+-ix)+math.abs(ey-iy);
+local maxDistance=theDistance;
+if distance<maxDistance*1.25 then
+shoot_projectile(entity,"data/entities/projectiles/buckshot.xml",ix,iy,1,1);
+end;
+end;
+end;
+end;
+function grab(attractionTag,theDistance)
+local ex,ey=DEBUG_GetMouseWorld();
+local px,py=localplayerPos();
+local allWithTag=EntityGetWithTag(attractionTag);
+if allWithTag~=nil then
+for _,v in ipairs(allWithTag) do
+local ix,iy,ir,isx,isy=EntityGetTransform(v);
+local distance=math.abs(ex+-ix)+math.abs(ey-iy);
+local maxDistance=theDistance*math.sqrt(isx,isy);
+if distance<maxDistance*1.25 then
+PhysicsSetStatic(v,false);
+local neutral=45*math.sqrt(isx*isy);
+if ix>=ex then
+PhysicsApplyForce(v,neutral*-0.25,0);
+elseif ix<=ex then
+PhysicsApplyForce(v,neutral*0.25,0);
+end;
+if iy>=ey then
+PhysicsApplyForce(v,0,neutral*-0.25);
+elseif iy<=ey then
+PhysicsApplyForce(v,0,neutral*0.25);
+end;
+end;
+end;
+end;
+end;
+function grabAnimal(attractionTag,theDistance)
+local ex,ey=DEBUG_GetMouseWorld();
+local px,py=localplayerPos();
+local allWithTag=EntityGetWithTag(attractionTag);
+if allWithTag~=nil then
+for _,v in ipairs(allWithTag) do
+local ix,iy,ir,isx,isy=EntityGetTransform(v);
+local distance=math.abs(ex+-ix)+math.abs(ey-iy);
+local maxDistance=theDistance*math.sqrt(isx,isy);
+if distance<maxDistance*1.25 then
+PhysicsSetStatic(v,false);
+EntitySetTransform(v,ex,ey);
+end;
+end;
+end;
+end;
+function chunk()
+local ex,ey=DEBUG_GetMouseWorld();
+LooseChunk(ex,ey, "data/collapse_masks/big/3.png");
 end;
 function convertFromMouse(attractionTag,theDistance,material)
 local ex,ey=DEBUG_GetMouseWorld();

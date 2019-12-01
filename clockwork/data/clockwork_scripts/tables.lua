@@ -72,10 +72,20 @@ times={
 {name="Evening",timeofday=0.47752},
 {name="Night",timeofday=0.55356},
 };
+capes={
+{name="Default Cape",color=0xff87627f},
+{name="Red Cape",color=0xff0000ff},
+}
+clothing={
+{path=nil,main=nil,arm=nil,ragdoll=nil,isdefault=true,name="Default Outfit"},
+{path="data/clockwork_gfx/player/red/",main="player",arm="player_arm",ragdoll="filenames",isdefault=false,name="Red Outfit"},
+}
 script={
-{path="data/clockwork_xml/script_loaders/",filename="magnet",name="Magnet",key="XMAN_MOVIES_SUCK_LOWKEY",toggled=false,cantoggle=true;},
-{path="data/clockwork_xml/entities/",filename="midasfield",name="Midas Field",key="DIE_GOLD_DIE",toggled=false,cantoggle=true;},
-{path="data/clockwork_xml/entities/",filename="blackholefield",name="Blackhole Field",key="HUGE_BLACKHOLE_THING",toggled=false,cantoggle=true;},
+{path="data/clockwork_xml/script_loaders/",filename="magnet",name="Magnet",key="XMAN_MOVIES_SUCK_LOWKEY",toggled=false,cantoggle=true,isspecial=false;},
+{path="data/clockwork_xml/entities/",filename="midasfield",name="Midas Field",key="DIE_GOLD_DIE",toggled=false,cantoggle=true,isspecial=false;},
+{path="data/clockwork_xml/entities/",filename="blackholefield",name="Blackhole Field",key="HUGE_BLACKHOLE_THING",toggled=false,cantoggle=true,isspecial=false;},
+{path="data/clockwork_xml/entities/",filename="instantkillfield",name="Kill Field",key="THIS_WONT_KILL_YOU",toggled=false,cantoggle=true,isspecial=false;},
+{path=nil,filename=nil,name="Telekinesis",key=nil,specialOn=function()tel=true;end,specialOff=function()tel=false;end,toggled=false,cantoggle=true,isspecial=true;},
 };
 playerset={
 {path="data/clockwork_xml/entities/",filename="protectionall",name="Godmode",execOn=nil,execOff=nil,key="CLOCKWORK_GODMODE",toggled=false,isxmlbased=true,cantoggle=true;},
@@ -276,4 +286,3 @@ objects={
 {path="data/entities/animals/boss_centipede/rewards/",filename="reward_nolla",name="Nolla"},
 {path="data/entities/animals/boss_centipede/rewards/",filename="reward_peace",name="Peace"},};
 getAllMaterial(materials);
-cap(materials);

@@ -4,6 +4,7 @@ end;
 dofile("data/clockwork_scripts/functions.lua");
 
 coords=false;
+tel=false;
 clocks=false;
 rain=false;
 special_rain=false;
@@ -55,8 +56,36 @@ EntityLoad(special_rain_path,x+rando,y-500);
 elseif special_rain==false then
 special_rain_path="";
 end;
+if tel==true then
+local mx,my=DEBUG_GetMouseWorld();
+local button=buttondown("mButtonDownFire2");
+local buttonKick=buttondown("mButtonDownKick");
+local buttonDown=buttondown("mButtonDownDown");
+if button then
+grabAnimal("destruction_target",25);
+grab("tablet",25);
+grab("item_physics",25);
+grab("mortal",25);
+grab("prop",25);
+grab("prop_physics",25);
+grab("teleportable_NOT",25);
+grabAnimal("helpless_animal",25);
+grab("hittable",25);
+grab("sacred_barrel",25);
+end;
+if button and buttonKick then
+GameCreateParticle("spark_red",mx,my,1,math.random(-100,100),math.random(-100,100),true);
+killMouse("destruction_target",25);
+killMouse("helpless_animal",25);
+end;
+if button and buttonDown then
+GameCreateParticle("spark_teal",mx,my,1,math.random(-100,100),math.random(-100,100),true);
+chunk();
+end;
+end;
 wait(0);
 end);
+
 
 async_loop(function()
 if gui~=nil then
