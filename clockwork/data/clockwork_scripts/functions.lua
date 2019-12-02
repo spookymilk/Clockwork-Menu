@@ -394,6 +394,9 @@ function chunk()
 local ex,ey=DEBUG_GetMouseWorld();
 LooseChunk(ex,ey, "data/collapse_masks/big/3.png");
 end;
+function move(entity,x,y)
+EntitySetTransform(entity,x,y);
+end;
 function convertFromMouse(attractionTag,theDistance,material)
 local ex,ey=DEBUG_GetMouseWorld();
 local allWithTag=EntityGetWithTag(attractionTag);

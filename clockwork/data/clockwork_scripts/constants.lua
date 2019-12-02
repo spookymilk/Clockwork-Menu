@@ -7,6 +7,8 @@ coords=false;
 tel=false;
 clocks=false;
 rain=false;
+mousehook=false;
+noclip=false;
 special_rain=false;
 special_rain_path="";
 rain_mat="";
@@ -82,6 +84,29 @@ if button and buttonDown then
 GameCreateParticle("spark_teal",mx,my,1,math.random(-100,100),math.random(-100,100),true);
 chunk();
 end;
+end;
+if noclip==true then
+local px,py=localplayerPos();
+local buttonUp=buttondown("mButtonDownUp");
+local buttonDown=buttondown("mButtonDownDown");
+local buttonLeft=buttondown("mButtonDownLeft");
+local buttonRight=buttondown("mButtonDownRight");
+if buttonUp then
+move(localplayer(),px,py-1);
+end;
+if buttonDown then
+move(localplayer(),px,py+1);
+end;
+if buttonLeft then
+move(localplayer(),px-1,py);
+end;
+if buttonRight then
+move(localplayer(),px+1,py);
+end;
+end;
+if mousehook==true then
+local ex,ey=DEBUG_GetMouseWorld();
+move(localplayer(),ex,ey);
 end;
 wait(0);
 end);
