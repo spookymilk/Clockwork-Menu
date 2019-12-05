@@ -8,7 +8,7 @@ dofile("data/clockwork_scripts/functions.lua"); -- yeah yeah.
 dofile("data/clockwork_scripts/tables.lua");
 local gui=GuiCreate();
 local clockwork=nil;
-local closed,main,spawnables,player,scripts,items,weapon,cobj,timed,obj,cspells,cperks,spells,tp,settings;
+local closed,main,spawnables,player,scripts,items,weapon,cobj,timed,obj,cspells,cperks,spells,tp,settings,choiceofanimal,friendlyanimals,enemyanimals;
 local back;
 local page=1;
 local XSET=0;
@@ -43,6 +43,9 @@ begin(gui,1,73);
 if button(gui,0,0,"Back",1) then
 page=page-1;
 end;
+if button(gui,0,0,"First",1) then
+page=1;
+end;
 endit(gui);
 end;
 if page<total then
@@ -54,6 +57,9 @@ XSET=0;
 end;
 if button(gui,XSET,0,"Next",1) then
 page=page+1;
+end;
+if button(gui,XSET,0,"Last",1) then
+page=total;
 end;
 endit(gui);
 end;
@@ -117,13 +123,27 @@ flasks=function()
 list(materials,flask);
 back=items;
 end;
+choiceofanimal=function()
+list({
+{name="Friendly Animals",func=function()clockwork=friendlyanimals;end;},
+{name="Mean Animals",func=function()clockwork=enemyanimals;end;},
+});
+back=animals;
+end;
+enemyanimals=function()
+list(allanimals,enemey);
+back=choiceofanimal;
+end;
+friendlyanimals=function()
+list(allanimals,friendly);
+back=choiceofanimal;
+end;
 animals=function()
 list({
-{name="Animals",func=function()clockwork=main;end;},
+{name="Animals",func=function()clockwork=choiceofanimal;end;},
 {name="Custom Animals",func=function()clockwork=customanim;end;},
 });
 back=main;
-GamePrint("Animals will be coming in the next update!");
 end;
 customanim=function()
 list(customanimal,animalfunc);

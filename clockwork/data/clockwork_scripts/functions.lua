@@ -295,6 +295,15 @@ local x,y=localplayerPos();
 local stock=EntityLoad("data/clockwork_xml/entities/potion_stock.xml",x,y);
 AddMaterialInventoryMaterial(stock,flask.name:lower(),1000);
 end;
+function enemy(enemey)
+local x,y=localplayerPos();
+EntityLoad("data/entities/animals/"..enemey.filename..".xml",x,y-30);
+end;
+function friendly(friendly)
+local x,y=localplayerPos();
+local monster=EntityLoad("data/entities/animals/"..friendly.filename..".xml",x,y-30);
+GetGameEffectLoadTo(monster,"CHARM",true);
+end;
 function object(object)
 local x,y=localplayerPos();
 if object.isweapon==true then
