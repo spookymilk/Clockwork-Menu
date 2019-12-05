@@ -131,7 +131,7 @@ list({
 back=animals;
 end;
 enemyanimals=function()
-list(allanimals,enemey);
+list(allanimals,enemy);
 back=choiceofanimal;
 end;
 friendlyanimals=function()

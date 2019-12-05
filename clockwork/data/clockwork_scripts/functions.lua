@@ -295,9 +295,9 @@ local x,y=localplayerPos();
 local stock=EntityLoad("data/clockwork_xml/entities/potion_stock.xml",x,y);
 AddMaterialInventoryMaterial(stock,flask.name:lower(),1000);
 end;
-function enemy(enemey)
+function enemy(enemy)
 local x,y=localplayerPos();
-EntityLoad("data/entities/animals/"..enemey.filename..".xml",x,y-30);
+local monster=EntityLoad("data/entities/animals/"..enemy.filename..".xml",x,y-30);
 end;
 function friendly(friendly)
 local x,y=localplayerPos();
