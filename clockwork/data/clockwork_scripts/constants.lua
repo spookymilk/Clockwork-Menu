@@ -10,6 +10,7 @@ rain=false;
 mousehook=false;
 noclip=false;
 special_rain=false;
+infgold=false;
 special_rain_path="";
 rain_mat="";
 rain_den=0;
@@ -103,6 +104,9 @@ end;
 if buttonRight then
 move(localplayer(),px+1,py);
 end;
+end;
+if infgold==true then
+editCIP("WalletComponent","money",2147483647);
 end;
 if mousehook==true then
 local mx,my=DEBUG_GetMouseWorld();
