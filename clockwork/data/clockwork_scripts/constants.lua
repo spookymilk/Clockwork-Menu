@@ -105,12 +105,16 @@ move(localplayer(),px+1,py);
 end;
 end;
 if mousehook==true then
+local mx,my=DEBUG_GetMouseWorld();
+local button=buttondown("mButtonDownFire2");
 local ex,ey=DEBUG_GetMouseWorld();
 move(localplayer(),ex,ey);
+if button then
+mousehook=false;
+end;
 end;
 wait(0);
 end);
-
 
 async_loop(function()
 if gui~=nil then

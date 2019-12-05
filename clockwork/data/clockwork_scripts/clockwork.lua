@@ -123,6 +123,7 @@ list({
 {name="Custom Animals",func=function()clockwork=customanim;end;},
 });
 back=main;
+GamePrint("Animals will be coming in the next update!");
 end;
 customanim=function()
 list(customanimal,animalfunc);

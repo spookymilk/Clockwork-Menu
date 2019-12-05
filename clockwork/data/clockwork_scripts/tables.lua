@@ -85,7 +85,7 @@ script={
 {path="data/clockwork_xml/entities/",filename="midasfield",name="Midas Field",key="DIE_GOLD_DIE",toggled=false,cantoggle=true,isspecial=false;},
 {path="data/clockwork_xml/entities/",filename="blackholefield",name="Blackhole Field",key="HUGE_BLACKHOLE_THING",toggled=false,cantoggle=true,isspecial=false;},
 {path="data/clockwork_xml/entities/",filename="instantkillfield",name="Kill Field",key="THIS_WONT_KILL_YOU",toggled=false,cantoggle=true,isspecial=false;},
-{path=nil,filename=nil,name="Telekinesis",key=nil,specialOn=function()tel=true;end,specialOff=function()tel=false;end,toggled=false,cantoggle=true,isspecial=true;},
+{path=nil,filename=nil,name="Telekinesis",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); tel=true;end,specialOff=function()tel=false;end,toggled=false,cantoggle=true,isspecial=true;},
 };
 playerset={
 {path="data/clockwork_xml/entities/",filename="protectionall",name="Godmode",execOn=nil,execOff=nil,key="CLOCKWORK_GODMODE",toggled=false,isxmlbased=true,cantoggle=true;},
@@ -134,6 +134,7 @@ setting={
 {name="Clock",execOn=function()clocks=true;end,execOff=function()clocks=false;end,toggled=false,cantoggle=true;},
 {name="Convert Everything to Gold",execOn=function()ConvertEverythingToGold();end,execOff=nil,toggled=nil,cantoggle=false;},
 };
+animals={}
 objects={
 {path="data/entities/props/",filename="altar_torch",name="Altar Torch"},
 {path="data/entities/props/",filename="altar_torch_old",name="Altar Torch: Old"},

@@ -157,6 +157,9 @@ newOne=theTable;
 end;
 return newOne;
 end;
+function send(text)
+GamePrint(text);
+end;
 function quickGui(dave,x,y,func)
 local parent=dave;
 begin(parent,x,y);
@@ -332,6 +335,16 @@ shoot_projectile(entity,"data/entities/projectiles/buckshot.xml",ix,iy,1,1);
 end;
 end;
 end;
+end;
+end;
+function shootMaterial(entity,material)
+local ex,ey=EntityGetTransform(entity);
+local mx,my=DEBUG_GetMouseWorld();
+local xDis=math.abs(ex+-mx);
+if mx>=ex then
+GameCreateParticle(material,ex+5,ey,1,ex*xDis*7,0,false)
+elseif mx<=ex then
+GameCreateParticle(material,ex+5,ey,1,ex*xDis*7,0,false)
 end;
 end;
 function killMouse(attractionTag,theDistance)
