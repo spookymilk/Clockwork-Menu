@@ -95,7 +95,7 @@ playerset={
 {path="data/clockwork_xml/entities/",filename="fullbright",name="Fullbright",execOn=nil,execOff=nil,key="FULLBRIGHT_MAYBE",toggled=false,isxmlbased=true,cantoggle=true;},
 {path=nil,filename=nil,name="Noclip",execOn=function()noclip=true;end,execOff=function()noclip=false;end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},
 {path=nil,filename=nil,name="Mouseclip",execOn=function()mousehook=true;end,execOff=function()mousehook=false;end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},
-};
+{path=nil,filename=nil,name="Light",execOn=function()addLight(localplayer(),"250000000","239","217","54");end,execOff=function()removeLight(localplayer());end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},};
 weath={
 {name="Rain",execOn=function()rain_mat="water";rain_den=1;rain_grav=100;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
 {name="Blood Rain",execOn=function()rain_mat="blood";rain_den=1;rain_grav=120;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
@@ -163,6 +163,7 @@ allanimals={
 {filename="flamer",name="Flamer"},
 {filename="fly",name="Fly"},
 {filename="frog",name="Frog"},
+{filename="frog_big",name="Frog [BIG]"},
 {filename="fungus",name="Fungus"},
 {filename="fungus_big",name="Fungus [BIG]"},
 {filename="gazer",name="Gazer"},
@@ -213,6 +214,7 @@ allanimals={
 {filename="slimeshooter_nontoxic",name="Slime Shooter [NON-TOXIC]"},
 {filename="slimeshooter_weak",name="Slime Shooter [WEAK]"},
 {filename="sniper",name="Sniper"},
+{filename="spearbot",name="Spear Bot"},
 {filename="spitmonster",name="Spit Monster"},
 {filename="statue_physics",name="Uboa ???"},
 {filename="tank",name="Tank"},

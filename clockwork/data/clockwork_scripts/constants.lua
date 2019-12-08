@@ -9,6 +9,7 @@ clocks=false;
 rain=false;
 mousehook=false;
 noclip=false;
+rainbowlight=false;
 special_rain=false;
 infgold=false;
 special_rain_path="";

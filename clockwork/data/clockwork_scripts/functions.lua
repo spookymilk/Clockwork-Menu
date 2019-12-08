@@ -419,6 +419,15 @@ end;
 function move(entity,x,y)
 EntitySetTransform(entity,x,y);
 end;
+function addLight(entity,radi,red,green,blue)
+local light=EntityAddComponent(entity,"LightComponent",{radius=radi,r=red,g=green,b=blue});
+end;
+function removeLight(entity)
+local light=EntityGetFirstComponent(entity,"LightComponent");
+if light~=nil then
+EntityRemoveComponent(entity,light);
+end;
+end;
 function convertFromMouse(attractionTag,theDistance,material)
 local ex,ey=DEBUG_GetMouseWorld();
 local allWithTag=EntityGetWithTag(attractionTag);
