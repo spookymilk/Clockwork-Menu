@@ -1,4 +1,5 @@
 dofile("data/scripts/lib/utilities.lua");
+dofile("data/scripts/gun/procedural/gun_action_utils.lua")
 
 function begin(parent,x,y)
 return GuiLayoutBeginVertical(parent,x,y);
@@ -110,6 +111,52 @@ end;
 function animalfunc(animal)
 local x,y=localplayerPos();
 EntityLoad(animal.path..animal.filename..".xml",x,y-30);
+end;
+function createGun(name,entity,fp,mcs,mm,maii,rf,irm,sraii,spa,tai,ugs,atca,atcap,apr,sdwe,rt,dc,frw)
+local px,py=localplayerPos();
+local gun=EntityLoad("data/clockwork_gfx/wands/blank_wand/blank_wand.xml",px,py);
+local gac=EntityGetComponent(gun,"AbilityComponent");
+local ghc=EntityGetComponent(gun,"HotspotComponent");
+local glc=EntityGetComponent(gun,"LuaComponent");
+if gac~=nil then
+for i,v in ipairs(gac) do
+ComponentSetValue(v,"entity_file",entity);
+ComponentSetValue(v,"fast_projectile",fp);
+ComponentSetValue(v,"mana_charge_speed",mcs);
+ComponentSetValue(v,"mana_max",mm);
+ComponentSetValue(v,"max_amount_in_inventory",maii);
+ComponentSetValue(v,"reload_time_frames",rf);
+ComponentSetValue(v,"item_recoil_max",irm);
+ComponentSetValue(v,"shooting_reduces_amount_in_inventory",sraii);
+--ComponentSetValue(v,"sprite_file",sprite);
+ComponentSetValue(v,"swim_propel_amount",spa);
+ComponentSetValue(v,"throw_as_item",tai);
+ComponentSetValue(v,"ui_name",name);
+ComponentSetValue(v,"use_gun_script",ugs);
+ComponentObjectSetValue(v,"gun_config","actions_per_round",apr);
+ComponentObjectSetValue(v,"gun_config","shuffle_deck_when_empty",sdwe);
+ComponentObjectSetValue(v,"gun_config","reload_time",rt);
+ComponentObjectSetValue(v,"gun_config","deck_capacity",dc);
+ComponentObjectSetValue(v,"gunaction_config","fire_rate_wait",frw);
+end;
+end;
+if ghc~=nil then
+for i,v in ipairs(ghc) do
+ComponentSetValue(v,"offset.x",x);
+ComponentSetValue(v,"offset.y",y);
+end;
+end;
+for b,v in ipairs(atca) do
+AddGunAction(gun,v);
+end;
+for pb,v in ipairs(atcap) do
+AddGunActionPermanent(gun,v);
+end;
+if glc~=nil then
+for i,v in ipairs(glc) do
+ComponentSetValue(v,"_enabled","1");
+end;
+end;
 end;
 function play(play)
 if play.cantoggle==true then
@@ -258,6 +305,7 @@ description=DESCRIPTION,
 sprite=SPRITE,
 type=TYPE,
 mana=MANA,
+price=0,
 custom_xml_file=XML,
 action=ACTION,
 });
@@ -307,7 +355,12 @@ end;
 function object(object)
 local x,y=localplayerPos();
 if object.isweapon==true then
+if object.scripted==true then
+local func=object.script;
+func();
+else
 local stock=EntityLoad(object.path..object.filename..".xml",x,y);
+end;
 else
 local stock=EntityLoad(object.path..object.filename..".xml",x,y-30);
 end;

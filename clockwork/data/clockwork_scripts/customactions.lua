@@ -97,3 +97,9 @@ add_projectile("data/clockwork_gfx/spells/infinity_stones/projectile/mind_stone_
 c.fire_rate_wait=c.fire_rate_wait-999; 
 current_reload_time=current_reload_time-999;
 end);
+addAction(actions,"RED_LASER","Red Laser",[[The weakest of lasers.]],"data/clockwork_gfx/spells/lasers/redlaser.png",ACTION_TYPE_PROJECTILE,15,"data/clockwork_gfx/spells/lasers/redlaser.xml",
+function()
+add_projectile("data/clockwork_gfx/spells/lasers/proj/redlaser.xml")
+c.fire_rate_wait = c.fire_rate_wait - 12
+shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+end);

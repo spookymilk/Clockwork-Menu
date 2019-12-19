@@ -1,6 +1,7 @@
 if not async then
   dofile("data/scripts/lib/coroutines.lua");
 end;
+dofile("data/scripts/lib/utilities.lua");
 dofile("data/clockwork_scripts/functions.lua");
 
 coords=false;
@@ -12,6 +13,8 @@ noclip=false;
 rainbowlight=false;
 special_rain=false;
 infgold=false;
+round=false;
+stats=false;
 special_rain_path="";
 rain_mat="";
 rain_den=0;
@@ -20,6 +23,7 @@ local gui=GuiCreate();
 local X=GuiText(gui,0,50,"");
 local Y=GuiText(gui,0,50,"");
 local clocked=GuiText(gui,0,50,"");
+local rounded=GuiText(gui,0,50,"");
 
 async_loop(function()
 if coords==true then
@@ -117,6 +121,11 @@ move(localplayer(),ex,ey);
 if button then
 mousehook=false;
 end;
+end;
+if round==true then
+rounded=GuiText(gui,145,10,StatsGetValue("playtime_str"));
+elseif round==false then
+rounded=GuiText(gui,0,50,"");
 end;
 wait(0);
 end);

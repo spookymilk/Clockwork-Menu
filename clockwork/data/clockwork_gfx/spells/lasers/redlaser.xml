@@ -1,0 +1,18 @@
+<Entity _tags="laser">
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="data/clockwork_gfx/spells/lasers/redlaser.png" 
+			>
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="RED_LASER" >
+		</ItemActionComponent>
+	</Base>
+
+	<Base file="data/entities/misc/custom_cards/base_laser.xml">
+	</Base>
+	
+</Entity>

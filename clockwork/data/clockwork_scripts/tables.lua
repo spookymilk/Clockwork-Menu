@@ -27,8 +27,11 @@ customspells={ -- add custom spells
 {name="Mind Stone",spellname="MIND_STONE"},
 };
 weapons={ -- add custom wands, weapons, etc.
-{path="data/clockwork_gfx/wands/necronomicon/",isweapon=true,filename="necronomicon",name="Necronomicon"},
-{path="data/clockwork_gfx/wands/infinity_gauntlet/",isweapon=true,filename="infinity_gauntlet",name="Infinity Gauntlet"},
+{path="data/clockwork_gfx/wands/necronomicon/",isweapon=true,scripted=false,script=nil,filename="necronomicon",name="Necronomicon"},
+{path="data/clockwork_gfx/wands/infinity_gauntlet/",isweapon=true,scripted=false,script=nil,filename="infinity_gauntlet",name="Infinity Gauntlet"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("Red Laser","","1","250","290","1","5","10","0","0","0","1",{"RECOIL_DAMPER"},{"RED_LASER"},"1","0","3","5","4");end,filename=nil,name="Red Laser Wand"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("Destroyer","","1","500","500","1","-255","-255","0","0","0","1",{"RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","RECOIL_DAMPER","SPEED"},{"BURST_3","FLAMETHROWER","FLAMETHROWER","BURN_TRAIL","FIRE_TRAIL","ARC_FIRE"},"2","0","-255","30","-255");end,filename=nil,name="Flamer"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("Reaper","","1","250","900","1","10","10","0","0","0","1",{},{"BLACK_HOLE_BIG"},"1","0","10","1","10");end,filename=nil,name="Reaper of Space"},
 };
 customperks={ -- add custom perks
 {name="Poop",perkname="POOP_PERK"};
@@ -122,8 +125,9 @@ weath={
 {name="Random Potions",execOn=function()special_rain_path="data/entities/items/pickup/potion_random_material.xml";special_rain=true;end,execOff=function()special_rain=false;end,toggled=false,needsconstant=true},
 };
 setting={
-{name="X/Y Coordinates",execOn=function()coords=true;end,execOff=function()coords=false;end,toggled=false,cantoggle=true;},
-{name="Clock",execOn=function()clocks=true;end,execOff=function()clocks=false;end,toggled=false,cantoggle=true;},
+{name="Display X/Y Coordinates",execOn=function()coords=true;end,execOff=function()coords=false;end,toggled=false,cantoggle=true;},
+{name="Display Clock",execOn=function()clocks=true;end,execOff=function()clocks=false;end,toggled=false,cantoggle=true;},
+{name="Display Round Timer",execOn=function()round=true;end,execOff=function()round=false;end,toggled=false,cantoggle=true;},
 {name="Convert Everything to Gold",execOn=function()ConvertEverythingToGold();end,execOff=nil,toggled=nil,cantoggle=false;},
 };
 allanimals={
