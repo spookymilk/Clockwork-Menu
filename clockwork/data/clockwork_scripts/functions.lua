@@ -140,12 +140,6 @@ ComponentObjectSetValue(v,"gun_config","deck_capacity",dc);
 ComponentObjectSetValue(v,"gunaction_config","fire_rate_wait",frw);
 end;
 end;
-if ghc~=nil then
-for i,v in ipairs(ghc) do
-ComponentSetValue(v,"offset.x",x);
-ComponentSetValue(v,"offset.y",y);
-end;
-end;
 for b,v in ipairs(atca) do
 AddGunAction(gun,v);
 end;

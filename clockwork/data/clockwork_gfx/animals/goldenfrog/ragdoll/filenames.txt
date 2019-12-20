@@ -1,0 +1,4 @@
+data/clockwork_gfx/animals/goldenfrog/ragdoll/torso.png
+data/clockwork_gfx/animals/goldenfrog/ragdoll/tail.png
+data/clockwork_gfx/animals/goldenfrog/ragdoll/left_foot.png
+data/clockwork_gfx/animals/goldenfrog/ragdoll/right_foot.png
