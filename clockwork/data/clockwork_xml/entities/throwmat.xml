@@ -1,0 +1,12 @@
+<Entity name="HAHAHAHHA_WOW_OKAY_GOOD">
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+        effect="ABILITY_ACTIONS_MATERIALIZED"
+        frames="-1"
+    >
+	</GameEffectComponent >
+
+</Entity>

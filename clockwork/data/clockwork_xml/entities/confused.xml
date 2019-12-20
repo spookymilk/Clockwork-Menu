@@ -1,0 +1,11 @@
+<Entity name="KID_CUDI_IS_A_GOD">
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+    	effect="CONFUSION"
+    	frames="-1"
+    >
+	</GameEffectComponent >
+</Entity>

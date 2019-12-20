@@ -98,7 +98,10 @@ playerset={
 {path="data/clockwork_xml/entities/",filename="fullbright",name="Fullbright",execOn=nil,execOff=nil,key="FULLBRIGHT_MAYBE",toggled=false,isxmlbased=true,cantoggle=true;},
 {path=nil,filename=nil,name="Noclip",execOn=function()noclip=true;end,execOff=function()noclip=false;end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},
 {path=nil,filename=nil,name="Mouseclip",execOn=function()mousehook=true;end,execOff=function()mousehook=false;end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},
-{path=nil,filename=nil,name="Light",execOn=function()addLight(localplayer(),"250000000","239","217","54");end,execOff=function()removeLight(localplayer());end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},};
+{path=nil,filename=nil,name="Light",execOn=function()addLight(localplayer(),"250000000","239","217","54");end,execOff=function()removeLight(localplayer());end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},
+{path="data/clockwork_xml/entities/",filename="confused",name="Reverse Controls",execOn=nil,execOff=nil,key="KID_CUDI_IS_A_GOD",toggled=false,isxmlbased=true,cantoggle=true;},
+{path="data/clockwork_xml/entities/",filename="throwmat",name="Throwable Materials",execOn=nil,execOff=nil,key="HAHAHAHHA_WOW_OKAY_GOOD",toggled=false,isxmlbased=true,cantoggle=true;},
+}
 weath={
 {name="Rain",execOn=function()rain_mat="water";rain_den=1;minvel=50;maxvel=75;rain_grav=35;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
 {name="Blood Rain",execOn=function()rain_mat="blood";rain_den=1;minvel=50;maxvel=75;rain_grav=55;rain=true;end,execOff=function()rain=false;end,toggled=false,needsconstant=true},
