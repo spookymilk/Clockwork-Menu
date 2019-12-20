@@ -12,6 +12,7 @@ local closed,main,spawnables,player,scripts,items,weapon,cobj,timed,obj,cspells,
 local back;
 local page=1;
 local XSET=0;
+local lastUpdate="Updated for 'Build Dec 19 2019 - 17:24:57'";
 
 local function list(tab,func)
 local totalperpage=math.sqrt(math.deg(math.pi/2)+10)+10;
@@ -36,6 +37,11 @@ begin(gui,1,73);
 if button(gui,0,0,"Back",1) then
 clockwork=back;
 end;
+endit(gui);
+end;
+if page==1 and back==closed then
+begin(gui,1,95);
+GuiText(gui,0,0,lastUpdate);
 endit(gui);
 end;
 if page>1 then
