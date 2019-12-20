@@ -19,6 +19,10 @@ special_rain_path="";
 rain_mat="";
 rain_den=0;
 rain_grav=0;
+minvel=0;
+maxvel=0;
+rain_bounce=false;
+rain_long=false;
 local gui=GuiCreate();
 local X=GuiText(gui,0,50,"");
 local Y=GuiText(gui,0,50,"");
@@ -50,12 +54,15 @@ clocked=GuiText(gui,0,250,"");
 end;
 if rain==true then
 local x,y=localplayerPos();
-local rando=math.random(-500,500);
-GameCreateParticle(rain_mat,x+rando,y-500,rain_den,0,rain_grav,false,false);
+GameEmitRainParticles(rain_den*3.4,1060,rain_mat,minvel,maxvel,rain_grav,rain_bounce,rain_long);
 elseif rain==false then
 rain_mat="";
 rain_den=0;
 rain_grav=0;
+minvel=0;
+maxvel=0;
+rain_bounce=false;
+rain_long=false;
 end;
 if special_rain==true then
 local x,y=localplayerPos();
