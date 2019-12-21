@@ -15,6 +15,8 @@ customobjects={ -- add custom props and such here
 };
 customanimal={ -- add custom animals
 {path="data/clockwork_gfx/animals/",filename="goldenfrog",name="Golden Frog"},
+{path="data/clockwork_gfx/animals/",filename="albinodeer",name="Albino Deer"},
+{path="data/clockwork_gfx/animals/",filename="santawolf",name="Santa Wolf"},
 };
 customspells={ -- add custom spells
 {name="Page XVI",spellname="PAGE_XVI"},

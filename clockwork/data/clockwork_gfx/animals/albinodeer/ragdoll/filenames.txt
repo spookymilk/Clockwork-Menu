@@ -1,0 +1,10 @@
+data/clockwork_gfx/animals/albinodeer/ragdoll/torso.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/right_thigh.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/right_leg.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/right_arm.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/right_hand.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/left_thigh.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/left_leg.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/left_arm.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/left_hand.png
+data/clockwork_gfx/animals/albinodeer/ragdoll/head.png
