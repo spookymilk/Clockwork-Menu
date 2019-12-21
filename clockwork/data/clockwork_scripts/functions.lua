@@ -114,6 +114,7 @@ EntityLoad(animal.path..animal.filename..".xml",x,y-30);
 end;
 function createGun(name,entity,fp,mcs,mm,maii,rf,irm,sraii,spa,tai,ugs,atca,atcap,apr,sdwe,rt,dc,frw,sd)
 local px,py=localplayerPos();
+local jj=sd; -- palceholder for now
 local gun=EntityLoad("data/clockwork_gfx/wands/blank_wand/blank_wand.xml",px,py);
 local gac=EntityGetComponent(gun,"AbilityComponent");
 local ghc=EntityGetComponent(gun,"HotspotComponent");
@@ -138,7 +139,7 @@ ComponentObjectSetValue(v,"gun_config","shuffle_deck_when_empty",sdwe);
 ComponentObjectSetValue(v,"gun_config","reload_time",rt);
 ComponentObjectSetValue(v,"gun_config","deck_capacity",dc);
 ComponentObjectSetValue(v,"gunaction_config","fire_rate_wait",frw);
-ComponentObjectSetValue(v,"gunaction_config","spread_degrees",sd);
+--ComponentObjectSetValue(v,"gunaction_config","spread_degrees",sd);
 end;
 end;
 for b,v in ipairs(atca) do

@@ -54,7 +54,7 @@ clocked=GuiText(gui,0,250,"");
 end;
 if rain==true then
 local x,y=localplayerPos();
-GameEmitRainParticles(rain_den*3.4,1060,rain_mat,minvel,maxvel,rain_grav,rain_bounce,rain_long);
+GameEmitRainParticles(rain_den*3.4,1060,rain_mat,minvel,maxvel,rain_grav,rain_bounce,true);
 elseif rain==false then
 rain_mat="";
 rain_den=0;
