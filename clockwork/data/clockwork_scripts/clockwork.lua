@@ -12,7 +12,7 @@ local closed,main,spawnables,player,scripts,items,weapon,cobj,timed,obj,cspells,
 local back;
 local page=1;
 local XSET=0;
-local lastUpdate="Updated for 'Build Dec 19 2019 - 17:24:57'";
+local lastUpdate="Updated for 'Build Dec 20 2019 - 13:20:30'";
 
 local function list(tab,func)
 local totalperpage=math.sqrt(math.deg(math.pi/2)+10)+10;
