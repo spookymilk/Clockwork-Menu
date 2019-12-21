@@ -27,6 +27,11 @@ customspells={ -- add custom spells
 {name="Soul Stone",spellname="SOUL_STONE"},
 {name="Reality Stone",spellname="REALITY_STONE"},
 {name="Mind Stone",spellname="MIND_STONE"},
+{name="Red Laser",spellname="RED_LASER"},
+{name="Red Luminous Drill",spellname="RED_LUMINOUS_DRILL"},
+{name="Yellow Luminous Drill",spellname="YELLOW_LUMINOUS_DRILL"},
+{name="White Luminous Drill",spellname="WHITE_LUMINOUS_DRILL"},
+{name="Blue Luminous Drill",spellname="BLUE_LUMINOUS_DRILL"},
 };
 weapons={ -- add custom wands, weapons, etc.
 {path="data/clockwork_gfx/wands/necronomicon/",isweapon=true,scripted=false,script=nil,filename="necronomicon",name="Necronomicon"},
@@ -39,6 +44,16 @@ weapons={ -- add custom wands, weapons, etc.
 {path=nil,isweapon=true,scripted=true,script=function()createGun("TDF","","1","900","8","1","-255","10","0","0","0","1",{"OCARINA_A","OCARINA_B","OCARINA_C","OCARINA_D","OCARINA_E","OCARINA_F","OCARINA_GSHARP","OCARINA_A2"},{},"1","0","-255","8","-255");end,filename=nil,name="The Devil's Flute","0"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("Electrified Rod","","1","350","500","1","-4","10","0","0","0","1",{"LIGHTNING","LIGHTNING","LIGHTNING","LIGHTNING","LIGHTNING"},{"ELECTRIC_CHARGE"},"1","0","-4","5","-4");end,filename=nil,name="Electricity Rod","0"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("Thunder Rod","","1","350","500","1","-4","10","0","0","0","1",{"BURST_2","ARC_ELECTRIC","ELECTRIC_CHARGE","SCATTER_2","SCATTER_2","SCATTER_2"},{"THUNDERBALL","THUNDERBALL"},"2","0","-4","6","-4");end,filename=nil,name="Thunder Rod","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="Green Lightsaber","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"RED_LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="Red Lightsaber","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"BLUE_LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="Blue Lightsaber","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"YELLOW_LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="Yellow Lightsaber","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"WHITE_LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="White Lightsaber","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("BOOM","","1","350","122","1","-255","10","0","0","0","1",{},{"DYNAMITE","BOMB"},"1","0","-255","1","-255");end,filename=nil,name="Too Many Bombs","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("NUKED","","1","9999","450","1","-2555","10","0","0","0","1",{},{"NUKE"},"1","0","-2555","1","-2555");end,filename=nil,name="Too Many Nukes","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("HOLYBOOM","","1","350","122","1","-255","10","0","0","0","1",{},{"BOMB_HOLY"},"1","0","-255","1","-255");end,filename=nil,name="The New Era","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("PARTYBOOM","","1","350","122","1","-255","10","0","0","0","1",{},{"GLITTER_BOMB"},"1","0","-255","1","-255");end,filename=nil,name="Enjoy The Party","0.4"},
+
 -- for reference, createGun(name,entity,1,manacharge,manamax,1,reloadtimeframes,itemrecoilmax,0,swimpropel,0,1,spells,permspells,actionsperround,shuffle,reloadtime,deckcap,fireratewait)
 };
 customperks={ -- add custom perks

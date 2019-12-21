@@ -103,3 +103,27 @@ add_projectile("data/clockwork_gfx/spells/lasers/proj/redlaser.xml")
 c.fire_rate_wait = c.fire_rate_wait - 12
 shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
 end);
+addAction(actions,"RED_LUMINOUS_DRILL","Red Luminous Drill",[[Welcome to the darkside.]],"data/clockwork_gfx/spells/sabers/red.png",ACTION_TYPE_PROJECTILE,10,"",
+function()
+add_projectile("data/clockwork_gfx/spells/sabers/red.xml")
+c.fire_rate_wait = math.max( 0, c.fire_rate_wait - 35 )
+current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the digger reload time back to 0
+end);
+addAction(actions,"YELLOW_LUMINOUS_DRILL","Yellow Luminous Drill",[[]],"data/clockwork_gfx/spells/sabers/yellow.png",ACTION_TYPE_PROJECTILE,10,"",
+function()
+add_projectile("data/clockwork_gfx/spells/sabers/yellow.xml")
+c.fire_rate_wait = math.max( 0, c.fire_rate_wait - 35 )
+current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the digger reload time back to 0
+end);
+addAction(actions,"WHITE_LUMINOUS_DRILL","White Luminous Drill",[[]],"data/clockwork_gfx/spells/sabers/white.png",ACTION_TYPE_PROJECTILE,10,"",
+function()
+add_projectile("data/clockwork_gfx/spells/sabers/white.xml")
+c.fire_rate_wait = math.max( 0, c.fire_rate_wait - 35 )
+current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the digger reload time back to 0
+end);
+addAction(actions,"BLUE_LUMINOUS_DRILL","Blue Luminous Drill",[[]],"data/clockwork_gfx/spells/sabers/blue.png",ACTION_TYPE_PROJECTILE,10,"",
+function()
+add_projectile("data/clockwork_gfx/spells/sabers/blue.xml")
+c.fire_rate_wait = math.max( 0, c.fire_rate_wait - 35 )
+current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the digger reload time back to 0
+end);
