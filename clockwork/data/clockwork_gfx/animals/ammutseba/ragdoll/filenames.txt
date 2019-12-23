@@ -1,0 +1,1 @@
+data/clockwork_gfx/animals/ammutseba/ragdoll/torso.png

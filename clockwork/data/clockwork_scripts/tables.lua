@@ -12,11 +12,13 @@ customobjects={ -- add custom props and such here
 {path="data/clockwork_gfx/items/",filename="pumpkin_noglow",name="Carved Pumpkin"},
 {path="data/clockwork_gfx/items/",filename="pumpkin_glowing",name="Jack O'Lantern"},
 {path="data/clockwork_gfx/items/",filename="pumpkin_cursed",name="Cursed Pumpkin"},
+{path="data/clockwork_gfx/items/",filename="eggfamiliar",name="Familiar Egg"},
 };
 customanimal={ -- add custom animals
 {path="data/clockwork_gfx/animals/",filename="goldenfrog",name="Golden Frog"},
 {path="data/clockwork_gfx/animals/",filename="albinodeer",name="Albino Deer"},
 {path="data/clockwork_gfx/animals/",filename="santawolf",name="Santa Wolf"},
+{path="data/clockwork_gfx/animals/",filename="ammutseba",name="Ammutseba"},
 };
 customspells={ -- add custom spells
 {name="Page XVI",spellname="PAGE_XVI"},
@@ -53,6 +55,7 @@ weapons={ -- add custom wands, weapons, etc.
 {path=nil,isweapon=true,scripted=true,script=function()createGun("NUKED","","1","9999","450","1","-2555","10","0","0","0","1",{},{"NUKE"},"1","0","-2555","1","-2555");end,filename=nil,name="Too Many Nukes","0.4"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("HOLYBOOM","","1","350","122","1","-255","10","0","0","0","1",{},{"BOMB_HOLY"},"1","0","-255","1","-255");end,filename=nil,name="The New Era","0.4"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("PARTYBOOM","","1","350","122","1","-255","10","0","0","0","1",{},{"GLITTER_BOMB"},"1","0","-255","1","-255");end,filename=nil,name="Enjoy The Party","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("BREAKINGBAD","","1","350","122","1","-255","10","0","0","0","1",{},{"CIRCLE_ACID"},"1","0","-255","1","-255");end,filename=nil,name="Get The Barrel Jesse","0.4"},
 
 -- for reference, createGun(name,entity,1,manacharge,manamax,1,reloadtimeframes,itemrecoilmax,0,swimpropel,0,1,spells,permspells,actionsperround,shuffle,reloadtime,deckcap,fireratewait)
 };
@@ -158,7 +161,7 @@ setting={
 {name="Convert Everything to Gold",execOn=function()ConvertEverythingToGold();end,execOff=nil,toggled=nil,cantoggle=false;},
 };
 allanimals={
-{filename="_test_walk",name="???"},
+{filename="_test_walk",name="_test_walk"},
 {filename="acidshooter",name="Acid Shooter"},
 {filename="acidshooter_weak",name="Acid Shooter [WEAK]"},
 {filename="alchemist",name="Alchemist"},

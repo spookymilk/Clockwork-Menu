@@ -13,6 +13,7 @@ local back;
 local page=1;
 local XSET=0;
 local lastUpdate="Updated for 'Build Dec 20 2019 - 13:20:30'";
+local BH=EntityLoad("data/clockwork_xml/entities/teleken.xml",99999,99999);
 
 local function list(tab,func)
 local totalperpage=math.sqrt(math.deg(math.pi/2)+10)+10;

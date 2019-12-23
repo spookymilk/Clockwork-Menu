@@ -28,6 +28,7 @@ local X=GuiText(gui,0,50,"");
 local Y=GuiText(gui,0,50,"");
 local clocked=GuiText(gui,0,50,"");
 local rounded=GuiText(gui,0,50,"");
+--local BH=EntityLoad("data/clockwork_xml/entities/teleken.xml");
 
 async_loop(function()
 if coords==true then
@@ -95,7 +96,17 @@ killMouse("helpless_animal",25);
 end;
 if button and buttonDown then
 GameCreateParticle("spark_teal",mx,my,1,math.random(-100,100),math.random(-100,100),true);
-chunk();
+local x,y=DEBUG_GetMouseWorld();
+local BH=EntityGetWithName("TELEKEN_TEST");
+if BH~=nil then
+EntitySetTransform(BH,x,y);--chunk();
+end;
+end;
+if not buttonDown then
+local BH=EntityGetWithName("TELEKEN_TEST");
+if BH~=nil then
+EntitySetTransform(BH,99999,99999);
+end;
 end;
 end;
 if noclip==true then

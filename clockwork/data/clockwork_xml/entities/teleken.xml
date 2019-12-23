@@ -1,0 +1,9 @@
+<Entity name="TELEKEN_TEST">
+	<BlackHoleComponent
+      radius="55"
+      particle_attractor_force="32"
+      damage_probability="0.1"
+      damage_amount="2.5" 
+	  >
+	</BlackHoleComponent>
+</Entity>

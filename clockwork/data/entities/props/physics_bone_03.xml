@@ -1,0 +1,34 @@
+<Entity name="unknown" tags="item_physics">
+	<Base file="data/entities/base_item_physics.xml" >
+
+    <PhysicsBodyComponent 
+      auto_clean="0" >
+    </PhysicsBodyComponent>
+
+    <PhysicsImageShapeComponent 
+      image_file="data/props_gfx/bone_03.png"
+      material="bone_box2d" >
+    </PhysicsImageShapeComponent>
+
+  </Base>
+  
+  <DamageModelComponent 
+    air_needed="0" 
+    blood_material="" 
+    drop_items_on_death="0" 
+    falling_damage_damage_max="1.2" 
+    falling_damage_damage_min="0.1" 
+    falling_damage_height_max="250" 
+    falling_damage_height_min="70" 
+    falling_damages="1" 
+    fire_damage_amount="0" 
+    fire_probability_of_ignition="0" 
+	critical_damage_resistance="1"
+    hp="800" 
+    is_on_fire="0" 
+    materials_create_messages="0" 
+    materials_damage="0" 
+    ragdoll_filenames_file="" 
+    ragdoll_material="" >
+  </DamageModelComponent>
+</Entity>
