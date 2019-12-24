@@ -492,6 +492,10 @@ end;
 end;
 end;
 end;
+function shootToMouse(entity,proj,x,y)
+local ex,ey=EntityGetTransform(entity);
+shoot_projectile(entity,proj,ex,ey-5,x-ex,y-ey);
+end;
 function attackCore(entity,attackTag,distanceTo,maxAttack,projectiles)
 local ex,ey=EntityGetTransform(entity);
 local enemies=EntityGetWithTag(attackTag);

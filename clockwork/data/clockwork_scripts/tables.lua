@@ -46,6 +46,7 @@ weapons={ -- add custom wands, weapons, etc.
 {path=nil,isweapon=true,scripted=true,script=function()createGun("TDF","","1","900","8","1","-255","10","0","0","0","1",{"OCARINA_A","OCARINA_B","OCARINA_C","OCARINA_D","OCARINA_E","OCARINA_F","OCARINA_GSHARP","OCARINA_A2"},{},"1","0","-255","8","-255");end,filename=nil,name="The Devil's Flute","0"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("Electrified Rod","","1","350","500","1","-4","10","0","0","0","1",{"LIGHTNING","LIGHTNING","LIGHTNING","LIGHTNING","LIGHTNING"},{"ELECTRIC_CHARGE"},"1","0","-4","5","-4");end,filename=nil,name="Electricity Rod","0"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("Thunder Rod","","1","350","500","1","-4","10","0","0","0","1",{"BURST_2","ARC_ELECTRIC","ELECTRIC_CHARGE","SCATTER_2","SCATTER_2","SCATTER_2"},{"THUNDERBALL","THUNDERBALL"},"2","0","-4","6","-4");end,filename=nil,name="Thunder Rod","0.4"},
+{path=nil,isweapon=true,scripted=true,script=function()createGun("Arc Wall","","1","163","540","1","11","10","0","0","0","1",{"DIGGER","LIFETIME","MANA_REDUCE","LUMINOUS_DRILL","BURST_2"},{"ARC_ELECTRIC"},"1","0","33","9","3");end,filename=nil,name="Arc Wall","0.4"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="Green Lightsaber","0.4"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"RED_LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="Red Lightsaber","0.4"},
 {path=nil,isweapon=true,scripted=true,script=function()createGun("LightSab","","1","999","350","1","-255","10","0","0","0","1",{},{"BLUE_LUMINOUS_DRILL"},"1","0","-255","1","-255");end,filename=nil,name="Blue Lightsaber","0.4"},
@@ -107,6 +108,9 @@ script={
 {path="data/clockwork_xml/entities/",filename="blackholefield",name="Blackhole Field",key="HUGE_BLACKHOLE_THING",toggled=false,cantoggle=true,isspecial=false;},
 {path="data/clockwork_xml/entities/",filename="instantkillfield",name="Kill Field",key="THIS_WONT_KILL_YOU",toggled=false,cantoggle=true,isspecial=false;},
 {path=nil,filename=nil,name="Telekinesis",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); tel=true;end,specialOff=function()tel=false;end,toggled=false,cantoggle=true,isspecial=true;},
+{path=nil,filename=nil,name="Thunder Striker",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); thor=true;end,specialOff=function()thor=false;end,toggled=false,cantoggle=true,isspecial=true;},
+{path=nil,filename=nil,name="I Am Tank",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); tank=true;end,specialOff=function()tank=false;end,toggled=false,cantoggle=true,isspecial=true;},
+{path=nil,filename=nil,name="Hentai",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); hentai=true;end,specialOff=function()hentai=false;end,toggled=false,cantoggle=true,isspecial=true;},
 };
 playerset={
 {path="data/clockwork_xml/entities/",filename="protectionall",name="Godmode",execOn=nil,execOff=nil,key="CLOCKWORK_GODMODE",toggled=false,isxmlbased=true,cantoggle=true;},

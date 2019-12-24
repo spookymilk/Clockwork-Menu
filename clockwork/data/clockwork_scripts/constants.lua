@@ -10,9 +10,12 @@ clocks=false;
 rain=false;
 mousehook=false;
 noclip=false;
+tank=false;
 rainbowlight=false;
 special_rain=false;
 infgold=false;
+hentai=false;
+thor=false;
 round=false;
 stats=false;
 special_rain_path="";
@@ -71,6 +74,28 @@ local rando=math.random(-500,500);
 EntityLoad(special_rain_path,x+rando,y-500);
 elseif special_rain==false then
 special_rain_path="";
+end;
+if thor==true then
+local mx,my=DEBUG_GetMouseWorld();
+local button=buttondown("mButtonDownFire2");
+if button then
+shootToMouse(localplayer(),"data/entities/projectiles/thunderball.xml",mx,my);
+end;
+end;
+if tank==true then
+local mx,my=DEBUG_GetMouseWorld();
+local button=buttondown("mButtonDownFire2");
+if button then
+shootToMouse(localplayer(),"data/entities/projectiles/rocket_tank.xml",mx,my);
+end;
+end;
+if hentai==true then
+local mx,my=DEBUG_GetMouseWorld();
+local button=buttondown("mButtonDownFire2");
+if button then
+shootToMouse(localplayer(),"data/entities/projectiles/deck/tentacle.xml",mx,my);
+shootToMouse(localplayer(),"data/entities/projectiles/smalltentacle.xml",mx,my);
+end;
 end;
 if tel==true then
 local mx,my=DEBUG_GetMouseWorld();
