@@ -188,6 +188,48 @@ play.toggled=true;
 end;
 end;
 end;
+if play.cantoggle==false and play.key=="IS_STATIC_NO_CHILD" then
+play.count=play.count+1;
+play.name="Spawn Clone ("..play.count.." Active)";
+local placeholder=EntityLoad(play.path..play.filename..".xml");
+EntitySetTransform(placeholder,localplayerPos());
+end;
+if play.cantoggle==false and play.key=="SPIDERLEGS_SPECIAL" then
+if play.type=="none" then
+play.type="normal";
+play.name="Spider <"..play.type..">";
+addFeet(localplayer(),8,play.type);
+elseif play.type=="normal" then
+play.type="lukki_tiny";
+play.name="Spider <"..play.type..">";
+removeFeet(localplayer(),8);
+addFeet(localplayer(),8,play.type);
+elseif play.type=="lukki_tiny" then
+play.type="lukki_normal";
+play.name="Spider <"..play.type..">";
+removeFeet(localplayer(),8);
+addFeet(localplayer(),8,play.type);
+elseif play.type=="lukki_normal" then
+play.type="lukki_long";
+play.name="Spider <"..play.type..">";
+removeFeet(localplayer(),8);
+addFeet(localplayer(),8,play.type);
+elseif play.type=="lukki_long" then
+play.type="lukki_long2";
+play.name="Spider <"..play.type..">";
+removeFeet(localplayer(),8);
+addFeet(localplayer(),8,play.type);
+elseif play.type=="lukki_long2" then
+play.type="boss";
+play.name="Spider <"..play.type..">";
+removeFeet(localplayer(),8);
+addFeet(localplayer(),8,play.type);
+elseif play.type=="boss" then
+play.type="none";
+play.name="Spider <"..play.type..">";
+removeFeet(localplayer(),8);
+end;
+end;
 end;
 function clone(theTable)
 local newOne={};
@@ -548,31 +590,41 @@ shoot_projectile(entity,projectiles,ex+offsetX,ey+offsetY,specialX*ex,specialY*e
 end;
 function addFeet(entity,numberOfFeet,typeOf)
 local x,y=EntityGetTransform(entity);
-if typeOf==1 then
+if typeOf=="normal" then
 for i=1,numberOfFeet do
 local feet=EntityLoad("data/entities/misc/perks/attack_foot/limb_walker.xml",x,y);
 EntityAddChild(entity,feet);
 end;
-elseif typeOf==2 then
+elseif typeOf=="lukki_tiny" then
 for i=1,numberOfFeet do
-local feet=EntityLoad("data/milk_edited/green_legs.xml",x,y);
+local feet=EntityLoad("data/entities/animals/lukki/lukki_feet/lukki_limb_tiny.xml",x,y);
 EntityAddChild(entity,feet);
 end;
-elseif typeOf==3 then
+elseif typeOf=="lukki_normal" then
 for i=1,numberOfFeet do
-local feet=EntityLoad("data/milk_edited/boss_leg.xml",x,y);
+local feet=EntityLoad("data/entities/animals/lukki/lukki_feet/lukki_limb.xml",x,y);
 EntityAddChild(entity,feet);
 end;
-elseif typeOf==4 then
+elseif typeOf=="lukki_long" then
 for i=1,numberOfFeet do
-local feet=EntityLoad("data/milk_edited/unknown_leg.xml",x,y);
+local feet=EntityLoad("data/entities/animals/lukki/lukki_feet/lukki_limb_long.xml",x,y);
+EntityAddChild(entity,feet);
+end;
+elseif typeOf=="lukki_long2" then
+for i=1,numberOfFeet do
+local feet=EntityLoad("data/entities/animals/lukki/lukki_feet/lukki_limb_long2.xml",x,y);
+EntityAddChild(entity,feet);
+end;
+elseif typeOf=="boss" then
+for i=1,numberOfFeet do
+local feet=EntityLoad("data/entities/animals/boss_centipede/limbs/limb_long.xml",x,y);
 EntityAddChild(entity,feet);
 end;
 end;
 end;
 function removeFeet(entity,numberOfFeet)
 for i=1,numberOfFeet do
-local spiderleg=EntityGetWithName("WE_ALL_FLOAT_DOWN_HERE");
+local spiderleg=EntityGetWithName("CLOCKWORK_SPIDER_LEGS");
 if spiderleg~= nil then
 EntityKill(spiderleg);
 else

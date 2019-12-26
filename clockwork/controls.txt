@@ -4,3 +4,6 @@ Telekinesis Controls:
 Basic Use                      - Hold RMB on most objects, enemies.
 Kill Entity in Hand            - While holding RMB and an enemy press the F key or Kick key.
 Eat through terrain            - While holding RMB press Down or the S key.
+
+Hentai, I Am Tank, and Thunder Striker Controls:
+Basic Use                      - Hold RMB to fire.

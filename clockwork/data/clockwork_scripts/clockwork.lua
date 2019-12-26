@@ -161,6 +161,7 @@ list({
 {name="Weather",func=function()clockwork=weather;end;},
 {name="Time",func=function()clockwork=timed;end;},
 {name="Teleport",func=function()clockwork=tp;end;},
+--{name="Disasters",func=function()clockwork=disaster;end;}, some time
 });
 back=main;
 end;
@@ -172,6 +173,10 @@ scripts=function()
 list(script,run);
 back=main;
 end;
+--disaster=function()
+--list(disasters,dis);
+--back=world;
+--end;
 player=function()
 list(playerset,play);
 back=main;
