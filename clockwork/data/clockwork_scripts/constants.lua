@@ -14,6 +14,7 @@ tank=false;
 rainbowlight=false;
 special_rain=false;
 infgold=false;
+currentforcefield="none";
 hentai=false;
 thor=false;
 round=false;
@@ -169,6 +170,21 @@ if round==true then
 rounded=GuiText(gui,145,10,StatsGetValue("playtime_str"));
 elseif round==false then
 rounded=GuiText(gui,0,50,"");
+end;
+if currentforcefield=="burn" then
+burn(localplayer(),"tablet",32);
+burn(localplayer(),"item_physics",32);
+burn(localplayer(),"prop",32);
+burn(localplayer(),"prop_physics",32);
+burn(localplayer(),"sacred_barrel",32);
+burn(localplayer(),"enemy",32);
+elseif currentforcefield=="destroy" then
+destroy(localplayer(),"tablet",32,"smoke");
+destroy(localplayer(),"item_physics",32,"smoke");
+destroy(localplayer(),"prop",32,"smoke");
+destroy(localplayer(),"prop_physics",32,"smoke");
+destroy(localplayer(),"sacred_barrel",32,"smoke");
+destroy(localplayer(),"enemy",32,"smoke");
 end;
 wait(0);
 end);

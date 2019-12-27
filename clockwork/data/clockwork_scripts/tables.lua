@@ -114,7 +114,8 @@ script={
 };
 playerset={
 {path="data/entities/",filename="player",name="Spawn Clone <0 Active>",execOn=nil,execOff=nil,key="IS_STATIC_NO_CHILD",count=0,toggled=false,isxmlbased=true,cantoggle=false;},
-{path=nil,filename=nil,name="Spider <None>",execOn=nil,execOff=nil,key="SPIDERLEGS_SPECIAL",type="none",toggled=false,isxmlbased=false,cantoggle=false;},
+{path=nil,filename=nil,name="Spider <none>",execOn=nil,execOff=nil,key="SPIDERLEGS_SPECIAL",type="none",toggled=false,isxmlbased=false,cantoggle=false;},
+{path=nil,filename=nil,name="Forcefield <none>",execOn=function()currentforcefield=playerset[3].type;end,execOff=nil,key="FORCEFIELD_SPECIAL",type="none",toggled=false,isxmlbased=false,cantoggle=false;},
 {path="data/clockwork_xml/entities/",filename="protectionall",name="Godmode",execOn=nil,execOff=nil,key="CLOCKWORK_GODMODE",toggled=false,isxmlbased=true,cantoggle=true;},
 {path=nil,filename=nil,name="Unlimited Jetpack",execOn=function()editCIP("CharacterDataComponent","flying_needs_recharge",0);end,execOff=function()editCIP("CharacterDataComponent","flying_needs_recharge",1);end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},
 {path=nil,filename=nil,name="Faster",execOn=function()local velmin=0-math.abs(219.48);editMIP("CharacterPlatformingComponent","velocity_min_x",tostring(velmin));editMIP("CharacterPlatformingComponent","velocity_max_x",219.48);editMIP("CharacterPlatformingComponent","run_velocity",490);end,execOff=function()local velmin=0-math.abs(65);editMIP("CharacterPlatformingComponent","velocity_min_x",tostring(velmin));editMIP("CharacterPlatformingComponent","velocity_max_x",65);editMIP("CharacterPlatformingComponent","run_velocity",192.5);end,key=nil,toggled=false,isxmlbased=false,cantoggle=true;},

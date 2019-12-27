@@ -154,6 +154,58 @@ ComponentSetValue(v,"_enabled","1");
 end;
 end;
 end;
+function forcefield(entity,name,material,size,speed)
+local x,y=EntityGetTransform(entity);
+local ff=EntityLoad("data/clockwork_xml/entities/baseshield.xml",x,y);
+edit_component(ff,"EnergyShieldComponent",
+function(c,v)
+v.recharge_speed=speed;
+v.radius=size;
+end);
+edit_component(ff,"ParticleEmitterComponent",
+function(c,v)
+v.emitted_material_name=material;
+--v.area_circle_radius.max=size;
+end);
+edit_component_with_tag(ff,"ParticleEmitterComponent","shield_ring",
+function(c,v)
+v.emitted_material_name=material;
+--v.area_circle_radius.min=size;
+--v.area_circle_radius.max=size;
+end);
+edit_component_with_tag(ff,"ParticleEmitterComponent","shield_hit",
+function(c,v)
+v.emitted_material_name=material;
+--v.area_circle_radius.min=size;
+--v.area_circle_radius.max=size;
+end);
+local one=EntityGetComponent(ff,"ParticleEmitterComponent");
+if one~=nil then
+for i,v in ipairs(one) do
+ComponentSetValueValueRange(v,"area_circle_radius",size,size);
+end;
+end;
+local two=EntityGetComponent(ff,"ParticleEmitterComponent","shield_ring");
+if two~=nil then
+for i,v in ipairs(two) do
+ComponentSetValueValueRange(v,"area_circle_radius",size,size);
+end;
+end;
+local three=EntityGetComponent(ff,"ParticleEmitterComponent","shield_hit");
+if three~=nil then
+for i,v in ipairs(three) do
+ComponentSetValueValueRange(v,"area_circle_radius",size,size);
+end;
+end;
+EntitySetName(ff,name);
+EntityAddChild(localplayer(),ff);
+end;
+function removeForcefield(name)
+local ff=EntityGetWithName(name)
+if ff~=nil then
+EntityKill(ff);
+end;
+end;
 function play(play)
 if play.cantoggle==true then
 local status=play.toggled;
@@ -228,6 +280,28 @@ elseif play.type=="boss" then
 play.type="none";
 play.name="Spider <"..play.type..">";
 removeFeet(localplayer(),8);
+end;
+end;
+if play.cantoggle==false and play.key=="FORCEFIELD_SPECIAL" then
+if play.type=="none" then
+play.type="burn";
+play.name="Forcefield <"..play.type..">";
+forcefield(localplayer(),"BURN_FORCEFIELD","fire","32","4");
+local func=play.execOn;
+func();
+elseif play.type=="burn" then
+play.type="destroy";
+play.name="Forcefield <"..play.type..">";
+removeForcefield("BURN_FORCEFIELD");
+forcefield(localplayer(),"DESTROY_FORCEFIELD","spark_yellow","32","4");
+local func=play.execOn;
+func();
+elseif play.type=="destroy" then
+play.type="none";
+play.name="Forcefield <"..play.type..">";
+removeForcefield("DESTROY_FORCEFIELD");
+local func=play.execOn;
+func();
 end;
 end;
 end;
@@ -437,14 +511,37 @@ end;
 end;
 end;
 end;
-function shootMaterial(entity,material)
+function burn(entity,attractionTag,theDistance)
 local ex,ey=EntityGetTransform(entity);
-local mx,my=DEBUG_GetMouseWorld();
-local xDis=math.abs(ex+-mx);
-if mx>=ex then
-GameCreateParticle(material,ex+5,ey,1,ex*xDis*7,0,false)
-elseif mx<=ex then
-GameCreateParticle(material,ex+5,ey,1,ex*xDis*7,0,false)
+local allWithTag=EntityGetWithTag(attractionTag);
+if allWithTag~=nil then
+for _,v in ipairs(allWithTag) do
+local ix,iy=EntityGetTransform(v);
+local distance=math.abs(ex+-ix)+math.abs(ey-iy);
+local maxDistance=theDistance;
+if distance<maxDistance*1.25 then
+for i=1,8 do
+GameCreateParticle("fire",ix,iy,1,0,0,false);
+end;
+end;
+end;
+end;
+end;
+function destroy(entity,attractionTag,theDistance,materialToTurnInto)
+local ex,ey=EntityGetTransform(entity);
+local allWithTag=EntityGetWithTag(attractionTag);
+if allWithTag~=nil then
+for _,v in ipairs(allWithTag) do
+local ix,iy=EntityGetTransform(v);
+local distance=math.abs(ex+-ix)+math.abs(ey-iy);
+local maxDistance=theDistance;
+if distance<maxDistance*1.25 then
+for i=1,8 do
+EntityConvertToMaterial(v,materialToTurnInto);
+EntityKill(v);
+end;
+end;
+end;
 end;
 end;
 function killMouse(attractionTag,theDistance)
