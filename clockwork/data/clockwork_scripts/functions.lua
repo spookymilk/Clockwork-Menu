@@ -154,7 +154,8 @@ ComponentSetValue(v,"_enabled","1");
 end;
 end;
 end;
-function forcefield(entity,name,material,size,speed)
+function forcefield(entity,name,material,size,speed,cell)
+if cell==nil then cell=false end;
 local x,y=EntityGetTransform(entity);
 local ff=EntityLoad("data/clockwork_xml/entities/baseshield.xml",x,y);
 edit_component(ff,"EnergyShieldComponent",
@@ -167,6 +168,18 @@ function(c,v)
 v.emitted_material_name=material;
 --v.area_circle_radius.max=size;
 end);
+if cell==true then
+edit_component(ff,"CellEaterComponent",
+function(c,v)
+v.radius=size;
+--v.area_circle_radius.max=size;
+end);
+elseif cell==false then
+local find=EntityGetFirstComponent(ff,"CellEaterComponent");
+if find~=nil then
+EntityRemoveComponent(ff,find);
+end;
+end;
 edit_component_with_tag(ff,"ParticleEmitterComponent","shield_ring",
 function(c,v)
 v.emitted_material_name=material;
@@ -290,9 +303,30 @@ forcefield(localplayer(),"BURN_FORCEFIELD","fire","32","4");
 local func=play.execOn;
 func();
 elseif play.type=="burn" then
-play.type="destroy";
+play.type="midas";
 play.name="Forcefield <"..play.type..">";
 removeForcefield("BURN_FORCEFIELD");
+forcefield(localplayer(),"MIDAS_FORCEFIELD","gold","32","4");
+local func=play.execOn;
+func();
+elseif play.type=="midas" then
+play.type="blackhole";
+play.name="Forcefield <"..play.type..">";
+removeForcefield("MIDAS_FORCEFIELD");
+forcefield(localplayer(),"BLACKHOLE_FORCEFIELD","coal","32","4",true);
+local func=play.execOn;
+func();
+elseif play.type=="blackhole" then
+play.type="kill";
+play.name="Forcefield <"..play.type..">";
+removeForcefield("BLACKHOLE_FORCEFIELD");
+forcefield(localplayer(),"KILL_FORCEFIELD","spark_red","32","4");
+local func=play.execOn;
+func();
+elseif play.type=="kill" then
+play.type="destroy";
+play.name="Forcefield <"..play.type..">";
+removeForcefield("KILL_FORCEFIELD");
 forcefield(localplayer(),"DESTROY_FORCEFIELD","spark_yellow","32","4");
 local func=play.execOn;
 func();
@@ -342,6 +376,19 @@ if test~=nil then
 for i,yuh in pairs(test) do		
 local dah=ComponentGetValue(yuh,"time");
 return dah;
+end;
+end;
+end;
+function isGrounded()
+local test=EntityGetComponent(localplayer(),"CharacterDataComponent");
+if test~=nil then
+for i,yuh in pairs(test) do		
+local dah=ComponentGetValue(yuh,"is_on_ground");
+if dah=="1" then
+return true;
+elseif dah=="0" then
+return false;
+end;
 end;
 end;
 end;

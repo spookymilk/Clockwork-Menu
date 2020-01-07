@@ -104,9 +104,6 @@ times={
 };
 script={
 {path="data/clockwork_xml/script_loaders/",filename="magnet",name="Magnet",key="XMAN_MOVIES_SUCK_LOWKEY",toggled=false,cantoggle=true,isspecial=false;},
-{path="data/clockwork_xml/entities/",filename="midasfield",name="Midas Field",key="DIE_GOLD_DIE",toggled=false,cantoggle=true,isspecial=false;},
-{path="data/clockwork_xml/entities/",filename="blackholefield",name="Blackhole Field",key="HUGE_BLACKHOLE_THING",toggled=false,cantoggle=true,isspecial=false;},
-{path="data/clockwork_xml/entities/",filename="instantkillfield",name="Kill Field",key="THIS_WONT_KILL_YOU",toggled=false,cantoggle=true,isspecial=false;},
 {path=nil,filename=nil,name="Telekinesis",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); tel=true;end,specialOff=function()tel=false;end,toggled=false,cantoggle=true,isspecial=true;},
 {path=nil,filename=nil,name="Thunder Striker",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); thor=true;end,specialOff=function()thor=false;end,toggled=false,cantoggle=true,isspecial=true;},
 {path=nil,filename=nil,name="I Am Tank",key=nil,specialOn=function()send("Please read controls.txt located inside mods/clockwork/ for better use!"); tank=true;end,specialOff=function()tank=false;end,toggled=false,cantoggle=true,isspecial=true;},

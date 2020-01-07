@@ -16,8 +16,10 @@ special_rain=false;
 infgold=false;
 currentforcefield="none";
 hentai=false;
+superhero=false;
 thor=false;
 round=false;
+onground=false;
 stats=false;
 special_rain_path="";
 rain_mat="";
@@ -185,6 +187,16 @@ destroy(localplayer(),"prop",32,"smoke");
 destroy(localplayer(),"prop_physics",32,"smoke");
 destroy(localplayer(),"sacred_barrel",32,"smoke");
 destroy(localplayer(),"enemy",32,"smoke");
+elseif currentforcefield=="midas" then
+convertField(localplayer(),"enemy",32,"gold");
+convertField(localplayer(),"prop",32,"gold");
+convertField(localplayer(),"item_physics",32,"gold");
+convertField(localplayer(),"prop_physics",32,"gold");
+convertField(localplayer(),"sacred_barrel",32,"gold");
+convertField(localplayer(),"tablet",32,"gold");
+convertField(localplayer(),"projectile",32,"gold");
+elseif currentforcefield=="kill" then
+kill(localplayer(),"destruction_target",32);
 end;
 wait(0);
 end);
